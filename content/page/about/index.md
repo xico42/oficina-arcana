@@ -19,14 +19,16 @@ menu:
       icon: home
 ---
 
-Esse projeto tem por objetivo disponibilizar para a comunidade Arcana Primária um 
-compêndio de criaturas, aventuras e outros conteúdos criados ou adaptados
-por fãs do sistema.
+Esse projeto tem por objetivo disponibilizar para a comunidade *Arcana Primária* um 
+compêndio de conteúdos criados ou adaptados por fãs. Também disponibilizamos as
+criaturas presentes nos materiais oficiais do sistema.
 
-Nas páginas desse site você encontrará criaturas autorais ou adaptadas de outros sistemas,
-além de uma catalogação das criatuas oficiais disponibilizadas no 
-[Guia do Aventureiro](https://www.arcanaprimaria.com/about-3)
-e de outras Aventuras publicadas.
+Aqui nos pergaminhos secretos você encontrará criaturas para utilizar em suas aventuras, 
+novas classes, itens mágicos e muito mais.
 
-Como um projeto de comunidade, todo o código-fonte está disponível no Github e está
+Todo conteúdo oficial do sistema contém a tag "Oficial" e uma referência ao material original. Já o 
+conteúdo não oficial contém a tag "Não Oficial" junto com uma referência ao autor ou sistema de origem
+do conteúdo adaptado.
+
+Como um projeto de comunidade, todo o código-fonte fica disponível no Github e está
 aberto à contribuições.

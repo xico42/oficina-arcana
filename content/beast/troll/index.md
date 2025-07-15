@@ -2,14 +2,15 @@
 date: "2025-07-14T22:27:25-03:00"
 draft: false
 title: 'Troll'
+description: Humanoides inteligentes, perversos, com corpos emagrecidos e pele emborrachada. Consomem a carne de outros humanóides.
 categories:
     - beasts
 tags:
     - "6DV"
-    - "Não Oficial"
+    - "unofficial"
 ---
 
-Resumo da criatura ...
+Humanoides inteligentes, perversos, com corpos emagrecidos e pele emborrachada. Consomem a carne de outros humanóides.
 
 ![troll](troll.jpg)
 
