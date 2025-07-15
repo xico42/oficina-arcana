@@ -7,6 +7,10 @@ categories:
 tags:
   - unofficial
   - XDV
+links:
+  - title: Licença
+    description: Open Game License v1.0a
+    website: /oficina-arcana/page/license/ogl-v1/
 ---
 
 Resumo da criatura ...
@@ -15,7 +19,7 @@ Resumo da criatura ...
 >
 > **AT** # ___ (___)
 >
-> **BN** ___ **JdP** V__ / R__ / M__ **VS** __
+> **BN** ___ **JdP** V__/R__/M__ **VS** __
 >
 > **MV** __ (__) **ML** __
 >
@@ -23,6 +27,6 @@ Resumo da criatura ...
 
 ## Habilidades Especiais
 
-## Referência
+## Créditos
 
 Adaptado do [OSE SRD](https://ose-srd.netlify.app/).

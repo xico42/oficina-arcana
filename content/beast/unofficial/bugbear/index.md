@@ -8,7 +8,10 @@ categories:
 tags:
   - unofficial
   - 3DV
-license: OGL
+links:
+  - title: Licença
+    description: Open Game License v1.0a
+    website: /oficina-arcana/page/license/ogl-v1/
 ---
 
 Goblins grandes e peludos com um andar desajeitado. Favorecem ataques surpresa.
@@ -27,6 +30,6 @@ Goblins grandes e peludos com um andar desajeitado. Favorecem ataques surpresa.
 
 **Sopetão Brutal:** Quando atacam suas vítimas de Surpresa, causam dano dobrado na sua primeira rodada de combate.
 
-## Referência
+## Créditos
 
 Adaptado do [OSE SRD](https://ose-srd.netlify.app/).

@@ -12,7 +12,7 @@
             {{ if .Params.Tags }}
             <h3 class="article-subtitle">
                {{ range (.GetTerms "tags") }}
-                <strong style="background: var(--body-background); margin-right: 8px; padding: 8px 20px; font-size: 1.4rem; border-radius: var(--tag-border-radius)">
+                <strong style="background: rgb(236, 240, 241); margin-right: 8px; padding: 8px 20px; font-size: 1.4rem; border-radius: var(--tag-border-radius); color: var(--accent-color-text)">
                     {{ .LinkTitle }}
                 </strong>
                {{ end }}

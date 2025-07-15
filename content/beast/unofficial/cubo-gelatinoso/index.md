@@ -8,6 +8,10 @@ categories:
 tags:
   - unofficial
   - 4DV
+links:
+  - title: Licença
+    description: Open Game License v1.0a
+    website: /oficina-arcana/page/license/ogl-v1/
 ---
 
 Cubos transparentes de 3m. Se movem através das masmorras, absorvendo detritos e criaturas vivas que eles encontram.
@@ -30,6 +34,6 @@ Cubos transparentes de 3m. Se movem através das masmorras, absorvendo detritos 
 
 **Imunidade:** São imunes a frio e eletricidade.
 
-## Referência
+## Créditos
 
 Adaptado do [OSE SRD](https://ose-srd.netlify.app/).

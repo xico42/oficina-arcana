@@ -7,9 +7,9 @@ links:
     description: Arcana Primária é um sistema de RPG que propõe regras simples para proporcionar aventuras imersivas e desafiadoras.
     website: https://www.arcanaprimaria.com/
     image: arcana_logo.png
-  - title: Arcana Primária
-    description: Repo do site Pergaminhos Secretos.
-    website: http://github.com/xico42/pergaminhos-secretos
+  - title: Código fonte
+    description: Repositório do site Oficina Arcana
+    website: http://github.com/xico42/oficina-arcana
     image: github-mark.svg
 menu:
   main:
@@ -23,12 +23,12 @@ Esse projeto tem por objetivo disponibilizar para a comunidade *Arcana Primária
 compêndio de conteúdos criados ou adaptados por fãs. Também disponibilizamos as
 criaturas presentes nos materiais oficiais do sistema.
 
-Aqui nos pergaminhos secretos você encontrará criaturas para utilizar em suas aventuras, 
+Aqui na oficina arcana você encontrará criaturas para utilizar em suas aventuras, 
 novas classes, itens mágicos e muito mais.
 
 Todo conteúdo oficial do sistema contém a tag "Oficial" e uma referência ao material original. Já o 
 conteúdo não oficial contém a tag "Não Oficial" junto com uma referência ao autor ou sistema de origem
 do conteúdo adaptado.
 
-Como um projeto de comunidade, todo o código-fonte fica disponível no Github e está
+Como um projeto de comunidade, o código-fonte fica disponível no Github e está
 aberto à contribuições.

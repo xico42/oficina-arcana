@@ -1,20 +1,17 @@
 baseURL = 'https://example.org/'
 languageCode = 'pt-br'
 defaultContentLanguage = 'pt-br'
-title = 'Pergaminhos Secretos'
+title = 'Oficina Arcana'
 
 [params]
 mainSections = ["beast"]
 
 [params.sidebar]
-subtitle = "Conteúdo não oficial do Arcana Primária."
+subtitle = "Em torres escusas, debruçados sobre mesas fracamente iluminadas, mestres arcanos se deleitam em suas criações enquanto dobram a realidade conforme sua vontade."
 
 [params.colorScheme]
 toggle = false
 default = "dark"
-
-[params.article]
-license.enabled = true
 
 [[module.imports]]
 path = "github.com/CaiJimmy/hugo-theme-stack/v3"
