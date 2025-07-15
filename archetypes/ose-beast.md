@@ -4,6 +4,9 @@ draft: true
 title: '{{ replace .File.ContentBaseName "-" " " | title }}'
 categories:
   - beasts
+tags:
+  - unofficial
+  - XDV
 ---
 
 Resumo da criatura ...
@@ -20,4 +23,6 @@ Resumo da criatura ...
 
 ## Habilidades Especiais
 
+## Referência
 
+Adaptado do [OSE SRD](https://ose-srd.netlify.app/).

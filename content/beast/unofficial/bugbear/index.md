@@ -15,7 +15,7 @@ Goblins grandes e peludos com um andar desajeitado. Favorecem ataques surpresa.
 
 > **IN** +1 **CA** 14 **DV** 3d8+1 (14)
 >
-> **AT** #1 Maça (1d6 + 1)
+> **AT** #1 Maça (1d6+1)
 >
 > **BN** +2 **JdP** V11/R12/M15
 >
@@ -25,8 +25,7 @@ Goblins grandes e peludos com um andar desajeitado. Favorecem ataques surpresa.
 
 ## Habilidades Especiais
 
-**Sopetão Brutal:** Quando atacam suas vítimas de surpresa, causam dano crítico na sua primeira rodada
-de combate.
+**Sopetão Brutal:** Quando atacam suas vítimas de Surpresa, causam dano dobrado na sua primeira rodada de combate.
 
 ## Referência
 

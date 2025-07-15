@@ -9,6 +9,15 @@
                     {{ . }}
                 </h3>
             {{ end }}
+            {{ if .Params.Tags }}
+            <h3 class="article-subtitle">
+               {{ range (.GetTerms "tags") }}
+                <strong style="background: var(--body-background); margin-right: 8px; padding: 8px 20px; font-size: 1.4rem; border-radius: var(--tag-border-radius)">
+                    {{ .LinkTitle }}
+                </strong>
+               {{ end }}
+            </h3>
+            {{ end }}
             <footer class="article-time">
                 <time datetime='{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}'>
                     {{- .Date | time.Format (or .Site.Params.dateFormat.published "Jan 02, 2006") -}}

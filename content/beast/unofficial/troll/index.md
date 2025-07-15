@@ -6,8 +6,8 @@ description: Humanoides inteligentes, perversos, com corpos emagrecidos e pele e
 categories:
     - beasts
 tags:
-    - "6DV"
-    - "unofficial"
+    - unofficial
+    - 6DV
 ---
 
 Humanoides inteligentes, perversos, com corpos emagrecidos e pele emborrachada. Consomem a carne de outros humanóides.
