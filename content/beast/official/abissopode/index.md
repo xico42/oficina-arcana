@@ -34,6 +34,6 @@ Polvo colossal com bico venenoso. Seus tentáculos púrpuros capturam embarcaç�
 
 ## Créditos
 
-**Fonte:** [Guia do Aventureiro, p. 119](https://www.arcanaprimaria.com/about-3)
+**Fonte:** [Guia do Aventureiro, p. 119](https://www.arcanaprimaria.com/about-3).
 
-**Arte:** ???
+Arte por [Yuri Perkowski Domingos](https://www.artstation.com/perkowski) ([@yuri.perkowski](https://www.instagram.com/yuri.perkowski/)).
