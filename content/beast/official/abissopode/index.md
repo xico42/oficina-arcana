@@ -6,7 +6,7 @@ description: Polvo colossal com bico venenoso. Seus tentáculos púrpuros captur
 categories:
   - beasts
 tags:
-  - official
+  - guia-aventureiro
   - 3DV
 links:
   - title: Licença

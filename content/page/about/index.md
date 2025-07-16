@@ -26,9 +26,9 @@ criaturas presentes nos materiais oficiais do sistema.
 Aqui na oficina arcana você encontrará criaturas para utilizar em suas aventuras, 
 novas classes, itens mágicos e muito mais.
 
-Todo conteúdo oficial do sistema contém a tag "Oficial" e uma referência ao material original. Já o 
-conteúdo não oficial contém a tag "Não Oficial" junto com uma referência ao autor ou sistema de origem
-do conteúdo adaptado.
+Para facilitar a identificação entre materiais oficiais e não oficiais, utilizamos um sistema de tag para categorizar o conteúdo.
+Todo conteúdo oficial do sistema contém uma tag com o nome do material de origem, por exemplo {{< tag name="Guia do Aventureiro" >}}.
+Já o conteúdo não oficial contará com a tag {{< tag name="Comunidade" >}}.
 
-Como um projeto de comunidade, o código-fonte fica disponível no Github e está
-aberto à contribuições.
+Esse é um projeto de fãs para fãs, mas conta com o apoio dos criadores do sistema Arcana Primária.
+Qualquer um pode contribuir com materiais e ideias, basta abrir uma Issue no [nosso Github](https://github.com/xico42/oficina-arcana/issues).

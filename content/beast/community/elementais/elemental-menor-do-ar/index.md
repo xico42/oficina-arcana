@@ -1,13 +1,13 @@
 ---
-date: "2025-07-16T00:21:43-03:00"
+date: "2025-07-16T00:18:40-03:00"
 draft: false
-title: 'Elemental Intermediário do Ar'
+title: 'Elemental Menor do Ar'
 description: 'Imensos vórtices de ar rodopiante.'
 categories:
   - beasts
 tags:
-  - unofficial
-  - 12DV
+  - community
+  - 8DV
 links:
   - title: Licença
     description: Open Game License v1.0a
@@ -16,15 +16,15 @@ links:
 
 Imensos vórtices de ar rodopiante.
 
-> **IN** +3 **CA** 19 **DV** 12d8 (48)
+> **IN** +3 **CA** 17 **DV** 8d8 (32)
 >
-> **AT** #1 Pancada (2d8)
+> **AT** #1 Pancada (1d7)
 >
-> **BN** +6 **JdP** V6/R7/M9
+> **BN** +4 **JdP** V9/R10/M12
 >
-> **MV** 40' (80' voando) **ML** 12
+> **MV** 40' (80' voando) **ML** 10
 >
-> **TM** Grande **TT** -
+> **TM** Médio **TT** -
 
 ## Habilidades Especiais
 

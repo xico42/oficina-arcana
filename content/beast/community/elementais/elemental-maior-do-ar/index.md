@@ -6,7 +6,7 @@ description: 'Imensos vórtices de ar rodopiante.'
 categories:
   - beasts
 tags:
-  - unofficial
+  - community
   - 16DV
 links:
   - title: Licença

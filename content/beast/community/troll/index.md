@@ -6,7 +6,7 @@ description: Humanoides inteligentes, perversos, com corpos emagrecidos e pele e
 categories:
     - beasts
 tags:
-    - unofficial
+    - community
     - 6DV
 links:
   - title: Licença

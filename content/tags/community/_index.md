@@ -1,4 +1,4 @@
 ---
-title: Não Oficial
+title: Comunidade
 description: Material autoral ou adaptado de outros sistemas.
 ---

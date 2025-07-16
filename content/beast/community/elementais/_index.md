@@ -6,5 +6,5 @@ description: 'Criaturas formadas de pura matéria elemental (ar, terra, fogo ou 
 categories:
   - beasts
 tags:
-  - unofficial
+  - community
 ---

@@ -6,7 +6,7 @@ description: 'Cubos transparentes de 3m. Se movem através das masmorras, absorv
 categories:
   - beasts
 tags:
-  - unofficial
+  - community
   - 4DV
 links:
   - title: Licença

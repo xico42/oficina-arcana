@@ -6,7 +6,7 @@ description: 'Goblins grandes e peludos com um andar desajeitado. Favorecem ataq
 categories:
   - beasts
 tags:
-  - unofficial
+  - community
   - 3DV
 links:
   - title: Licença

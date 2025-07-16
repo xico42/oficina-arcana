@@ -6,7 +6,7 @@ description: 'Comem carne mesmo!'
 categories:
   - beasts
 tags:
-  - official
+  - guia-aventureiro
   - 1DV
 links:
   - title: Licença
