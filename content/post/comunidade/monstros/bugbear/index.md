@@ -2,9 +2,10 @@
 date: "2025-07-15T01:25:42-03:00"
 draft: false
 title: 'Bugbear'
+author: 'Gabriel Dias'
 description: 'Goblins grandes e peludos com um andar desajeitado. Favorecem ataques surpresa.'
 categories:
-  - beasts
+  - monstros
 tags:
   - community
   - 3DV
@@ -32,4 +33,4 @@ Goblins grandes e peludos com um andar desajeitado. Favorecem ataques surpresa.
 
 ## Créditos
 
-Adaptado do [OSE SRD](https://ose-srd.netlify.app/).
+Adaptado do [OSE SRD](https://ose-srd.netlify.app/) {{< by-author >}}.

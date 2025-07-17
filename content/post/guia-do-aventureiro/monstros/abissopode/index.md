@@ -4,7 +4,7 @@ draft: false
 title: 'Abissópode'
 description: Polvo colossal com bico venenoso. Seus tentáculos púrpuros capturam embarcações menores.
 categories:
-  - beasts
+  - monstros
 tags:
   - guia-aventureiro
   - 3DV

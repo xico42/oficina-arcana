@@ -2,9 +2,10 @@
 date: "2025-07-15T02:05:13-03:00"
 draft: false
 title: 'Cubo Gelatinoso'
+author: 'Gabriel Dias'
 description: 'Cubos transparentes de 3m. Se movem através das masmorras, absorvendo detritos e criaturas vivas que eles encontram.'
 categories:
-  - beasts
+  - monstros
 tags:
   - community
   - 4DV
@@ -36,4 +37,4 @@ Cubos transparentes de 3m. Se movem através das masmorras, absorvendo detritos 
 
 ## Créditos
 
-Adaptado do [OSE SRD](https://ose-srd.netlify.app/).
+Adaptado do [OSE SRD](https://ose-srd.netlify.app/) {{< by-author >}}.

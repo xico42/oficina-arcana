@@ -1,10 +1,11 @@
 ---
 date: "2025-07-16T09:02:37-03:00"
-draft: true
+draft: false
 title: 'Elemental Menor do Fogo'
 description: 'Colunas rodopiantes de fogo.'
+author: 'Gabriel Dias'
 categories:
-  - beasts
+  - monstros
 tags:
   - community
   - 8DV
@@ -34,4 +35,4 @@ Colunas rodopiantes de fogo.
 
 ## Créditos
 
-Adaptado do [OSE SRD](https://ose-srd.netlify.app/).
+Adaptado do [OSE SRD](https://ose-srd.netlify.app/) {{< by-author >}}.

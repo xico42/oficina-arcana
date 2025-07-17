@@ -4,7 +4,7 @@ draft: false
 title: 'Troll'
 description: Humanoides inteligentes, perversos, com corpos emagrecidos e pele emborrachada. Consomem a carne de outros humanóides.
 categories:
-    - beasts
+    - monstros
 tags:
     - community
     - 6DV

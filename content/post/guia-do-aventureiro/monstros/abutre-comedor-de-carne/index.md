@@ -4,7 +4,7 @@ draft: false
 title: 'Abutre Comedor De Carne'
 description: 'Comem carne mesmo!'
 categories:
-  - beasts
+  - monstros
 tags:
   - guia-aventureiro
   - 1DV

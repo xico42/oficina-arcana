@@ -4,7 +4,7 @@ draft: false
 title: 'Elementais'
 description: 'Criaturas formadas de pura matéria elemental (ar, terra, fogo ou água), que podem ser invocados de seus planos de origem para servir usuários de magia.'
 categories:
-  - beasts
+  - monstros
 tags:
   - community
 ---

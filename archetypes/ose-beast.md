@@ -3,6 +3,7 @@ date: "{{ .Date }}"
 draft: true
 title: '{{ replace .File.ContentBaseName "-" " " | title }}'
 description: 'Resumo da criatura ...'
+author: 'Fulano de Tal'
 categories:
   - beasts
 tags:
@@ -30,4 +31,4 @@ Resumo da criatura ...
 
 ## Créditos
 
-Adaptado do [OSE SRD](https://ose-srd.netlify.app/).
+Adaptado do [OSE SRD](https://ose-srd.netlify.app/) {{< by-author >}}.

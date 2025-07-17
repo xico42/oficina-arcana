@@ -3,8 +3,9 @@ date: "2025-07-16T00:18:40-03:00"
 draft: false
 title: 'Elemental Menor do Ar'
 description: 'Imensos vórtices de ar rodopiante.'
+author: 'Gabriel Dias'
 categories:
-  - beasts
+  - monstros
 tags:
   - community
   - 8DV
@@ -34,4 +35,4 @@ Imensos vórtices de ar rodopiante.
 
 ## Créditos
 
-Adaptado do [OSE SRD](https://ose-srd.netlify.app/).
+Adaptado do [OSE SRD](https://ose-srd.netlify.app/) {{< by-author >}}.

@@ -1,6 +1,6 @@
 .PHONY: server
 server:
-	hugo server -b http://localhost:1313/oficina-arcana
+	hugo server -b http://localhost:1313/oficina-arcana -p 1313
 
 ose-beast:
 	hugo new content --kind ose-beast content/beast/unofficial/$(name)/index.md
