@@ -5,7 +5,7 @@ title: '{{ replace .File.ContentBaseName "-" " " | title }}'
 description: 'Resumo da criatura ...'
 author: 'Fulano de Tal'
 categories:
-  - beasts
+  - monstros
 tags:
   - unofficial
   - XDV

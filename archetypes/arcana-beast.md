@@ -4,7 +4,7 @@ draft: true
 title: '{{ replace .File.ContentBaseName "-" " " | title }}'
 description: 'Resumo da criatura...'
 categories:
-  - beasts
+  - monstros
 tags:
   - official
   - 3DV

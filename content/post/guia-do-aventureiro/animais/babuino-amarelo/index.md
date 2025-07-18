@@ -1,0 +1,37 @@
+---
+date: "2025-07-17T23:16:53-03:00"
+draft: false
+title: 'Babuíno Amarelo'
+description: 'Curiosos símios amarelos de traseiros azuis.'
+categories:
+  - animais
+tags:
+  - official
+  - 3DV
+links:
+  - title: Licença
+    description: Open Game License v1.0a
+    website: /oficina-arcana/page/license/ogl-v1/
+---
+
+Curiosos símios amarelos de traseiros azuis.
+
+> **IN** +1 **CA** 12 **DV** 1d8 (4)
+>
+> **AT** #1 Pedrada (1d4) ou Mordida (1d6)
+>
+> **BN** +1 **JdP** V12/R13/M16
+>
+> **MV** 30' **ML** 6
+>
+> **TM** Médio **TT** -
+
+## Habilidades Especiais
+
+**Cercar:** Se 3 babuínos cercarem uma vítima, ela deve ser
+bem-sucedida em uma jogada de proteção de reflexos, ou
+fica imobilizada até a próxima rodada.
+
+## Créditos
+
+**Fonte:** [Guia do Aventureiro, p. 119](https://www.arcanaprimaria.com/about-3)
