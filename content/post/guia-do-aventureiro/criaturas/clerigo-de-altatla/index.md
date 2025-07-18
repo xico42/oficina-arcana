@@ -1,7 +1,7 @@
 ---
 date: "2025-07-18T05:58:22-03:00"
 draft: false
-title: 'Clérigo De Altatla'
+title: 'Clérigo de Altatla'
 description: 'Fantasmas de antigos sacerdotes, adornados por penas e ossos. Veneradores do grande abutre.'
 categories:
   - monstros

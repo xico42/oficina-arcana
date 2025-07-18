@@ -2,6 +2,7 @@ baseURL = 'https://example.org/'
 languageCode = 'pt-br'
 defaultContentLanguage = 'pt-br'
 title = 'Oficina Arcana'
+theme = 'stack'
 
 [params]
 mainSections = ["post"]
@@ -12,9 +13,6 @@ subtitle = "Em torres escusas, debruçados sobre mesas fracamente iluminadas, me
 [params.colorScheme]
 toggle = false
 default = "dark"
-
-[[module.imports]]
-path = "github.com/CaiJimmy/hugo-theme-stack/v3"
 
 ## Widgets
 [[params.widgets.homepage]]
