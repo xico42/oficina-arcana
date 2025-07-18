@@ -6,8 +6,8 @@ description: 'Resumo da criatura...'
 categories:
   - monstros
 tags:
-  - official
-  - 3DV
+  - guia-aventureiro
+  - XDV
 links:
   - title: Licença
     description: Open Game License v1.0a

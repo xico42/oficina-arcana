@@ -6,8 +6,8 @@ description: 'Curiosos símios amarelos de traseiros azuis.'
 categories:
   - animais
 tags:
-  - official
-  - 3DV
+  - guia-aventureiro
+  - 1DV
 links:
   - title: Licença
     description: Open Game License v1.0a

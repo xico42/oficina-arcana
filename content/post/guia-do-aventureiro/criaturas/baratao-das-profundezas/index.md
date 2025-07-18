@@ -6,7 +6,7 @@ description: 'Asquerosos, do tamanho de um cão. Guardam as asas sob a sua dura 
 categories:
   - monstros
 tags:
-  - official
+  - guia-aventureiro
   - 3DV
 links:
   - title: Licença
