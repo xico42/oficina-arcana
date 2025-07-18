@@ -27,7 +27,7 @@ e ossos. Veneradores do grande abutre.
 >
 > **MV** 30' (40' voando) **ML** 5
 >
-> **TM** Médio **TT** --
+> **TM** Médio **TT** -
 
 ## Habilidades Especiais
 
