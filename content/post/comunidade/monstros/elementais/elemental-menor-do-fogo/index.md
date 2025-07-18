@@ -1,6 +1,6 @@
 ---
 date: "2025-07-16T09:02:37-03:00"
-draft: false
+draft: true
 title: 'Elemental Menor do Fogo'
 description: 'Colunas rodopiantes de fogo.'
 author: 'Gabriel Dias'

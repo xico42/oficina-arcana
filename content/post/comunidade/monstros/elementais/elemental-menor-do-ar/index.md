@@ -1,6 +1,6 @@
 ---
 date: "2025-07-16T00:18:40-03:00"
-draft: false
+draft: true
 title: 'Elemental Menor do Ar'
 description: 'Imensos vórtices de ar rodopiante.'
 author: 'Gabriel Dias'

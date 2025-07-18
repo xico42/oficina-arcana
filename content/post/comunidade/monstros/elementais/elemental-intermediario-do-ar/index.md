@@ -1,6 +1,6 @@
 ---
 date: "2025-07-16T00:21:43-03:00"
-draft: false
+draft: true
 title: 'Elemental Intermediário do Ar'
 description: 'Imensos vórtices de ar rodopiante.'
 author: 'Gabriel Dias'

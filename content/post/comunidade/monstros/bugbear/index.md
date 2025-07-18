@@ -1,6 +1,6 @@
 ---
 date: "2025-07-15T01:25:42-03:00"
-draft: false
+draft: true
 title: 'Bugbear'
 author: 'Gabriel Dias'
 description: 'Goblins grandes e peludos com um andar desajeitado. Favorecem ataques surpresa.'

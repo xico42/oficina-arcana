@@ -1,6 +1,6 @@
 ---
 date: "2025-07-15T02:05:13-03:00"
-draft: false
+draft: true
 title: 'Cubo Gelatinoso'
 author: 'Gabriel Dias'
 description: 'Cubos transparentes de 3m. Se movem através das masmorras, absorvendo detritos e criaturas vivas que eles encontram.'
