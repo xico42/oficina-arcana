@@ -30,5 +30,8 @@ Para facilitar a identificação entre materiais oficiais e não oficiais, utili
 Todo conteúdo oficial do sistema contém uma tag com o nome do material de origem, por exemplo {{< tag name="Guia do Aventureiro" >}}.
 Já o conteúdo não oficial contará com a tag {{< tag name="Comunidade" >}}.
 
-Esse é um projeto de fãs para fãs, mas conta com o apoio dos criadores do sistema Arcana Primária.
-Qualquer um pode contribuir com materiais e ideias, basta abrir uma Issue no [nosso Github](https://github.com/xico42/oficina-arcana/issues).
+Apesar de termos o apoio dos criadores do ARcana Primária, esse projeto é um esforço independente e 
+de fãs. O apoia da comunidade é essencial para o projeto se manter vivo.
+
+Caso queira apoiar, a melhor forma é contribuindo com novos conteúdos. Acesse nosso
+[Guia de Contribuição](/oficina-arcana/page/guia-contribuicao/) para saber como você pode ajudar.
