@@ -14,9 +14,6 @@ links:
     website: /oficina-arcana/page/license/ogl-v1/
 ---
 
-Asquerosos, do tamanho de um cão. Guardam as asas
-sob a sua dura carapaça.
-
 > **IN** +2 **CA** 12 **DV** 3d8 (10)
 >
 > **AT** #1 Mordida (1d6)
@@ -25,7 +22,7 @@ sob a sua dura carapaça.
 >
 > **MV** 45' (60' voando ou nadando) **ML** 6
 >
-> **TM** Médio **TT** --
+> **TM** Médio **TT** - **XP** 50
 
 ## Habilidades Especiais
 

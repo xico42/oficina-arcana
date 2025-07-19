@@ -1,6 +1,6 @@
 ---
 date: "{{ .Date }}"
-draft: true
+draft: false
 title: '{{ replace .File.ContentBaseName "-" " " | title }}'
 description: 'Resumo da criatura...'
 categories:
@@ -24,7 +24,7 @@ Resumo da criatura...
 >
 > **MV** __ (__) **ML** __
 >
-> **TM** ___ **TT** __
+> **TM** ___ **TT** __ **XP** __
 
 ## Habilidades Especiais
 
@@ -32,4 +32,4 @@ Resumo da criatura...
 
 **Fonte:** [Guia do Aventureiro, p. 119](https://www.arcanaprimaria.com/about-3)
 
-**Arte:** ....
+Arte por [Yuri Perkowski Domingos](https://www.artstation.com/perkowski) ([@yuri.perkowski](https://www.instagram.com/yuri.perkowski/)).

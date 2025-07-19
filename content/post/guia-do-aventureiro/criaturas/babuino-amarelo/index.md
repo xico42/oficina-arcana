@@ -14,8 +14,6 @@ links:
     website: /oficina-arcana/page/license/ogl-v1/
 ---
 
-Curiosos símios amarelos de traseiros azuis.
-
 > **IN** +1 **CA** 12 **DV** 1d8 (4)
 >
 > **AT** #1 Pedrada (1d4) ou Mordida (1d6)
@@ -24,7 +22,7 @@ Curiosos símios amarelos de traseiros azuis.
 >
 > **MV** 30' **ML** 6
 >
-> **TM** Médio **TT** -
+> **TM** Médio **TT** - **XP** 6
 
 ## Habilidades Especiais
 

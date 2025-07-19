@@ -14,8 +14,6 @@ links:
     website: /oficina-arcana/page/license/ogl-v1/
 ---
 
-Sedentas por sangue, suas mordidas são chocantes.
-
 ![Cardume de Enguias-Piranha](cardume-de-enguias-piranha.png)
 
 > **IN** +2 **CA** 12 **DV** 2d8 (10)
@@ -26,7 +24,7 @@ Sedentas por sangue, suas mordidas são chocantes.
 >
 > **MV** 60' **ML** 7
 >
-> **TM** Médio **TT** -
+> **TM** Médio **TT** - **XP** 25
 
 ## Habilidades Especiais
 

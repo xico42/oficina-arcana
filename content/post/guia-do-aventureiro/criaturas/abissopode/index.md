@@ -14,8 +14,6 @@ links:
     website: /oficina-arcana/page/license/ogl-v1/
 ---
 
-Polvo colossal com bico venenoso. Seus tentáculos púrpuros capturam embarcações menores.
-
 ![Abissópode](abissopode.png)
 
 > **IN** +1 **CA** 13 **DV** 3d8+15 (30)
@@ -26,7 +24,7 @@ Polvo colossal com bico venenoso. Seus tentáculos púrpuros capturam embarcaç�
 >
 > **MV** 20' (60' embaixo da água) **ML** 6
 >
-> **TM** Gigante **TT** __
+> **TM** Gigante **TT** - **XP** 75
 
 ## Habilidades Especiais
 

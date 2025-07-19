@@ -14,9 +14,6 @@ links:
     website: /oficina-arcana/page/license/ogl-v1/
 ---
 
-Truculentos guerreiros de pele azul e poderes psiônicos.
-Tatuagens rúnicas ornamentam suas peles encouraçadas.
-
 ![Daurnok](daurnok.png)
 
 > **IN** +2 **CA** 14 **DV** 3d8 (15)
@@ -27,7 +24,7 @@ Tatuagens rúnicas ornamentam suas peles encouraçadas.
 >
 > **MV** 30' **ML** 6
 >
-> **TM** Médio **TT** [II](link_tabela_tesouro)
+> **TM** Médio **TT** [II](link_tabela_tesouro) **XP** 50
 
 ## Habilidades Especiais
 

@@ -14,9 +14,6 @@ links:
     website: /oficina-arcana/page/license/ogl-v1/
 ---
 
-Fantasmas de antigos sacerdotes, adornados por penas
-e ossos. Veneradores do grande abutre.
-
 ![Clérigo de Altatla](clerigo-de-altatla.png)
 
 > **IN** +0 **CA** 12 **DV** 1d8+2 (7)
@@ -27,7 +24,7 @@ e ossos. Veneradores do grande abutre.
 >
 > **MV** 30' (40' voando) **ML** 5
 >
-> **TM** Médio **TT** -
+> **TM** Médio **TT** - **XP** 23
 
 ## Habilidades Especiais
 

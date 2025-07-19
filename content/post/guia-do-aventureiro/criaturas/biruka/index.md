@@ -14,9 +14,6 @@ links:
     website: /oficina-arcana/page/license/ogl-v1/
 ---
 
-Esses pálidos símios alados são atraídos por obsidiana
-e carne fresca.
-
 ![Biruka](biruka.png)
 
 > **IN** +1 **CA** 12 **DV** 2d8 (10)
@@ -27,13 +24,13 @@ e carne fresca.
 >
 > **MV** 30' (60' voando) **ML** 6
 >
-> **TM** Médio **TT** [II](link_tabela_tesouro)
+> **TM** Médio **TT** [II](link_tabela_tesouro) **XP** 25
 
 ## Habilidades Especiais
 
-Cuspe Ácido: Vítimas a até 15’ que falharem em sua jogada
-de proteção de vigor recebem 1d6 pontos de dano. Se bem-
--sucedidas, recebem apenas metade.
+**Cuspe Ácido:** Vítimas a até 15’ que falharem em sua jogada
+de proteção de vigor recebem 1d6 pontos de dano.
+Se bem-sucedidas, recebem apenas metade.
 
 ## Créditos
 

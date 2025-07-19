@@ -14,8 +14,6 @@ links:
     website: /oficina-arcana/page/license/ogl-v1/
 ---
 
-Comem carne mesmo!
-
 > **IN** +0 **CA** 13 **DV** 1d8 (5)
 >
 > **AT** # Bico (1d4)
@@ -24,7 +22,7 @@ Comem carne mesmo!
 >
 > **MV** 30' (60' voando) **ML** 6
 >
-> **TM** Médio **TT** -  
+> **TM** Médio **TT** - **XP** 5
 
 ## Créditos
 
