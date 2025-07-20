@@ -24,7 +24,7 @@ links:
 >
 > **MV** 30' (60' voando) **ML** 6
 >
-> **TM** Médio **TT** [II](link_tabela_tesouro) **XP** 25
+> **TM** Médio [**TT** II](/post/guia-do-aventureiro/tabela-tesouro/) **XP** 25
 
 ## Habilidades Especiais
 

@@ -24,7 +24,7 @@ links:
 >
 > **MV** 30' **ML** 5
 >
-> **TM** Médio **TT** [V](link_tabela_tesouro) **XP** 25
+> **TM** Médio [**TT** V](/post/guia-do-aventureiro/tabela-tesouro/) **XP** 25
 
 ## Habilidades Especiais
 
