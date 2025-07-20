@@ -24,7 +24,7 @@ links:
 >
 > **MV** 30' **ML** 7
 >
-> **TM** Médio [**TT** II](/post/guia-do-aventureiro/tabela-tesouro/) **XP** 7
+> **TM** Médio [**TT** II]({{< relref "/post/guia-do-aventureiro/tabela-tesouro/" >}}) **XP** 7
 
 ## Habilidades Especiais
 
