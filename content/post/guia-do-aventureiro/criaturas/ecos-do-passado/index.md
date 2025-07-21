@@ -35,6 +35,6 @@ das não podem receber curas até a próxima rodada.
 
 ## Créditos
 
-**Fonte:** [Guia do Aventureiro, p. 123](https://www.arcanaprimaria.com/about-3)
+**Fonte:** Guia do Aventureiro, p. 123
 
 Arte por [Yuri Perkowski Domingos](https://www.artstation.com/perkowski) ([@yuri.perkowski](https://www.instagram.com/yuri.perkowski/)).

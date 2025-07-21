@@ -32,4 +32,4 @@ fica imobilizada até a próxima rodada.
 
 ## Créditos
 
-**Fonte:** [Guia do Aventureiro, p. 119](https://www.arcanaprimaria.com/about-3)
+**Fonte:** Guia do Aventureiro, p. 119

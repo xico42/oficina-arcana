@@ -34,6 +34,6 @@ links:
 
 ## Créditos
 
-**Fonte:** [Guia do Aventureiro, p. 121](https://www.arcanaprimaria.com/about-3)
+**Fonte:** Guia do Aventureiro, p. 121
 
 Arte por [Yuri Perkowski Domingos](https://www.artstation.com/perkowski) ([@yuri.perkowski](https://www.instagram.com/yuri.perkowski/)).

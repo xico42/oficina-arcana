@@ -33,6 +33,6 @@ o ataque e efeito. A força é recuperada em 1 semana.
 
 ## Créditos
 
-**Fonte:** [Guia do Aventureiro, p. 124](https://www.arcanaprimaria.com/about-3)
+**Fonte:** Guia do Aventureiro, p. 124
 
 Arte por [Yuri Perkowski Domingos](https://www.artstation.com/perkowski) ([@yuri.perkowski](https://www.instagram.com/yuri.perkowski/)).

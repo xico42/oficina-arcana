@@ -35,6 +35,6 @@ para fazer um ataque contra CA com 60' de alcance.
 
 ## Créditos
 
-**Fonte:** [Guia do Aventureiro, p. 124](https://www.arcanaprimaria.com/about-3)
+**Fonte:** Guia do Aventureiro, p. 124
 
 Arte por [Yuri Perkowski Domingos](https://www.artstation.com/perkowski) ([@yuri.perkowski](https://www.instagram.com/yuri.perkowski/)).
