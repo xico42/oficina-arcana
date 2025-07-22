@@ -1,7 +1,7 @@
 ---
 date: '2025-07-20T07:53:26-03:00'
 draft: false
-title: 'Tabela de Tesouro'
+title: 'Tabela da Cidadela dos Corais'
 description: 'Tabela de Tesouros para a aventura "A Cidadela dos Corais"'
 categories:
   - tabelas-tesouro

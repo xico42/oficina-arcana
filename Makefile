@@ -1,6 +1,6 @@
 .PHONY: server
 server:
-	hugo server -b http://localhost:1313/oficina-arcana -p 1313
+	hugo server -b http://localhost:1313/oficina-arcana -p 1313  --disableFastRender
 
 .PHONY: ose-beast
 ose-beast:

@@ -14,6 +14,8 @@ links:
     website: /oficina-arcana/page/license/ogl-v1/
 ---
 
+![Nakliz](naklix.png)
+
 > **IN** +1 **CA** 14 **DV** 3d8 (10)
 >
 > **AT** #1 Ferrão (1d8) ou Mordida (1d6)
