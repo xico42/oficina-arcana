@@ -34,6 +34,6 @@ movimento da criatura pela metade, por 1d4 rodadas. O dano
 
 ## Créditos
 
-**Fonte:** Guia do Aventureiro, p. 125
+**Fonte:** Guia do Aventureiro, p. 126
 
 Arte por [Yuri Perkowski Domingos](https://www.artstation.com/perkowski) ([@yuri.perkowski](https://www.instagram.com/yuri.perkowski/)).

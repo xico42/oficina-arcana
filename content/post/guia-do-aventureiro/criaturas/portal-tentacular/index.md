@@ -35,4 +35,4 @@ arrastada para dentro do emaranhado de tentáculos e morre.
 
 ## Créditos
 
-**Fonte:** Guia do Aventureiro, p. 125
+**Fonte:** Guia do Aventureiro, p. 126
