@@ -17,3 +17,7 @@ caves-beast:
 .PHONY: bf-beast
 bf-beast:
 	hugo new content --kind basic-fantasy-beast content/post/comunidade/criaturas/$(name)/index.md
+
+.PHONY: amuleto-beast
+amuleto-beast:
+	hugo new content --kind amuleto-beast content/post/amuleto-montanha-mutilada/criaturas/$(name)/index.md
