@@ -4,6 +4,7 @@ draft: false
 title: 'Suma Sacerdotisa Cozca'
 description: 'Vulto amaldiçoado de dois metros de altura, que porta etéreos mantos esvoaçantes.'
 categories:
+  - criaturas
   - monstros
 tags:
   - guia-aventureiro

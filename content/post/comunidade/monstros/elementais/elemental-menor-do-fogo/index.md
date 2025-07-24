@@ -5,6 +5,7 @@ title: 'Elemental Menor do Fogo'
 description: 'Colunas rodopiantes de fogo.'
 author: 'Gabriel Dias'
 categories:
+  - criaturas
   - monstros
 tags:
   - community

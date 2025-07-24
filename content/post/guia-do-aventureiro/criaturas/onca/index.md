@@ -4,6 +4,7 @@ draft: false
 title: 'Onça'
 description: 'Ela mesma. O felino solitário, em toda sua imponência.'
 categories:
+  - criaturas
   - animais
 tags:
   - guia-aventureiro

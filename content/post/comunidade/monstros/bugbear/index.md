@@ -5,6 +5,7 @@ title: 'Bugbear'
 author: 'Gabriel Dias'
 description: 'Goblins grandes e peludos com um andar desajeitado. Favorecem ataques surpresa.'
 categories:
+  - criaturas
   - monstros
 tags:
   - community

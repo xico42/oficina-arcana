@@ -4,6 +4,7 @@ draft: false
 title: 'Marimbondo Gigante'
 description: 'Insetos voadores de abdômen em cores psicodélicas e um ferrão rubro.'
 categories:
+  - criaturas
   - monstros
 tags:
   - guia-aventureiro

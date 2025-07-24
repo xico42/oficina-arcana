@@ -4,6 +4,7 @@ draft: false
 title: 'Clérigo de Altatla'
 description: 'Fantasmas de antigos sacerdotes, adornados por penas e ossos. Veneradores do grande abutre.'
 categories:
+  - criaturas
   - monstros
 tags:
   - guia-aventureiro

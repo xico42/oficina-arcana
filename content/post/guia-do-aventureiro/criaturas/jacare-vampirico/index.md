@@ -4,6 +4,7 @@ draft: false
 title: 'Jacaré Vampírico'
 description: 'Réptil marrom-carmesim com presas protuberantes sugadoras de sangue.'
 categories:
+  - criaturas
   - monstros
 tags:
   - guia-aventureiro

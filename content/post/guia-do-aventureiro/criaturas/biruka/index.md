@@ -4,6 +4,7 @@ draft: false
 title: 'Biruka'
 description: 'Esses pálidos símios alados são atraídos por obsidiana e carne fresca.'
 categories:
+  - criaturas
   - monstros
 tags:
   - guia-aventureiro

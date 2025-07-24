@@ -4,6 +4,7 @@ draft: false
 title: 'Altatla'
 description: 'Abutre titânico, guardião do Signo do Abismo. Habita o ápice do vulcão em Ninho de Fogo.'
 categories:
+  - criaturas
   - monstros
 tags:
   - guia-aventureiro

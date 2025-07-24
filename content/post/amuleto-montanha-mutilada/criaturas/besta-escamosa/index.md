@@ -4,6 +4,7 @@ draft: false
 title: 'Besta Escamosa'
 description: 'Um formidável leão alado mutado com aspectos reptilianos, de escamas verde-musgo e uma mordida fatal.'
 categories:
+  - criaturas
   - monstros
 tags:
   - amuleto-montanha-mutilada

@@ -4,6 +4,7 @@ draft: false
 title: 'Salteador'
 description: 'Emboscam viajantes desavisados. Nunca buscam por lutas justas.'
 categories:
+  - criaturas
   - monstros
 tags:
   - guia-aventureiro

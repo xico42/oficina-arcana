@@ -4,6 +4,7 @@ draft: false
 title: 'Baratão das Profundezas'
 description: 'Asquerosos, do tamanho de um cão. Guardam as asas sob a sua dura carapaça.'
 categories:
+  - criaturas
   - monstros
 tags:
   - guia-aventureiro

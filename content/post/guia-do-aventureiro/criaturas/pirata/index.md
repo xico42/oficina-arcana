@@ -4,6 +4,7 @@ draft: false
 title: 'Pirata'
 description: 'Gananciosos e pouco higiênicos. Abordam e invadem navios.'
 categories:
+  - criaturas
   - monstros
 tags:
   - guia-aventureiro

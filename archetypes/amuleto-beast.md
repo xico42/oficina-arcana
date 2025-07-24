@@ -4,6 +4,7 @@ draft: false
 title: '{{ replace .File.ContentBaseName "-" " " | title }}'
 description: 'Resumo da criatura...'
 categories:
+  - criaturas
   - monstros
 tags:
   - amuleto-montanha-mutilada

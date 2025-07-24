@@ -4,6 +4,7 @@ draft: false
 title: 'Tubarão de Areia'
 description: 'Violentos predadores. Apesar de corpulentos, deslizam agilmente sob a areia.'
 categories:
+  - criaturas
   - monstros
 tags:
   - guia-aventureiro

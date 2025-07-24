@@ -4,6 +4,7 @@ draft: false
 title: 'Naklix'
 description: 'A aparência viscosa engana aqueles que ignoram sua veloz ferroada.'
 categories:
+  - criaturas
   - monstros
 tags:
   - guia-aventureiro

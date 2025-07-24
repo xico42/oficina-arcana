@@ -4,6 +4,7 @@ draft: false
 title: 'Dimetrodonte Venenoso'
 description: 'Robustos lagartos, a coloração marrom os camufla na selva. Uma ampla crista percorre o dorso reptiliano.'
 categories:
+  - criaturas
   - monstros
 tags:
   - guia-aventureiro

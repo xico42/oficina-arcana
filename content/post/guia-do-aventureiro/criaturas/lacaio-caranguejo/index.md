@@ -4,6 +4,7 @@ draft: false
 title: 'Lacaio-Caranguejo'
 description: 'Crustáceos viscosos, de carapaças variadas em cor e geometria. Controlados por Nautchlizxor.'
 categories:
+  - criaturas
   - monstros
 tags:
   - guia-aventureiro

@@ -4,6 +4,7 @@ draft: false
 title: 'Estatua Kormarzuk'
 description: 'O vulto petrificado de uma guardiã ancestral, seu semblante captura a atenção, de forma estranha e sinistra.'
 categories:
+  - criaturas
   - monstros
 tags:
   - guia-aventureiro

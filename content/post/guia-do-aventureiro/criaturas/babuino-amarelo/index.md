@@ -4,6 +4,7 @@ draft: false
 title: 'Babuíno Amarelo'
 description: 'Curiosos símios amarelos de traseiros azuis.'
 categories:
+  - criaturas
   - animais
 tags:
   - guia-aventureiro

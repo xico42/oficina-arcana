@@ -37,8 +37,8 @@
         @for $i from 1 through length($defaultTagBackgrounds) {
             &:nth-child(#{length($defaultTagBackgrounds)}n + #{$i}) {
                 .article-category a {
-                    background: nth($defaultTagBackgrounds, $i);
-                    color: nth($defaultTagColors, $i);
+//                     background: nth($defaultTagBackgrounds, $i);
+//                     color: nth($defaultTagColors, $i);
                 }
             }
         }
@@ -127,7 +127,12 @@
     }
 }
 
-.article-category,
+.article-category {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
 .article-tags {
     display: flex;
     gap: 10px;

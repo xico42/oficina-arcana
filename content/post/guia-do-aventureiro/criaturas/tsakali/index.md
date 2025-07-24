@@ -4,6 +4,7 @@ draft: false
 title: 'Tsakáli'
 description: 'Torso humanoide, cabeça de chacal, e corpo de cavalo. Andam em bandos e, orgulhosos, preferem duelos às brigas de grupo.'
 categories:
+  - criaturas
   - monstros
 tags:
   - guia-aventureiro

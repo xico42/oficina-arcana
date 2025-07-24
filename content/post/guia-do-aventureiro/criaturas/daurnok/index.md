@@ -4,6 +4,7 @@ draft: false
 title: 'Daurnok'
 description: 'Truculentos guerreiros de pele azul e poderes psiônicos. Tatuagens rúnicas ornamentam suas peles encouraçadas.'
 categories:
+  - criaturas
   - monstros
 tags:
   - guia-aventureiro

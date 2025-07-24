@@ -4,6 +4,7 @@ draft: false
 title: 'Portal Tentacular'
 description: 'Guardião eterno do templo vulcânico de Altatla.'
 categories:
+  - criaturas
   - monstros
 tags:
   - guia-aventureiro

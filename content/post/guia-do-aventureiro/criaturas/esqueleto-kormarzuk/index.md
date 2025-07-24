@@ -4,6 +4,7 @@ draft: false
 title: 'Esqueleto Kormarzuk'
 description: 'Esqueletos de uma civilização antiga.'
 categories:
+  - criaturas
   - monstros
 tags:
   - guia-aventureiro

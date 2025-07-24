@@ -4,6 +4,7 @@ draft: false
 title: 'Carapaçoide'
 description: 'Protegidos por uma espessa carapaça violácea e terríveis pinças mutantes.'
 categories:
+  - criaturas
   - monstros
 tags:
   - guia-aventureiro

@@ -5,6 +5,7 @@ title: 'Elemental Intermediário do Ar'
 description: 'Imensos vórtices de ar rodopiante.'
 author: 'Gabriel Dias'
 categories:
+  - criaturas
   - monstros
 tags:
   - community

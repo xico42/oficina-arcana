@@ -4,6 +4,7 @@ draft: false
 title: 'Nauthlizxor'
 description: 'O dominador da Cidadela dos Corais. É uma misteriosa criatura moluscoide, seus propósitos são inimagináveis mesmo pela mente mais doentia, mergulhada em macabros pesadelos.'
 categories:
+  - criaturas
   - monstros
 tags:
   - guia-aventureiro

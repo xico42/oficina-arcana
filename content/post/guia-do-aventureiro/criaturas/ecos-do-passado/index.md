@@ -4,6 +4,7 @@ draft: false
 title: 'Ecos do Passado'
 description: 'Aparições instáveis de uma civilização antiga.'
 categories:
+  - criaturas
   - monstros
 tags:
   - guia-aventureiro

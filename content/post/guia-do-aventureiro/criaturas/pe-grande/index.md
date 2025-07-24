@@ -4,6 +4,7 @@ draft: false
 title: 'Pé Grande'
 description: 'Ele não existe.'
 categories:
+  - criaturas
   - monstros
 tags:
   - guia-aventureiro

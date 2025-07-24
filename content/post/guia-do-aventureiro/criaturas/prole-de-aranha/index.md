@@ -4,6 +4,7 @@ draft: false
 title: 'Prole de Aranha'
 description: 'Filhotes pustulosos de aracnídeo. Movem-se como um emaranhado nojento.'
 categories:
+  - criaturas
   - monstros
 tags:
   - guia-aventureiro

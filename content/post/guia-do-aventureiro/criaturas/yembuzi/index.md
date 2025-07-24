@@ -4,6 +4,7 @@ draft: false
 title: 'Yembuzi'
 description: 'Bizarros caprinos híbridos, rastejam com membros humanos para servir seu cruel criador.'
 categories:
+  - criaturas
   - monstros
 tags:
   - guia-aventureiro

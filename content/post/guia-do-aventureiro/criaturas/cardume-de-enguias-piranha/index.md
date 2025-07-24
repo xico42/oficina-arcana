@@ -4,6 +4,7 @@ draft: false
 title: 'Cardume de Enguias-Piranha'
 description: 'Sedentas por sangue, suas mordidas são chocantes.'
 categories:
+  - criaturas
   - monstros
 tags:
   - guia-aventureiro

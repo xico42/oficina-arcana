@@ -4,6 +4,7 @@ draft: false
 title: 'Maldito de Lama'
 description: 'Humanoides de carne viscosa e olhos sem vida. Andam deixando rastros de sua imundície.'
 categories:
+  - criaturas
   - monstros
 tags:
   - guia-aventureiro

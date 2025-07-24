@@ -5,6 +5,7 @@ title: 'Cubo Gelatinoso'
 author: 'Gabriel Dias'
 description: 'Cubos transparentes de 3m. Se movem através das masmorras, absorvendo detritos e criaturas vivas que eles encontram.'
 categories:
+  - criaturas
   - monstros
 tags:
   - community
