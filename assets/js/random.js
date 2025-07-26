@@ -1,3 +1,8 @@
+let options = {
+    gender: null,
+    class: null,
+}
+
 function dx(x) {
     return Math.floor(Math.random() * x) + 1;
 }
@@ -26,8 +31,8 @@ function shouldRecreateAttributes(attributes) {
 
 function highestAttribute(attributes) {
     const highest = Object.entries(attributes).reduce((max, [key, value]) => {
-        return value > max.value ? { key, value } : max;
-    }, { key: null, value: -Infinity });
+        return value > max.value ? {key, value} : max;
+    }, {key: null, value: -Infinity});
 
     return {
         name: highest.key,
@@ -52,33 +57,8 @@ function generateAttributes() {
     }
 }
 
-function randomClass() {
-    let classes = [
-        'legionario',
-        'barbaro',
-        'gladiador',
-        'lanceiro',
-        'paladino',
-        'arqueiro',
-        'ladrao',
-        'assassino',
-        'desbravador',
-        'espiao',
-        'monge',
-        'mago',
-        'ilusionista',
-        'necromante',
-        'psionico',
-        'clerigo',
-        'druida',
-        'bardo',
-    ]
-
-    return classes[Math.floor(Math.random() * classes.length)];
-}
-
-function getClassDetails(className) {
-    const classDetails = {
+function getClass(options) {
+    let classes = {
         'legionario': {
             mainAttribute: 'for',
             hitDice: 8,
@@ -153,13 +133,20 @@ function getClassDetails(className) {
         },
     }
 
-    return classDetails[className]
+    let classNames = Object.keys(classes);
+
+    let randomClass = options.class || classNames[Math.floor(Math.random() * classNames.length)];
+
+    return {
+        ...classes[randomClass],
+        name: randomClass,
+    }
 }
 
-function generateCharacter() {
+function generateCharacter(options) {
     let initialAttributes = generateAttributes()
-    let className = randomClass()
-    let classDetails = getClassDetails(className);
+
+    let charClass = getClass(options)
 
     const attributeMod = {
         3: -3,
@@ -182,7 +169,7 @@ function generateCharacter() {
 
     let highest = highestAttribute(initialAttributes);
 
-    let mainAttributeName = classDetails.mainAttribute;
+    let mainAttributeName = charClass.mainAttribute;
     let mainAttributeValue = initialAttributes[mainAttributeName];
 
     let attributes = {
@@ -193,10 +180,7 @@ function generateCharacter() {
     attributes[mainAttributeName] = highest.value;
 
     return {
-        class: {
-            name: className,
-            details: classDetails,
-        },
+        class: charClass,
         attributes: {
             'for': {
                 'value': attributes.for,
@@ -223,10 +207,10 @@ function generateCharacter() {
                 'mod': attributeMod[attributes.car],
             },
         },
-        hp: dx(classDetails.hitDice),
+        hp: dx(charClass.hitDice),
     }
 }
 
-let character = generateCharacter();
+let character = generateCharacter(options);
 
 console.log(character);
