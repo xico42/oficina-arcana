@@ -1,18 +1,27 @@
-let options = {
-    gender: null,
-    class: null,
+class Options {
+    constructor(options = {}) {
+        this.gender = options.gender || null;
+        this.class = options.class || null;
+        this.level = options.level || 1;
+        this.ancestry = options.ancestry || null;
+        this.gender = options.gender || null;
+    }
 }
 
 function dx(x) {
     return Math.floor(Math.random() * x) + 1;
 }
 
-function xd6(x) {
+function ndx(n, x) {
     let sum = 0
-    for (let i = 0; i < x; i++) {
-        sum += dx(6);
+    for (let i = 0; i < n; i++) {
+        sum += dx(x);
     }
     return sum;
+}
+
+function nd6(n) {
+    return ndx(n, 6);
 }
 
 function shouldRecreateAttributes(attributes) {
@@ -43,12 +52,12 @@ function highestAttribute(attributes) {
 function generateAttributes() {
     while (true) {
         let attributes = {
-            'for': xd6(3),
-            'des': xd6(3),
-            'con': xd6(3),
-            'int': xd6(3),
-            'sab': xd6(3),
-            'car': xd6(3),
+            'for': nd6(3),
+            'des': nd6(3),
+            'con': nd6(3),
+            'int': nd6(3),
+            'sab': nd6(3),
+            'car': nd6(3),
         };
 
         if (!shouldRecreateAttributes(attributes)) {
@@ -58,78 +67,554 @@ function generateAttributes() {
 }
 
 function getClass(options) {
+    let warriorJdp = function (level) {
+        if (level <= 2) {
+            return [12, 13, 16];
+        }
+
+        if (level <= 4) {
+            return [11, 12, 15];
+        }
+
+        if (level <= 6) {
+            return [10, 11, 14];
+        }
+
+        if (level <= 8) {
+            return [9, 10, 12];
+        }
+
+        if (level <= 10) {
+            return [8, 9, 10];
+        }
+
+        if (level <= 13) {
+            return [6, 7, 9];
+        }
+
+        if (level <= 20) {
+            return [5, 6, 7];
+        }
+
+        return [4, 4, 6]
+    };
+
     let classes = {
         'legionario': {
+            title: 'Legionário',
             mainAttribute: 'for',
             hitDice: 8,
+            movement: 30,
+            jdp: warriorJdp,
         },
         'barbaro': {
+            title: 'Bárbaro',
             mainAttribute: 'for',
             hitDice: 8,
+            movement: 30,
+            jdp: warriorJdp,
         },
         'gladiador': {
+            title: 'Gladiador',
             mainAttribute: 'for',
             hitDice: 8,
+            movement: 40,
+            jdp: warriorJdp,
         },
         'lanceiro': {
+            title: 'Lanceiro',
             mainAttribute: 'for',
             hitDice: 8,
+            movement: 30,
+            jdp: warriorJdp,
         },
         'paladino': {
+            title: 'Paladino',
             mainAttribute: 'for',
             hitDice: 8,
+            movement: 30,
+            jdp: function (level) {
+                if (level <= 2) {
+                    return [13, 13, 14];
+                }
+
+                if (level <= 4) {
+                    return [12, 12, 13];
+                }
+
+                if (level <= 6) {
+                    return [11, 11, 12];
+                }
+
+                if (level <= 8) {
+                    return [8, 8, 11];
+                }
+
+                if (level <= 10) {
+                    return [7, 7, 10];
+                }
+
+                if (level <= 13) {
+                    return [6, 6, 8];
+                }
+
+                if (level <= 20) {
+                    return [5, 5, 7];
+                }
+
+                return [4, 4, 5]; // Para nível 21+
+            },
         },
         'arqueiro': {
+            title: 'Arqueiro',
             mainAttribute: 'des',
             hitDice: 8,
+            movement: 30,
+            jdp: warriorJdp,
         },
         'ladrao': {
+            title: 'Ladrão',
             mainAttribute: 'des',
             hitDice: 4,
+            movement: 40,
+            jdp: function (level) {
+                if (level <= 2) {
+                    return [14, 12, 17];
+                }
+
+                if (level <= 4) {
+                    return [13, 11, 16];
+                }
+
+                if (level <= 6) {
+                    return [12, 10, 15];
+                }
+
+                if (level <= 8) {
+                    return [11, 9, 14];
+                }
+
+                if (level <= 10) {
+                    return [9, 7, 12];
+                }
+
+                if (level <= 13) {
+                    return [7, 6, 10];
+                }
+
+                if (level <= 20) {
+                    return [6, 5, 8];
+                }
+
+                return [5, 4, 7]; // Para nível 21+
+            },
         },
         'assassino': {
+            title: 'Assassino',
             mainAttribute: 'des',
             hitDice: 4,
+            movement: 30,
+            jdp: function (level) {
+                if (level <= 2) {
+                    return [12, 12, 17];
+                }
+
+                if (level <= 4) {
+                    return [11, 11, 16];
+                }
+
+                if (level <= 6) {
+                    return [10, 10, 15];
+                }
+
+                if (level <= 8) {
+                    return [9, 9, 14];
+                }
+
+                if (level <= 10) {
+                    return [8, 7, 12];
+                }
+
+                if (level <= 13) {
+                    return [6, 6, 10];
+                }
+
+                if (level <= 20) {
+                    return [5, 5, 8];
+                }
+
+                return [4, 4, 7]; // For level 21+
+            },
         },
         'desbravador': {
+            title: 'Desbravador',
             mainAttribute: 'des',
             hitDice: 6,
+            movement: 30,
+            jdp: function (level) {
+                if (level <= 2) {
+                    return [13, 12, 15];
+                }
+
+                if (level <= 4) {
+                    return [12, 11, 14];
+                }
+
+                if (level <= 6) {
+                    return [11, 10, 13];
+                }
+
+                if (level <= 8) {
+                    return [10, 8, 12];
+                }
+
+                if (level <= 10) {
+                    return [9, 6, 10];
+                }
+
+                if (level <= 13) {
+                    return [8, 5, 8];
+                }
+
+                if (level <= 20) {
+                    return [7, 5, 6];
+                }
+
+                return [4, 4, 5]; // Para nível 21+
+            },
         },
         'espiao': {
+            title: 'Espião',
             mainAttribute: 'des',
             hitDice: 4,
+            movement: 30,
+            jdp: function (level) {
+                if (level <= 2) {
+                    return [14, 12, 14];
+                }
+
+                if (level <= 4) {
+                    return [13, 11, 13];
+                }
+
+                if (level <= 6) {
+                    return [12, 10, 12];
+                }
+
+                if (level <= 8) {
+                    return [11, 9, 11];
+                }
+
+                if (level <= 10) {
+                    return [9, 7, 9];
+                }
+
+                if (level <= 13) {
+                    return [7, 6, 7];
+                }
+
+                if (level <= 20) {
+                    return [6, 5, 6];
+                }
+
+                return [5, 4, 5]; // Para nível 21+
+            },
         },
         'monge': {
+            title: 'Monge',
             mainAttribute: 'int',
             hitDice: 6,
+            movement: 40,
+            jdp: function (level) {
+                if (level <= 2) {
+                    return [13, 12, 15];
+                }
+
+                if (level <= 4) {
+                    return [12, 11, 14];
+                }
+
+                if (level <= 6) {
+                    return [11, 10, 13];
+                }
+
+                if (level <= 8) {
+                    return [10, 8, 12];
+                }
+
+                if (level <= 10) {
+                    return [9, 6, 10];
+                }
+
+                if (level <= 13) {
+                    return [8, 5, 8];
+                }
+
+                if (level <= 20) {
+                    return [7, 5, 6];
+                }
+
+                return [4, 4, 5]; // Para nível 21+
+            },
         },
         'mago': {
+            title: 'Mago',
             mainAttribute: 'int',
             hitDice: 4,
+            movement: 30,
+            jdp: function (level) {
+                if (level <= 2) {
+                    return [15, 17, 12];
+                }
+
+                if (level <= 4) {
+                    return [14, 16, 11];
+                }
+
+                if (level <= 6) {
+                    return [13, 15, 10];
+                }
+
+                if (level <= 8) {
+                    return [13, 14, 9];
+                }
+
+                if (level <= 10) {
+                    return [12, 12, 7];
+                }
+
+                if (level <= 13) {
+                    return [12, 10, 5];
+                }
+
+                if (level <= 20) {
+                    return [11, 8, 4];
+                }
+
+                return [10, 6, 4]; // Para nível 21+
+            },
         },
         'ilusionista': {
+            title: 'Ilusionista',
             mainAttribute: 'int',
             hitDice: 4,
+            movement: 30,
+            jdp: function (level) {
+                if (level <= 2) {
+                    return [15, 14, 13];
+                }
+
+                if (level <= 4) {
+                    return [14, 13, 12];
+                }
+
+                if (level <= 6) {
+                    return [13, 12, 11];
+                }
+
+                if (level <= 8) {
+                    return [13, 11, 10];
+                }
+
+                if (level <= 10) {
+                    return [12, 10, 9];
+                }
+
+                if (level <= 13) {
+                    return [12, 9, 8];
+                }
+
+                if (level <= 20) {
+                    return [11, 8, 7];
+                }
+
+                return [10, 7, 6]; // Para nível 21+
+            },
         },
         'necromante': {
+            title: 'Necromante',
             mainAttribute: 'int',
             hitDice: 4,
+            movement: 30,
+            jdp: function (level) {
+                if (level <= 2) {
+                    return [13, 17, 13];
+                }
+
+                if (level <= 4) {
+                    return [12, 16, 12];
+                }
+
+                if (level <= 6) {
+                    return [11, 15, 11];
+                }
+
+                if (level <= 8) {
+                    return [10, 14, 10];
+                }
+
+                if (level <= 10) {
+                    return [8, 12, 9];
+                }
+
+                if (level <= 13) {
+                    return [6, 10, 8];
+                }
+
+                if (level <= 20) {
+                    return [4, 8, 7];
+                }
+
+                return [4, 6, 6]; // Para nível 21+
+            },
         },
         'psionico': {
+            title: 'Psiônico',
             mainAttribute: 'int',
             hitDice: 4,
+            movement: 30,
+            jdp: function (level) {
+                if (level <= 2) {
+                    return [15, 14, 13];
+                }
+
+                if (level <= 4) {
+                    return [14, 13, 12];
+                }
+
+                if (level <= 6) {
+                    return [13, 12, 11];
+                }
+
+                if (level <= 8) {
+                    return [13, 11, 10];
+                }
+
+                if (level <= 10) {
+                    return [12, 10, 9];
+                }
+
+                if (level <= 13) {
+                    return [12, 8, 8];
+                }
+
+                if (level <= 20) {
+                    return [11, 6, 7];
+                }
+
+                return [10, 5, 6]; // Para nível 21+
+            },
         },
         'clerigo': {
+            title: 'Clérigo',
             mainAttribute: 'sab',
             hitDice: 6,
+            movement: 30,
+            jdp: function (level) {
+                if (level <= 2) {
+                    return [12, 14, 13];
+                }
+
+                if (level <= 4) {
+                    return [11, 13, 12];
+                }
+
+                if (level <= 6) {
+                    return [10, 12, 11];
+                }
+
+                if (level <= 8) {
+                    return [9, 11, 10];
+                }
+
+                if (level <= 10) {
+                    return [8, 9, 9];
+                }
+
+                if (level <= 13) {
+                    return [7, 7, 7];
+                }
+
+                if (level <= 20) {
+                    return [6, 6, 6];
+                }
+
+                return [5, 5, 4]; // Para nível 21+
+            },
         },
         'druida': {
+            title: 'Druida',
             mainAttribute: 'sab',
             hitDice: 6,
+            movement: 30,
+            jdp: function (level) {
+                if (level <= 2) {
+                    return [12, 14, 13];
+                }
+
+                if (level <= 4) {
+                    return [11, 13, 12];
+                }
+
+                if (level <= 6) {
+                    return [10, 12, 11];
+                }
+
+                if (level <= 8) {
+                    return [9, 11, 10];
+                }
+
+                if (level <= 10) {
+                    return [7, 9, 9];
+                }
+
+                if (level <= 13) {
+                    return [5, 7, 8];
+                }
+
+                if (level <= 20) {
+                    return [5, 6, 7];
+                }
+
+                return [4, 5, 5]; // Para nível 21+
+            },
         },
         'bardo': {
+            title: 'Bardo',
             mainAttribute: 'car',
             hitDice: 4,
+            movement: 30,
+            jdp: function (level) {
+                if (level <= 2) {
+                    return [17, 14, 13];
+                }
+
+                if (level <= 4) {
+                    return [16, 13, 12];
+                }
+
+                if (level <= 6) {
+                    return [15, 12, 11];
+                }
+
+                if (level <= 8) {
+                    return [14, 11, 10];
+                }
+
+                if (level <= 10) {
+                    return [12, 9, 8];
+                }
+
+                if (level <= 13) {
+                    return [10, 7, 6];
+                }
+
+                if (level <= 20) {
+                    return [8, 5, 5];
+                }
+
+                return [6, 4, 4]; // Para nível 21+
+            },
         },
     }
 
@@ -141,6 +626,60 @@ function getClass(options) {
         ...classes[randomClass],
         name: randomClass,
     }
+}
+
+function randomAncestry() {
+    const ancestries = [
+        {
+            name: 'Humano',
+            size: 'Médio',
+        },
+        {
+            name: 'Elfo',
+            size: 'Médio',
+        },
+        {
+            name: 'Meio-Elfo',
+            size: 'Médio',
+        },
+        {
+            name: 'Anão',
+            size: 'Pequeno',
+        },
+        {
+            name: 'Pequenino',
+            size: 'Pequeno',
+        },
+        {
+            name: 'Gnomo',
+            size: 'Pequeno',
+        },
+        {
+            name: 'Orc',
+            size: 'Médio',
+        },
+        {
+            name: 'Goblin',
+            size: 'Pequeno',
+        },
+    ];
+    return ancestries[Math.floor(Math.random() * ancestries.length)];
+}
+
+function randomGender() {
+    const genders = ['M', 'F'];
+    return genders[Math.floor(Math.random() * genders.length)];
+}
+
+function randomName(gender) {
+    const femaleNames = ['Abigail', 'Diovana', 'Adélia', 'Adalgisa', 'Adelaide', 'Afonsina', 'Agostina', 'Alberta', 'Albina', 'Altina', 'Alzira', 'Amábile', 'Amália', 'Amélia', 'Anastácia', 'Andradina', 'Angelina', 'Antônia', 'Antonela', 'Aparecida', 'Aristotelina', 'Arlete', 'Artília', 'Aurélia', 'Auridete', 'Aurora', 'Belarmina', 'Benedita', 'Benvinda', 'Berenice', 'Betina', 'Bibiana', 'Brasília', 'Brasilina', 'Caetana', 'Caetanela', 'Camélia', 'Carlota', 'Carmela', 'Carmelina', 'Carmelita', 'Carmem', 'Cassilda', 'Cecília', 'Celestina', 'Célia', 'Celina', 'Cesária', 'Charlotte', 'Cícera', 'Cida', 'Clarice', 'Claudete', 'Clementina', 'Cleonice', 'Clotilde', 'Cora', 'Coralina', 'Corina', 'Conceição', 'Consuelo', 'Cremilda', 'Custódia', 'Dalva', 'Delfina', 'Deolinda', 'Desidéria', 'Dina', 'Dinah', 'Dionísia', 'Dirce', 'Dolores', 'Domênica', 'Domitila', 'Dora', 'Doralice', 'Dóris', 'Dulce', 'Dulcinéia', 'Elda', 'Edelvives', 'Elenice', 'Eleonor', 'Eleonora', 'Élides', 'Elizabete', 'Elvira', 'Elza', 'Engrácia', 'Ermelinda', 'Ermengarda', 'Ermínia', 'Ernestina', 'Escolástica', 'Esmênia', 'Esmeralda', 'Esperança', 'Estefânia', 'Estér', 'Etelvina', 'Eulália', 'Eufransina', 'Faní', 'Felícia', 'Felipa', 'Filomena', 'Firmina', 'Flausína', 'Florentina', 'Florinda', 'Francisca', 'Generosa', 'Georgette', 'Geracina', 'Geraldina', 'Gertrudes', 'Gilda', 'Glória', 'Gorete', 'Graça', 'Guilhermina', 'Henriqueta', 'Helga', 'Hermenegilda', 'Hilda', 'Hildete', 'Hirdete', 'Hortência', 'Iná', 'Iolanda', 'Ione', 'Iracema', 'Íria', 'Ismália', 'Isolda', 'Isolina', 'Ivete', 'Izilda', 'Jandira', 'Jesuína', 'Joaquina', 'Jocasta', 'Josefa', 'Josefina', 'Josilda', 'Jovina', 'Judite', 'Julieta', 'Jurema', 'Jussara', 'Justina', 'Juventina', 'Laurinda', 'Leocádia', 'Leonor', 'Leontina', 'Licínia', 'Linda', 'Lourdes', 'Lucélia', 'Lucila', 'Lucinda', 'Luzia', 'Madalena', 'Maitê', 'Malva', 'Malvina', 'Marcília', 'Marcolina', 'Marilene', 'Marilda', 'Marinalva', 'Margarete', 'Marlene', 'Marilene', 'Marilú', 'Martina', 'Matilde', 'Matilda', 'Mercedes', 'Mirabel', 'Mirtes', 'Morgana', 'Narcisa', 'Nazaré', 'Nair', 'Neide', 'Nemésia', 'Neusa', 'Nilsa', 'Nícia', 'Norma', 'Paulina', 'Penha', 'Perfíria', 'Petrônia', 'Petúnia', 'Poliana', 'Presciliana', 'Quitéria', 'Quiterina', 'Odete', 'Odila', 'Ofélia', 'Olga', 'Otilia', 'Pedrina', 'Raimunda', 'Regina', 'Romilda', 'Risoleta', 'Rosália', 'Rosana', 'Rose', 'Rosemeire', 'Rosilda', 'Rubinéia', 'Rufina', 'Salustiana', 'Salviana', 'Selestina', 'Semíramis', 'Severina', 'Solineuza', 'Soraia', 'Tâmara', 'Tânia', 'Tarsila', 'Teresina', 'Tereza', 'Terezinha', 'Tomásia', 'Úrsula', 'Valdirene', 'Valentina', 'Valquíria', 'Vanda', 'Veralice', 'Verônica', 'Vilma', 'Virgínia', 'Zélia', 'Zenaide', 'Zenilde', 'Zilda', 'Zoraide', 'Zuleika', 'Zuleide', 'Zulmira'];
+    const maleNames = ['Abel', 'Abelardo', 'Abílio', 'Adailton', 'Adauto', 'Adão', 'Adimilson', 'Adolfo', 'Adoniram', 'Afonso', 'Agenor', 'Agnaldo', 'Agostinho', 'Alberto', 'Albino', 'Aldebair', 'Aloísio', 'Alonso', 'Alvares', 'Álvaro', 'Alves', 'Amadeu', 'Amado', 'Amaro', 'Ambrósio', 'Anacleto', 'Anastácio', 'Andrade', 'Anélcio', 'Anésio', 'Aníbal', 'Antenor', 'Apolinário', 'Apolônio', 'Arcanjo', 'Ari', 'Ariano', 'Ariovaldo', 'Aristeu', 'Arlindo', 'Arnaldo', 'Arnóbio', 'Aristênio', 'Aristides', 'Astolfo', 'Astrogildo', 'Ataídes', 'Átila', 'Balbino', 'Baltazar', 'Bardomiano', 'Bartolomeu', 'Basílio', 'Benício', 'Benito', 'Belquior', 'Benjamim', 'Bernardino', 'Bino', 'Bonifácio', 'Bráulio', 'Buarque', 'Cândido', 'Casemiro', 'Cícero', 'Clécio', 'Constantino', 'Cosmo', 'Crescêncio', 'Cristóvão', 'Dagoberto', 'Damásio', 'Décio', 'Délio', 'Demétrio', 'Deoclécio', 'Deoclides', 'Diógenes', 'Dirceu', 'Dráusio', 'Duarte', 'Durval', 'Durvalino', 'Dutra', 'Edvaldo', 'Egídio', 'Eleomar', 'Eli', 'Eliseu', 'Elmo', 'Emanuel', 'Emílio', 'Enéas', 'Epaminondas', 'Epitácio', 'Erasmo', 'Eriberto', 'Ernesto', 'Ezequiel', 'Euclídes', 'Eugênio', 'Eurípedes', 'Eusébio', 'Eustácio', 'Eustáquio', 'Evaristo', 'Fagundes', 'Fausto', 'Felício', 'Felizardo', 'Felisberto', 'Ferreira', 'Fidel', 'Firmino', 'Florêncio', 'Fortunato', 'Frederico', 'Fúlvio', 'Gama', 'Geraldo', 'Gérson', 'Getúlio', 'Germano', 'Gerônimo', 'Gervázio', 'Gildenor', 'Gilson', 'Gilmar', 'Giomar', 'Giorno', 'Godofredo', 'Gonçalves', 'Gotardo', 'Graciliano', 'Gregório', 'Gullar', 'Guimarães', 'Haroldo', 'Heraldo', 'Hermínio', 'Hilário', 'Hildebrando', 'Horácio', 'Inácio', 'Inocêncio', 'Itamar', 'Irineu', 'Isaias', 'Jacinto', 'Jader', 'Jaime', 'Jair', 'Jairo', 'Jadel', 'Jardel', 'Jeremias', 'Joselito', 'Josenaldo', 'Joseberto', 'Joel', 'Juscelino', 'Jurandir', 'Juvenal', 'Laerte', 'Laureano', 'Lauro', 'Leôncio', 'Leônidas', 'Leopoldo', 'Lívio', 'Lourenço', 'Lourival', 'Lucio', 'Ludovico', 'Malaquias', 'Marcelino', 'Marcelito', 'Mariano', 'Martiniro', 'Menelau', 'Militão', 'Milton', 'Moacir', 'Moisés', 'Monteiro', 'Natalino', 'Natanael', 'Nelson', 'Nereu', 'Nestor', 'Nicanor', 'Nicomedes', 'Nilton', 'Nogueira', 'Nuno', 'Núncio', 'Odilon', 'Odorico', 'Olavo', 'Olegário', 'Olímpio', 'Oliveira', 'Onofre', 'Orides', 'Orestes', 'Osiris', 'Osmar', 'Otávio', 'Otone', 'Ovídeo', 'Pascoal', 'Patrício', 'Patrocínio', 'Peçanha', 'Percival', 'Petrônio', 'Petrúcio', 'Pimenta', 'Plácido', 'Plínio', 'Porfírio', 'Praxedes', 'Príamo', 'Quintino', 'Quincas', 'Quirino', 'Raimundo', 'Renê', 'Romero', 'Romeu', 'Romildo', 'Rômulo', 'Rubens', 'Rui', 'Salazar', 'Salvador', 'Sálvio', 'Sampaio', 'Saulo', 'Sebastião', 'Seledônio', 'Serafim', 'Serápio', 'Severino', 'Silvério', 'Simplício', 'Tadeu', 'Tancredo', 'Tarcísio', 'Teobaldo', 'Teodoro', 'Teodureto', 'Tibúrsio', 'Timóteo', 'Tobias', 'Toledo', 'Torquato', 'Ubirajara', 'Ubiratan', 'Ulisses', 'Valdemar', 'Valdomar', 'Valdemiro', 'Valdomiro', 'Valentim', 'Valmir', 'Vancisclei', 'Venâncio', 'Venceslau', 'Vicente', 'Vidal', 'Virgílio', 'Viriato', 'Vitório'];
+
+    if (gender === 'M') {
+        return maleNames[Math.floor(Math.random() * maleNames.length)];
+    }
+
+    return femaleNames[Math.floor(Math.random() * femaleNames.length)];
 }
 
 function generateCharacter(options) {
@@ -179,8 +718,21 @@ function generateCharacter(options) {
     attributes[highest.name] = mainAttributeValue;
     attributes[mainAttributeName] = highest.value;
 
+    let gender = options.gender || randomGender();
+
     return {
-        class: charClass,
+        class: {
+            mainAttribute: charClass.mainAttribute,
+            hitDice: charClass.hitDice,
+            name: charClass.title,
+        },
+        level: options.level,
+        bn: Math.ceil(options.level / 2),
+        jdp: charClass.jdp(options.level),
+        movement: charClass.movement,
+        ancestry: options.ancestry || randomAncestry(),
+        gender,
+        name: randomName(gender),
         attributes: {
             'for': {
                 'value': attributes.for,
@@ -207,10 +759,10 @@ function generateCharacter(options) {
                 'mod': attributeMod[attributes.car],
             },
         },
-        hp: dx(charClass.hitDice),
+        hp: ndx(options.level, charClass.hitDice),
     }
 }
 
-let character = generateCharacter(options);
+let character = generateCharacter(new Options());
 
 console.log(character);
