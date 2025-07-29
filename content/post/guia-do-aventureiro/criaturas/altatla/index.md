@@ -8,7 +8,7 @@ categories:
   - monstros
 tags:
   - guia-aventureiro
-  - XDV
+  - 5DV
 links:
   - title: Licença
     description: Open Game License v1.0a
