@@ -1,3 +1,13 @@
+.generator-option {
+    background: rgb(236, 240, 241);
+    margin: 4px;
+    padding: 8px;
+    font-size: 1.4rem;
+    border-radius: var(--tag-border-radius);
+    color: var(--accent-color-text);
+    white-space: nowrap;
+}
+
 .article-page {
     &.hide-sidebar-sm .left-sidebar {
         display: none;
@@ -370,6 +380,12 @@
         padding: 0 var(--card-padding);
         overflow-x: auto;
         display: block;
+    }
+
+    table tr th:empty {
+        border-right: none;
+        border-left: none;
+        border-top: none;
     }
 
     table {

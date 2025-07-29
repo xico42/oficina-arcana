@@ -1,3 +1,37 @@
+interface Attributes {
+    for: number,
+    des: number,
+    con: number,
+    int: number,
+    sab: number,
+    car: number,
+}
+
+type AttributeName = keyof Attributes;
+
+interface Attribute {
+    name: AttributeName,
+    value: number,
+}
+
+interface ClassDetails {
+    title: string,
+    mainAttribute: AttributeName,
+    hitDice: number,
+    movement: number,
+    jdp(level: number): number[],
+}
+
+type ClassDetailsWithName = ClassDetails & {
+    name: string,
+}
+
+type ClassName = keyof ClassRegistry;
+
+type ClassRegistry = Record<string, ClassDetails>;
+
+type Gender = 'M' | 'F';
+
 /**
  * Opções de customização do gerador de personagens.
  *
@@ -6,22 +40,20 @@
  *  - level: Nível do personagem (padrão é 1).
  *  - ancestry: Ancestralidade do personagem (ex: 'Humano', 'Elfo') ou null para aleatório (padrão).
  */
-class Options {
-    constructor(options = {}) {
-        this.gender = options.gender || null;
-        this.class = options.class || null;
-        this.level = options.level || 1;
-        this.ancestry = options.ancestry || null;
-    }
+interface Options {
+    gender?: Gender,
+    class?: ClassName,
+    level?: number,
+    ancestry?: string,
 }
 
 // Simula a rolagem de um dado de x lados.
-function dx(x) {
+function dx(x: number): number {
     return Math.floor(Math.random() * x) + 1;
 }
 
 // Simula a rolagem de n dados de x lados e retorna a soma.
-function ndx(n, x) {
+function ndx(n: number, x: number): number {
     let sum = 0
     for (let i = 0; i < n; i++) {
         sum += dx(x);
@@ -30,7 +62,7 @@ function ndx(n, x) {
 }
 
 // Simula a rolagem de n dados de 6 lados e retorna a soma.
-function nd6(n) {
+function nd6(n: number): number {
     return ndx(n, 6);
 }
 
@@ -38,14 +70,14 @@ function nd6(n) {
 //
 // Atualmente recriamos personagens sempre que o maior atributo for menor que 13
 // ou se mais de dois atributos forem menores que 9.
-function shouldRecreateAttributes(attributes) {
+function shouldRecreateAttributes(attributes: Attributes) {
     let total = 0;
     let threshold = 9;
-    for (let key in attributes) {
-        if (attributes[key] < threshold) {
+    Object.keys(attributes).forEach((key) => {
+        if (attributes[key as AttributeName] < threshold) {
             total += 1;
         }
-    }
+    });
 
     let highest = highestAttribute(attributes);
 
@@ -53,19 +85,19 @@ function shouldRecreateAttributes(attributes) {
 }
 
 // Encontra o maior atributo entre os atributos fornecidos e retorna seu nome e valor.
-function highestAttribute(attributes) {
-    const highest = Object.entries(attributes).reduce((max, [key, value]) => {
-        return value > max.value ? {key, value} : max;
-    }, {key: null, value: -Infinity});
+function highestAttribute(attributes: Attributes): Attribute {
+    const highest = Object.entries(attributes).reduce(
+        (max, [name, value]) => {
+            return value > max.value ? { name: name as keyof Attributes, value } : max;
+        },
+        { name: 'for' as keyof Attributes, value: -Infinity }
+    );
 
-    return {
-        name: highest.key,
-        value: highest.value,
-    }
+    return highest;
 }
 
 // Gera atributos aleatórios para o personagem, garantindo que eles atendam aos critérios definidos em shouldRecreateAttributes.
-function generateAttributes() {
+function generateAttributes(): Attributes {
     while (true) {
         let attributes = {
             'for': nd6(3),
@@ -83,8 +115,8 @@ function generateAttributes() {
 }
 
 // Obtém a classe do personagem com base nas opções fornecidas ou seleciona uma aleatoriamente.
-function getClass(options) {
-    let warriorJdp = function (level) {
+function getClass(options: Options): ClassDetailsWithName {
+    let warriorJdp = function (level: number): number[] {
         if (level <= 2) {
             return [12, 13, 16];
         }
@@ -116,7 +148,7 @@ function getClass(options) {
         return [4, 4, 6]
     };
 
-    let classes = {
+    let classes: ClassRegistry = {
         'legionario': {
             title: 'Legionário',
             mainAttribute: 'for',
@@ -194,7 +226,7 @@ function getClass(options) {
             mainAttribute: 'des',
             hitDice: 4,
             movement: 40,
-            jdp: function (level) {
+            jdp: function (level: number) {
                 if (level <= 2) {
                     return [14, 12, 17];
                 }
@@ -685,13 +717,13 @@ function randomAncestry() {
 }
 
 // Gera um gênero aleatório para o personagem, retornando 'M' ou 'F'.
-function randomGender() {
-    const genders = ['M', 'F'];
+function randomGender(): Gender {
+    const genders: Gender[] = ['M', 'F'];
     return genders[Math.floor(Math.random() * genders.length)];
 }
 
 // Gera um nome aleatório para o personagem com base no gênero fornecido.
-function randomName(gender) {
+function randomName(gender: Gender) {
     const femaleNames = ['Abigail', 'Diovana', 'Adélia', 'Adalgisa', 'Adelaide', 'Afonsina', 'Agostina', 'Alberta', 'Albina', 'Altina', 'Alzira', 'Amábile', 'Amália', 'Amélia', 'Anastácia', 'Andradina', 'Angelina', 'Antônia', 'Antonela', 'Aparecida', 'Aristotelina', 'Arlete', 'Artília', 'Aurélia', 'Auridete', 'Aurora', 'Belarmina', 'Benedita', 'Benvinda', 'Berenice', 'Betina', 'Bibiana', 'Brasília', 'Brasilina', 'Caetana', 'Caetanela', 'Camélia', 'Carlota', 'Carmela', 'Carmelina', 'Carmelita', 'Carmem', 'Cassilda', 'Cecília', 'Celestina', 'Célia', 'Celina', 'Cesária', 'Charlotte', 'Cícera', 'Cida', 'Clarice', 'Claudete', 'Clementina', 'Cleonice', 'Clotilde', 'Cora', 'Coralina', 'Corina', 'Conceição', 'Consuelo', 'Cremilda', 'Custódia', 'Dalva', 'Delfina', 'Deolinda', 'Desidéria', 'Dina', 'Dinah', 'Dionísia', 'Dirce', 'Dolores', 'Domênica', 'Domitila', 'Dora', 'Doralice', 'Dóris', 'Dulce', 'Dulcinéia', 'Elda', 'Edelvives', 'Elenice', 'Eleonor', 'Eleonora', 'Élides', 'Elizabete', 'Elvira', 'Elza', 'Engrácia', 'Ermelinda', 'Ermengarda', 'Ermínia', 'Ernestina', 'Escolástica', 'Esmênia', 'Esmeralda', 'Esperança', 'Estefânia', 'Estér', 'Etelvina', 'Eulália', 'Eufransina', 'Faní', 'Felícia', 'Felipa', 'Filomena', 'Firmina', 'Flausína', 'Florentina', 'Florinda', 'Francisca', 'Generosa', 'Georgette', 'Geracina', 'Geraldina', 'Gertrudes', 'Gilda', 'Glória', 'Gorete', 'Graça', 'Guilhermina', 'Henriqueta', 'Helga', 'Hermenegilda', 'Hilda', 'Hildete', 'Hirdete', 'Hortência', 'Iná', 'Iolanda', 'Ione', 'Iracema', 'Íria', 'Ismália', 'Isolda', 'Isolina', 'Ivete', 'Izilda', 'Jandira', 'Jesuína', 'Joaquina', 'Jocasta', 'Josefa', 'Josefina', 'Josilda', 'Jovina', 'Judite', 'Julieta', 'Jurema', 'Jussara', 'Justina', 'Juventina', 'Laurinda', 'Leocádia', 'Leonor', 'Leontina', 'Licínia', 'Linda', 'Lourdes', 'Lucélia', 'Lucila', 'Lucinda', 'Luzia', 'Madalena', 'Maitê', 'Malva', 'Malvina', 'Marcília', 'Marcolina', 'Marilene', 'Marilda', 'Marinalva', 'Margarete', 'Marlene', 'Marilene', 'Marilú', 'Martina', 'Matilde', 'Matilda', 'Mercedes', 'Mirabel', 'Mirtes', 'Morgana', 'Narcisa', 'Nazaré', 'Nair', 'Neide', 'Nemésia', 'Neusa', 'Nilsa', 'Nícia', 'Norma', 'Paulina', 'Penha', 'Perfíria', 'Petrônia', 'Petúnia', 'Poliana', 'Presciliana', 'Quitéria', 'Quiterina', 'Odete', 'Odila', 'Ofélia', 'Olga', 'Otilia', 'Pedrina', 'Raimunda', 'Regina', 'Romilda', 'Risoleta', 'Rosália', 'Rosana', 'Rose', 'Rosemeire', 'Rosilda', 'Rubinéia', 'Rufina', 'Salustiana', 'Salviana', 'Selestina', 'Semíramis', 'Severina', 'Solineuza', 'Soraia', 'Tâmara', 'Tânia', 'Tarsila', 'Teresina', 'Tereza', 'Terezinha', 'Tomásia', 'Úrsula', 'Valdirene', 'Valentina', 'Valquíria', 'Vanda', 'Veralice', 'Verônica', 'Vilma', 'Virgínia', 'Zélia', 'Zenaide', 'Zenilde', 'Zilda', 'Zoraide', 'Zuleika', 'Zuleide', 'Zulmira'];
     const maleNames = ['Abel', 'Abelardo', 'Abílio', 'Adailton', 'Adauto', 'Adão', 'Adimilson', 'Adolfo', 'Adoniram', 'Afonso', 'Agenor', 'Agnaldo', 'Agostinho', 'Alberto', 'Albino', 'Aldebair', 'Aloísio', 'Alonso', 'Alvares', 'Álvaro', 'Alves', 'Amadeu', 'Amado', 'Amaro', 'Ambrósio', 'Anacleto', 'Anastácio', 'Andrade', 'Anélcio', 'Anésio', 'Aníbal', 'Antenor', 'Apolinário', 'Apolônio', 'Arcanjo', 'Ari', 'Ariano', 'Ariovaldo', 'Aristeu', 'Arlindo', 'Arnaldo', 'Arnóbio', 'Aristênio', 'Aristides', 'Astolfo', 'Astrogildo', 'Ataídes', 'Átila', 'Balbino', 'Baltazar', 'Bardomiano', 'Bartolomeu', 'Basílio', 'Benício', 'Benito', 'Belquior', 'Benjamim', 'Bernardino', 'Bino', 'Bonifácio', 'Bráulio', 'Buarque', 'Cândido', 'Casemiro', 'Cícero', 'Clécio', 'Constantino', 'Cosmo', 'Crescêncio', 'Cristóvão', 'Dagoberto', 'Damásio', 'Décio', 'Délio', 'Demétrio', 'Deoclécio', 'Deoclides', 'Diógenes', 'Dirceu', 'Dráusio', 'Duarte', 'Durval', 'Durvalino', 'Dutra', 'Edvaldo', 'Egídio', 'Eleomar', 'Eli', 'Eliseu', 'Elmo', 'Emanuel', 'Emílio', 'Enéas', 'Epaminondas', 'Epitácio', 'Erasmo', 'Eriberto', 'Ernesto', 'Ezequiel', 'Euclídes', 'Eugênio', 'Eurípedes', 'Eusébio', 'Eustácio', 'Eustáquio', 'Evaristo', 'Fagundes', 'Fausto', 'Felício', 'Felizardo', 'Felisberto', 'Ferreira', 'Fidel', 'Firmino', 'Florêncio', 'Fortunato', 'Frederico', 'Fúlvio', 'Gama', 'Geraldo', 'Gérson', 'Getúlio', 'Germano', 'Gerônimo', 'Gervázio', 'Gildenor', 'Gilson', 'Gilmar', 'Giomar', 'Giorno', 'Godofredo', 'Gonçalves', 'Gotardo', 'Graciliano', 'Gregório', 'Gullar', 'Guimarães', 'Haroldo', 'Heraldo', 'Hermínio', 'Hilário', 'Hildebrando', 'Horácio', 'Inácio', 'Inocêncio', 'Itamar', 'Irineu', 'Isaias', 'Jacinto', 'Jader', 'Jaime', 'Jair', 'Jairo', 'Jadel', 'Jardel', 'Jeremias', 'Joselito', 'Josenaldo', 'Joseberto', 'Joel', 'Juscelino', 'Jurandir', 'Juvenal', 'Laerte', 'Laureano', 'Lauro', 'Leôncio', 'Leônidas', 'Leopoldo', 'Lívio', 'Lourenço', 'Lourival', 'Lucio', 'Ludovico', 'Malaquias', 'Marcelino', 'Marcelito', 'Mariano', 'Martiniro', 'Menelau', 'Militão', 'Milton', 'Moacir', 'Moisés', 'Monteiro', 'Natalino', 'Natanael', 'Nelson', 'Nereu', 'Nestor', 'Nicanor', 'Nicomedes', 'Nilton', 'Nogueira', 'Nuno', 'Núncio', 'Odilon', 'Odorico', 'Olavo', 'Olegário', 'Olímpio', 'Oliveira', 'Onofre', 'Orides', 'Orestes', 'Osiris', 'Osmar', 'Otávio', 'Otone', 'Ovídeo', 'Pascoal', 'Patrício', 'Patrocínio', 'Peçanha', 'Percival', 'Petrônio', 'Petrúcio', 'Pimenta', 'Plácido', 'Plínio', 'Porfírio', 'Praxedes', 'Príamo', 'Quintino', 'Quincas', 'Quirino', 'Raimundo', 'Renê', 'Romero', 'Romeu', 'Romildo', 'Rômulo', 'Rubens', 'Rui', 'Salazar', 'Salvador', 'Sálvio', 'Sampaio', 'Saulo', 'Sebastião', 'Seledônio', 'Serafim', 'Serápio', 'Severino', 'Silvério', 'Simplício', 'Tadeu', 'Tancredo', 'Tarcísio', 'Teobaldo', 'Teodoro', 'Teodureto', 'Tibúrsio', 'Timóteo', 'Tobias', 'Toledo', 'Torquato', 'Ubirajara', 'Ubiratan', 'Ulisses', 'Valdemar', 'Valdomar', 'Valdemiro', 'Valdomiro', 'Valentim', 'Valmir', 'Vancisclei', 'Venâncio', 'Venceslau', 'Vicente', 'Vidal', 'Virgílio', 'Viriato', 'Vitório'];
 
@@ -703,12 +735,12 @@ function randomName(gender) {
 }
 
 // Gera um personagem aleatório com base nas opções fornecidas
-function generateCharacter(options) {
+function generateCharacter(options: Options) {
     let initialAttributes = generateAttributes()
 
     let charClass = getClass(options)
 
-    const attributeMod = {
+    const attributeMod: Record<number, number> = {
         3: -3,
         4: -2,
         5: -2,
@@ -749,8 +781,8 @@ function generateCharacter(options) {
             name: charClass.title,
         },
         level: options.level,
-        bn: Math.ceil(options.level / 2),
-        jdp: charClass.jdp(options.level),
+        bn: Math.ceil((options.level || 1) / 2),
+        jdp: charClass.jdp(options.level || 1),
         movement: charClass.movement,
         ancestry: options.ancestry || randomAncestry(),
         gender,
@@ -781,10 +813,56 @@ function generateCharacter(options) {
                 'mod': attributeMod[attributes.car],
             },
         },
-        hp: ndx(options.level, charClass.hitDice),
+        hp: ndx(options.level || 1, charClass.hitDice),
     }
 }
 
-let character = generateCharacter(new Options());
+function getInputValueByName(name: string): string {
+    // 1. Seleciona o elemento input usando o seletor de atributo [name="nomeDoSeuInput"]
+    const inputElement = document.querySelector<HTMLInputElement>(`input[name="${name}"]`);
 
-console.log(character);
+    // 2. Verifica se o elemento foi encontrado antes de tentar acessar seu valor
+    if (inputElement) {
+        const inputValue = inputElement.value;
+        console.log("O valor do input é:", inputValue);
+    } else {
+        console.log("Nenhum input com o nome 'meuInput' foi encontrado.");
+    }
+
+    return 'foobar';
+}
+
+function getSelectedRadioValue(radioGroupName: string): string | null {
+    // Use querySelector to find the checked radio button within the specified group
+    const selectedRadio = document.querySelector<HTMLInputElement>(
+        `input[name="${radioGroupName}"]:checked`
+    );
+
+    // If a radio button is selected, return its value; otherwise, return null
+    if (selectedRadio) {
+        return selectedRadio.value;
+    } else {
+        return null;
+    }
+}
+
+export function goGenerateChar() {
+    // Example usage:
+// Assuming you have radio buttons with name="gender"
+    const selectedGender = getSelectedRadioValue('gender');
+
+    if (selectedGender) {
+        console.log(`Selected gender: ${selectedGender}`);
+    } else {
+        console.log('No gender selected.');
+    }
+}
+
+// Expose myFunction to the global window object
+(window as any).goGenerateChar = goGenerateChar;
+
+// let character = generateCharacter({
+//     level: 1,
+// });
+//
+// console.log(character);
