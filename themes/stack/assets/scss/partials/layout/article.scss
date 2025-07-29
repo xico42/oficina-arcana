@@ -8,6 +8,10 @@
     white-space: nowrap;
 }
 
+button.generator-option {
+    cursor: pointer;
+}
+
 .article-page {
     &.hide-sidebar-sm .left-sidebar {
         display: none;

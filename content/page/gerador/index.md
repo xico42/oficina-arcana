@@ -7,7 +7,7 @@ menu:
     name: Gerador de Personagens
     weight: 5
     params:
-      icon: infinity
+      icon: ikosaedr
 ---
 
 Para usar o gerador de personagens, basta preencher os parâmetros abaixo e clicar no botão "Gerar Personagem".
@@ -15,10 +15,10 @@ Todos os parâmetros são opcionais e o que não for selecionado será decidido 
 
 ### Parâmetros Gerais
 
-<div>
-    <label class="generator-option"><input type="checkbox" name="equipment"> Equipamentos</label>
-    <label class="generator-option"><input type="checkbox" name="weapons"> Armas</label>
-    <label class="generator-option"><input type="checkbox" name="spells"> Magias</label>
+<div style="line-height: 2.5">
+    <label class="generator-option" style="display: none"><input type="checkbox" name="equipment"> Equipamentos</label>
+    <label class="generator-option" style="display: none"><input type="checkbox" name="weapons"> Armas</label>
+    <label class="generator-option" style="display: none"><input type="checkbox" name="spells"> Magias</label>
     <label class="generator-option"><input type="radio" name="gender" value="M"> Homem</label>
     <label class="generator-option"><input type="radio" name="gender" value="F"> Mulher</label>
 </div>
@@ -61,19 +61,23 @@ Todos os parâmetros são opcionais e o que não for selecionado será decidido 
 
 ### Quem vem aí?
 
-<button>Go</button>  
+<button class="generator-option" onclick="goGenerateChar();">Gerar Personagem</button>
 
 ## Seu personagem é ...
 
-**Equipamento:** Kit Hmilde, Ststf..
+**Nome:** <span id="char-name">XXXXX</span>
 
-> **IN** <span id="initiative">+1</span> **CA** XX **PV** XX
-> 
-> **BN** +X **JdP** VXX/RXX/MXX
-> 
-> **MOV** 30 
-> 
-> **FOR** XX (+1) **DES** XX (+1) **CON** XX (+1)
-> 
-> **INT** XX (+1) **SAB** XX (+1) **CAR** XX (+1)
+**Ancestralidade:** <span id="char-ancestry">XXXXX</span>
+
+**Classe:** <span id="char-class">XXXXX</span> (<span id="char-hit-dice">dX</span>)
+
+> **IN** <span id="char-in">XX</span> **CA** <span id="char-ac">XX</span> **PV** <span id="char-hp">XX</span>
+>
+> **BN** <span id="char-bn">+X</span> **JdP** <span id="char-jdp">VXX/RXX/MXX</span>
+>
+> **MOV** <span id="char-mov">XX</span>'
+>
+> **FOR** <span id="attr-for">XX (+1)</span> **DES** <span id="attr-des">XX (+1)</span> **CON** <span id="attr-con">XX (+1)</span>
+>
+> **INT** <span id="attr-int">XX (+1)</span> **SAB** <span id="attr-sab">XX (+1)</span> **CAR** <span id="attr-car">XX (+1)</span>
 

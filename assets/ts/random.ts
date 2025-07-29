@@ -14,11 +14,19 @@ interface Attribute {
     value: number,
 }
 
+interface FullAttribute {
+    value: number,
+    mod: number,
+}
+
+type CharAttributes = Record<AttributeName, FullAttribute>;
+
 interface ClassDetails {
     title: string,
     mainAttribute: AttributeName,
     hitDice: number,
     movement: number,
+
     jdp(level: number): number[],
 }
 
@@ -88,9 +96,9 @@ function shouldRecreateAttributes(attributes: Attributes) {
 function highestAttribute(attributes: Attributes): Attribute {
     const highest = Object.entries(attributes).reduce(
         (max, [name, value]) => {
-            return value > max.value ? { name: name as keyof Attributes, value } : max;
+            return value > max.value ? {name: name as keyof Attributes, value} : max;
         },
-        { name: 'for' as keyof Attributes, value: -Infinity }
+        {name: 'for' as keyof Attributes, value: -Infinity}
     );
 
     return highest;
@@ -678,42 +686,47 @@ function getClass(options: Options): ClassDetailsWithName {
 }
 
 // Gera uma ancestralidade aleatória para o personagem.
-function randomAncestry() {
-    const ancestries = [
-        {
+function getAncestry(options: Options) {
+    const ancestries = {
+        'humano': {
             name: 'Humano',
             size: 'Médio',
         },
-        {
+        'elfo': {
             name: 'Elfo',
             size: 'Médio',
         },
-        {
+        'meio-elfo': {
             name: 'Meio-Elfo',
             size: 'Médio',
         },
-        {
+        'anao': {
             name: 'Anão',
             size: 'Pequeno',
         },
-        {
+        'pequenino': {
             name: 'Pequenino',
             size: 'Pequeno',
         },
-        {
+        'gnomo': {
             name: 'Gnomo',
             size: 'Pequeno',
         },
-        {
+        'orc': {
             name: 'Orc',
             size: 'Médio',
         },
-        {
+        'goblin': {
             name: 'Goblin',
             size: 'Pequeno',
         },
-    ];
-    return ancestries[Math.floor(Math.random() * ancestries.length)];
+    };
+
+    let ancestryNames = Object.keys(ancestries);
+
+    let ancestryName = options.ancestry || ancestryNames[Math.floor(Math.random() * ancestryNames.length)];
+
+    return ancestries[ancestryName];
 }
 
 // Gera um gênero aleatório para o personagem, retornando 'M' ou 'F'.
@@ -784,7 +797,7 @@ function generateCharacter(options: Options) {
         bn: Math.ceil((options.level || 1) / 2),
         jdp: charClass.jdp(options.level || 1),
         movement: charClass.movement,
-        ancestry: options.ancestry || randomAncestry(),
+        ancestry: getAncestry(options),
         gender,
         name: randomName(gender),
         attributes: {
@@ -812,27 +825,25 @@ function generateCharacter(options: Options) {
                 'value': attributes.car,
                 'mod': attributeMod[attributes.car],
             },
-        },
+        } as CharAttributes,
         hp: ndx(options.level || 1, charClass.hitDice),
+        armorClass: 10 + attributeMod[attributes.des],
     }
 }
 
-function getInputValueByName(name: string): string {
+function getInputValueByName(name: string): string | undefined {
     // 1. Seleciona o elemento input usando o seletor de atributo [name="nomeDoSeuInput"]
     const inputElement = document.querySelector<HTMLInputElement>(`input[name="${name}"]`);
 
     // 2. Verifica se o elemento foi encontrado antes de tentar acessar seu valor
     if (inputElement) {
-        const inputValue = inputElement.value;
-        console.log("O valor do input é:", inputValue);
-    } else {
-        console.log("Nenhum input com o nome 'meuInput' foi encontrado.");
+        return inputElement.value;
     }
 
-    return 'foobar';
+    return undefined;
 }
 
-function getSelectedRadioValue(radioGroupName: string): string | null {
+function getSelectedRadioValue(radioGroupName: string): string | undefined {
     // Use querySelector to find the checked radio button within the specified group
     const selectedRadio = document.querySelector<HTMLInputElement>(
         `input[name="${radioGroupName}"]:checked`
@@ -841,21 +852,70 @@ function getSelectedRadioValue(radioGroupName: string): string | null {
     // If a radio button is selected, return its value; otherwise, return null
     if (selectedRadio) {
         return selectedRadio.value;
-    } else {
-        return null;
     }
+
+    return undefined;
+}
+
+function setTextById(elementId: string, newText: string): void {
+    const element = document.getElementById(elementId);
+
+    if (element) {
+        element.textContent = newText;
+        return;
+    }
+
+    console.warn(`Element with ID "${elementId}" not found.`);
+}
+
+function formatMod(mod: number): string {
+    return mod >= 0 ? `+${Math.abs(mod)}` : `-${Math.abs(mod)}`;
+}
+
+function formatAttribute(attr: FullAttribute): string {
+    return `${attr.value} (${formatMod(attr.mod)})`;
+}
+
+function formatJdp(jdp: number[]): string {
+    let v = jdp[0];
+    let r = jdp[1];
+    let m = jdp[2];
+
+    return `V${v}/R${r}/M${m}`;
 }
 
 export function goGenerateChar() {
-    // Example usage:
-// Assuming you have radio buttons with name="gender"
     const selectedGender = getSelectedRadioValue('gender');
+    const selectedClass = getSelectedRadioValue('class');
 
-    if (selectedGender) {
-        console.log(`Selected gender: ${selectedGender}`);
-    } else {
-        console.log('No gender selected.');
+    let opts: Options = {
+        gender: selectedGender as Gender,
+        level: 1,
+        class: selectedClass as ClassName,
     }
+
+    let char = generateCharacter(opts);
+
+    setTextById('char-name', char.name);
+    setTextById('char-ancestry', char.ancestry.name);
+    setTextById('char-class', char.class.name);
+    setTextById('char-hit-dice', `d${char.class.hitDice}`);
+
+    setTextById('char-in', formatMod(char.attributes.des.mod));
+    setTextById('char-mov', char.movement.toString());
+    setTextById('char-hp', char.hp.toString());
+    setTextById('char-ac', char.armorClass.toString());
+    setTextById('char-bn', formatMod(char.bn));
+    setTextById('char-jdp', formatJdp(char.jdp));
+
+    setTextById('attr-for', `${formatAttribute(char.attributes.for)}`);
+    setTextById('attr-des', `${formatAttribute(char.attributes.des)}`);
+    setTextById('attr-con', `${formatAttribute(char.attributes.con)}`);
+    setTextById('attr-int', `${formatAttribute(char.attributes.int)}`);
+    setTextById('attr-sab', `${formatAttribute(char.attributes.sab)}`);
+    setTextById('attr-car', `${formatAttribute(char.attributes.car)}`);
+
+    console.log(char);
 }
 
 // Expose myFunction to the global window object

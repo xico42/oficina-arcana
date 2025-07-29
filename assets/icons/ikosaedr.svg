@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="24"
+   height="24"
+   viewBox="0 0 24 24"
+   fill="none"
+   stroke="currentColor"
+   stroke-width="2"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   class="icon icon-tabler icons-tabler-outline icon-tabler-ikosaedr"
+   version="1.1"
+   id="svg20"
+   sodipodi:docname="ikosaedr.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs24" />
+  <sodipodi:namedview
+     id="namedview22"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     showgrid="false"
+     inkscape:zoom="10.416667"
+     inkscape:cx="11.808"
+     inkscape:cy="11.328"
+     inkscape:window-width="840"
+     inkscape:window-height="1399"
+     inkscape:window-x="3629"
+     inkscape:window-y="5"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg20" />
+  <path
+     stroke="none"
+     d="M0 0h24v24H0z"
+     fill="none"
+     id="path2"
+     style="stroke:none" />
+  <path
+     d="M21 8.007v7.986a2 2 0 0 1 -1.006 1.735l-7 4.007a2 2 0 0 1 -1.988 0l-7 -4.007a2 2 0 0 1 -1.006 -1.735v-7.986a2 2 0 0 1 1.006 -1.735l7 -4.007a2 2 0 0 1 1.988 0l7 4.007a2 2 0 0 1 1.006 1.735"
+     id="path4"
+     style="stroke:#ffffff" />
+  <path
+     d="M3.29 6.97l4.21 2.03"
+     id="path6"
+     style="stroke:#ffffff" />
+  <path
+     d="M20.71 6.97l-4.21 2.03"
+     id="path8"
+     style="stroke:#ffffff" />
+  <path
+     d="M20.7 17h-17.4"
+     id="path10"
+     style="stroke:#ffffff" />
+  <path
+     d="M11.76 2.03l-4.26 6.97l-4.3 7.84"
+     id="path12"
+     style="stroke:#ffffff" />
+  <path
+     d="M12.24 2.03q 2.797 4.44 4.26 6.97t 4.3 7.84"
+     id="path14"
+     style="stroke:#ffffff" />
+  <path
+     d="M12 17l-4.5 -8h9z"
+     id="path16"
+     style="stroke:#ffffff" />
+  <path
+     d="M12 17v5"
+     id="path18"
+     style="stroke:#ffffff" />
+</svg>
