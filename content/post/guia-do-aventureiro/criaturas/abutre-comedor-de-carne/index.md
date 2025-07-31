@@ -12,7 +12,7 @@ tags:
 links:
   - title: Licença
     description: Open Game License v1.0a
-    website: /oficina-arcana/page/license/ogl-v1/
+    website: /page/license/ogl-v1/
 ---
 
 > **IN** +0 **CA** 13 **DV** 1d8 (5)

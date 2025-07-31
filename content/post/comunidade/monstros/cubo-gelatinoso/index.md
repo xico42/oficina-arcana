@@ -13,7 +13,7 @@ tags:
 links:
   - title: Licença
     description: Open Game License v1.0a
-    website: /oficina-arcana/page/license/ogl-v1/
+    website: /page/license/ogl-v1/
 ---
 
 Cubos transparentes de 3m. Se movem através das masmorras, absorvendo detritos e criaturas vivas que eles encontram.

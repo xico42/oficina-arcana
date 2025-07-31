@@ -11,7 +11,7 @@ tags:
 links:
   - title: Licença
     description: Open Game License v1.0a
-    website: /oficina-arcana/page/license/ogl-v1/
+    website: /page/license/ogl-v1/
 ---
 
 Humanoides inteligentes, perversos, com corpos emagrecidos e pele emborrachada. Consomem a carne de outros humanóides.

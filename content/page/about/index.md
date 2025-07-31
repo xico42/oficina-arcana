@@ -38,4 +38,4 @@ Apesar de termos o apoio dos criadores do Arcana Primária, esse projeto é um e
 de fãs. O apoio da comunidade é essencial para o projeto se manter vivo.
 
 Caso queira apoiar, a melhor forma é contribuindo com novos conteúdos. Acesse nosso
-[Guia de Criação]({{< relref "/page/guia-criacao/" >}}/oficina-arcana) para saber como você pode ajudar.
+[Guia de Criação]({{< relref "/page/guia-criacao/" >}}) para saber como você pode ajudar.
