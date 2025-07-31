@@ -1,4 +1,10 @@
 {{- $title := .Title -}}
 {{- $siteTitle := .Site.Title -}}
 
+{{- if not $title -}}
+  {{- $title = $siteTitle -}}
+{{- else if not (strings.HasSuffix $title $siteTitle) -}}
+  {{- $title = printf "%s | %s" $title $siteTitle -}}
+{{- end -}}
+
 {{ return $title }}

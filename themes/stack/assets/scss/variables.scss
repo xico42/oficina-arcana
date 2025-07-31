@@ -26,7 +26,7 @@ $defaultTagColors: #fff, #fff, #fff, #fff, #fff;
     --scrollbar-track: var(--body-background);
 
     &[data-scheme="dark"] {
-        --body-background: #303030;
+        --body-background: #000000;
         --accent-color: #ecf0f1;
         --accent-color-darker: #bdc3c7;
         --accent-color-text: #000;
@@ -78,7 +78,7 @@ $defaultTagColors: #fff, #fff, #fff, #fff, #fff;
     }
 
     &[data-scheme="dark"] {
-        --card-background: #424242;
+        --card-background: #151515;
         --card-background-selected: rgba(255, 255, 255, 0.16);
         --card-text-color-main: rgba(255, 255, 255, 0.9);
         --card-text-color-secondary: rgba(255, 255, 255, 0.7);
@@ -132,7 +132,7 @@ $defaultTagColors: #fff, #fff, #fff, #fff, #fff;
         --table-border-color: #717171;
         --tr-even-background-color: #545454;
 
-        --blockquote-background-color: rgb(75 75 75);
+        --blockquote-background-color: rgb(30 30 30);
     }
 }
 
