@@ -5,7 +5,7 @@ title: 'Guia de Criação'
 menu:
   main:
     name: Guia de Criação
-    weight: 4
+    weight: 6
     params:
       icon: infinity
 ---

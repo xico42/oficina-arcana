@@ -4,7 +4,7 @@ description: A ganância e obsessão de todo aventureiro...
 menu:
   main:
     name: Tabelas de Tesouro
-    weight: 3
+    weight: 5
     params:
       icon: trophy
 ---

@@ -5,7 +5,7 @@ title: 'Gerador de Personagens'
 menu:
   main:
     name: Gerador de Personagens
-    weight: 5
+    weight: 7
     params:
       icon: ikosaedr
 ---

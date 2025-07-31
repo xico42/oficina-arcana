@@ -1,7 +1,7 @@
 ---
 date: '2025-07-14T23:18:36-03:00'
 draft: false
-title: 'Sobre o projeto'
+title: 'Sobre a Oficina'
 links:
   - title: Arcana Primária
     description: Arcana Primária é um sistema de RPG que propõe regras simples para proporcionar aventuras imersivas e desafiadoras.
@@ -17,10 +17,10 @@ links:
     image: discord.svg
 menu:
   main:
-    name: Página Inicial
-    weight: 1
+    name: Sobre
+    weight: 2
     params:
-      icon: home
+      icon: hammer
 ---
 
 Esse projeto tem por objetivo disponibilizar para a comunidade Arcana Primária um 

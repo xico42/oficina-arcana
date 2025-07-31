@@ -4,7 +4,7 @@ description: Aqui o Druida encontra inspiração, o Desbravador um companheiro e
 menu:
   main:
     name: Animais
-    weight: 3
+    weight: 4
     params:
       icon: owl
 ---
