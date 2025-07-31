@@ -71,6 +71,8 @@ Todos os parâmetros são opcionais e o que não for selecionado será decidido 
 
 **Classe:** <span id="char-class">XXXXX</span> (<span id="char-hit-dice">dX</span>)
 
+**Dinheiro:** <span id="char-money">XXX P.O.</span>
+
 > **IN** <span id="char-in">XX</span> **CA** <span id="char-ac">XX</span> **PV** <span id="char-hp">XX</span>
 >
 > **BN** <span id="char-bn">+X</span> **JdP** <span id="char-jdp">VXX/RXX/MXX</span>
@@ -81,3 +83,4 @@ Todos os parâmetros são opcionais e o que não for selecionado será decidido 
 >
 > **INT** <span id="attr-int">XX (+1)</span> **SAB** <span id="attr-sab">XX (+1)</span> **CAR** <span id="attr-car">XX (+1)</span>
 
+{{< generator >}}

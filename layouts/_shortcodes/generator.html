@@ -1,0 +1,3 @@
+{{- $opts := dict "minify" hugo.IsProduction -}}
+{{- $scriptGenerator := resources.Get "ts/random.ts" | js.Build $opts | fingerprint -}}
+<script type="text/javascript" src="{{ $scriptGenerator.RelPermalink }}" defer></script>

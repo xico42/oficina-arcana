@@ -5,9 +5,6 @@
 
 <script type="text/javascript" src="{{ $script.RelPermalink }}" defer></script>
 
-{{- $scriptGenerator := resources.Get "ts/random.ts" | js.Build $opts | fingerprint -}}
-<script type="text/javascript" src="{{ $scriptGenerator.RelPermalink }}" defer></script>
-
 {{- with resources.Get "ts/custom.ts" -}}
     {{/* Place your custom script in HUGO_SITE_FOLDER/assets/ts/custom.ts */}}
     {{- $customScript := . | js.Build $opts | fingerprint -}}
