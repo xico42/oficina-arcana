@@ -888,11 +888,13 @@ function formatJdp(jdp: number[]): string {
 export function goGenerateChar() {
     const selectedGender = getSelectedRadioValue('gender');
     const selectedClass = getSelectedRadioValue('class');
+    const selectedAncestry = getSelectedRadioValue('ancestry');
 
     let opts: Options = {
         gender: selectedGender as Gender,
         level: 1,
         class: selectedClass as ClassName,
+        ancestry: selectedAncestry,
     }
 
     let char = generateCharacter(opts);

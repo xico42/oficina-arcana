@@ -59,6 +59,19 @@ Todos os parâmetros são opcionais e o que não for selecionado será decidido 
 
 </div>
 
+### Ancestralidades
+
+<div style="line-height: 2.5">
+    <label class="generator-option"><input type="radio" name="ancestry" value="humano"> Humano</label>
+    <label class="generator-option"><input type="radio" name="ancestry" value="elfo"> Elfo</label>
+    <label class="generator-option"><input type="radio" name="ancestry" value="meio-elfo"> Meio-Elfo</label>
+    <label class="generator-option"><input type="radio" name="ancestry" value="anao"> Anão</label>
+    <label class="generator-option"><input type="radio" name="ancestry" value="pequenino"> Pequenino</label>
+    <label class="generator-option"><input type="radio" name="ancestry" value="gnomo"> Gnomo</label>
+    <label class="generator-option"><input type="radio" name="ancestry" value="orc"> Orc</label>
+    <label class="generator-option"><input type="radio" name="ancestry" value="goblin"> Goblin</label>
+</div>
+
 ### Quem vem aí?
 
 <button class="generator-option" onclick="goGenerateChar();">Gerar Personagem</button>
