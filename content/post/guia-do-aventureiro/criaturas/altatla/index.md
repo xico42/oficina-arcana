@@ -42,7 +42,6 @@ params:
       v: 10
       r: 11
       m: 14
-
 ---
 
 ![Altatla](altatla.png)
@@ -72,17 +71,6 @@ params:
 ## Habilidades Especiais
 
 {{< specials >}}
-
-**Ventania:** Criaturas em até 60’ à frente de Altatla devem ser
-bem-sucedidas em uma jogada de proteção de reflexos, ou
-receberão 1d4 pontos de dano e serão empurrados 20’ para trás. Se
-bem-sucedidas, recebem metade do dano, sem demais efeitos.
-
-**Rasante:** Altatla desce em um rasante, atacando todas as
-criaturas em seu caminho. Vítimas devem ser bem-sucedidas
-em uma jogada de proteção de reflexos, ou receberão 1d6
-pontos de dano, sendo derrubadas. Criaturas bem-sucedidas
-não recebem dano e demais efeitos.
 
 ## Créditos
 
