@@ -1,0 +1,23 @@
+{{- $attacks := .Page.Params.stats.attacks -}}
+{{- $n := len $attacks -}}
+
+{{- if eq $n 1 -}}
+    {{- $attack := index $attacks 0 -}}
+    {{ $attack.name }} ({{ $attack.damage }})
+{{- else if eq $n 2 -}}
+    {{- $attack1 := index $attacks 0 -}}
+    {{- $attack2 := index $attacks 1 -}}
+    {{ $attack1.name }} ({{ $attack1.damage }}) ou {{ $attack2.name }} ({{ $attack2.damage }})
+{{- else -}}
+    {{- range $i, $v := $attacks -}}
+        {{- if eq $i 0 -}}
+            {{ $v.name }} ({{ $v.damage }})
+        {{- else if lt $i (sub $n 2) -}}
+            , {{ $v.name }} ({{ $v.damage }})
+        {{- else if eq $i (sub $n 2) -}}
+            , {{ $v.name }} ({{ $v.damage }})
+        {{- else if eq $i (sub $n 1) -}}
+            &nbsp;ou {{ $v.name }} ({{ $v.damage }})
+        {{- end -}}
+    {{- end -}}
+{{- end -}}

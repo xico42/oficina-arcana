@@ -1,0 +1,7 @@
+{{- $specials := .Page.Params.specials -}}
+
+{{- range $i, $v := $specials -}}
+    <p>
+        <strong>{{ $v.name }}:</strong> ({{ $v.description }})
+    </p>
+{{- end -}}
