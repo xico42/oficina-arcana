@@ -6,6 +6,7 @@ theme = 'stack'
 
 [params]
 mainSections = ["post"]
+favicon = "/favicon.ico"
 
 [params.sidebar]
 subtitle = "Em torres escusas, debruçados sobre mesas fracamente iluminadas, mestres arcanos se deleitam em suas criações enquanto dobram a realidade conforme sua vontade."
