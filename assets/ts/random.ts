@@ -921,4 +921,14 @@ export function goGenerateChar() {
     setTextById('char-money', `${char.po} P.O.`);
 }
 
+function resetForm() {
+    const element = document.getElementById('generator-form');
+
+    if (element) {
+        element.reset();
+        return;
+    }
+}
+
 (window as any).goGenerateChar = goGenerateChar;
+(window as any).resetForm = resetForm;

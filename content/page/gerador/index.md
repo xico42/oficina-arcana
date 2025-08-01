@@ -13,6 +13,10 @@ menu:
 Para usar o gerador de personagens, basta preencher os parâmetros abaixo e clicar no botão "Gerar Personagem".
 Todos os parâmetros são opcionais e o que não for selecionado será decidido aleatoriamente.
 
+Caso queira resetar os parâmetros, clique no botão "Limpar".
+
+<form id="generator-form">
+
 ### Parâmetros Gerais
 
 <div style="line-height: 2.5">
@@ -72,9 +76,12 @@ Todos os parâmetros são opcionais e o que não for selecionado será decidido 
     <label class="generator-option"><input type="radio" name="ancestry" value="goblin"> Goblin</label>
 </div>
 
+</form>
+
 ### Quem vem aí?
 
 <button class="generator-option" onclick="goGenerateChar();">Gerar Personagem</button>
+<button class="generator-option" onclick="resetForm();">Limpar</button>
 
 ## Seu personagem é ...
 
