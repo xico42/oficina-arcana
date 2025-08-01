@@ -7,15 +7,19 @@ links:
   - title: Arcana Primária
     description: Arcana Primária é um sistema de RPG que propõe regras simples para proporcionar aventuras imersivas e desafiadoras.
     website: https://www.arcanaprimaria.com/
-    image: arcana_logo.png
+    image: _index/arcana_logo.png
   - title: Código fonte
     description: Repositório do site Oficina Arcana.
     website: http://github.com/xico42/oficina-arcana
-    image: github-mark.svg
+    image: _index/github-mark.svg
   - title: Discord
     description: Discord da comunidade Arcana Primária.
     website: https://discord.gg/Y2v9eVXD
-    image: discord.svg
+    image: _index/discord.svg
+  - title: WhatsApp
+    description: WhatsApp da comunidade Arcana Primária.
+    website: https://chat.whatsapp.com/In62DaPSsZQIviLB87OFni
+    image: _index/whats.svg
 menu:
   main:
     name: Sobre
