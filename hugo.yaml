@@ -1,0 +1,36 @@
+baseURL: https://example.org/
+languageCode: pt-br
+defaultContentLanguage: pt-br
+title: Oficina Arcana
+theme: stack
+services:
+  googleAnalytics:
+    id: G-GR2R4RKX3C
+params:
+  mainSections:
+    - post
+  favicon: /favicon.ico
+  sidebar:
+    subtitle: |
+      Em torres escusas, debruçados sobre mesas fracamente iluminadas,
+      mestres arcanos se deleitam em suas criações enquanto dobram a realidade
+      conforme sua vontade.
+  colorScheme:
+    toggle: false
+    default: dark
+  widgets:
+    homepage:
+      - type: search
+      - type: categories
+        params:
+          limit: 10
+      - type: tag-cloud
+        params:
+          limit: 10
+caches:
+  images:
+    dir: :cacheDir/images
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
