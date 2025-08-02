@@ -1,3 +1,5 @@
+import {pickSpellBook, SpellLimit, SpellListName} from "./spells";
+
 interface Attributes {
     for: number,
     des: number,
@@ -21,6 +23,12 @@ interface FullAttribute {
 
 type CharAttributes = Record<AttributeName, FullAttribute>;
 
+interface ClassSpellCast {
+    spellLists: SpellListName[],
+    spellLimitsByLevel: Record<number, SpellLimit[]>,
+    hasSpellBook?: boolean,
+}
+
 interface ClassDetails {
     title: string,
     mainAttribute: AttributeName,
@@ -28,6 +36,8 @@ interface ClassDetails {
     movement: number,
 
     jdp(level: number): number[],
+
+    spellCast?: ClassSpellCast,
 }
 
 type ClassDetailsWithName = ClassDetails & {
@@ -154,6 +164,284 @@ function getClass(options: Options): ClassDetailsWithName {
         }
 
         return [4, 4, 6]
+    };
+
+    let arcaneSpellLimits: Record<string, SpellLimit[]> = {
+        1: [
+            {circle: 1, maxSpells: 1}
+        ],
+        2: [
+            {circle: 1, maxSpells: 2}
+        ],
+        3: [
+            {circle: 1, maxSpells: 2},
+            {circle: 2, maxSpells: 1}
+        ],
+        4: [
+            {circle: 1, maxSpells: 3},
+            {circle: 2, maxSpells: 2}
+        ],
+        5: [
+            {circle: 1, maxSpells: 4},
+            {circle: 2, maxSpells: 2},
+            {circle: 3, maxSpells: 1}
+        ],
+        6: [
+            {circle: 1, maxSpells: 4},
+            {circle: 2, maxSpells: 2},
+            {circle: 3, maxSpells: 2}
+        ],
+        7: [
+            {circle: 1, maxSpells: 4},
+            {circle: 2, maxSpells: 3},
+            {circle: 3, maxSpells: 2},
+            {circle: 4, maxSpells: 1}
+        ],
+        8: [
+            {circle: 1, maxSpells: 4},
+            {circle: 2, maxSpells: 3},
+            {circle: 3, maxSpells: 3},
+            {circle: 4, maxSpells: 2}
+        ],
+        9: [
+            {circle: 1, maxSpells: 4},
+            {circle: 2, maxSpells: 3},
+            {circle: 3, maxSpells: 3},
+            {circle: 4, maxSpells: 2},
+            {circle: 5, maxSpells: 1}
+        ],
+        10: [
+            {circle: 1, maxSpells: 4},
+            {circle: 2, maxSpells: 4},
+            {circle: 3, maxSpells: 3},
+            {circle: 4, maxSpells: 2},
+            {circle: 5, maxSpells: 2}
+        ],
+        11: [
+            {circle: 1, maxSpells: 4},
+            {circle: 2, maxSpells: 4},
+            {circle: 3, maxSpells: 4},
+            {circle: 4, maxSpells: 3},
+            {circle: 5, maxSpells: 3}
+        ],
+        12: [
+            {circle: 1, maxSpells: 4},
+            {circle: 2, maxSpells: 4},
+            {circle: 3, maxSpells: 4},
+            {circle: 4, maxSpells: 4},
+            {circle: 5, maxSpells: 4},
+            {circle: 6, maxSpells: 1}
+        ],
+        13: [
+            {circle: 1, maxSpells: 5},
+            {circle: 2, maxSpells: 5},
+            {circle: 3, maxSpells: 5},
+            {circle: 4, maxSpells: 4},
+            {circle: 5, maxSpells: 4},
+            {circle: 6, maxSpells: 2}
+        ],
+        14: [
+            {circle: 1, maxSpells: 5},
+            {circle: 2, maxSpells: 5},
+            {circle: 3, maxSpells: 5},
+            {circle: 4, maxSpells: 4},
+            {circle: 5, maxSpells: 4},
+            {circle: 6, maxSpells: 2},
+            {circle: 7, maxSpells: 1}
+        ],
+        15: [
+            {circle: 1, maxSpells: 5},
+            {circle: 2, maxSpells: 5},
+            {circle: 3, maxSpells: 5},
+            {circle: 4, maxSpells: 5},
+            {circle: 5, maxSpells: 5},
+            {circle: 6, maxSpells: 2},
+            {circle: 7, maxSpells: 1}
+        ],
+        16: [
+            {circle: 1, maxSpells: 5},
+            {circle: 2, maxSpells: 5},
+            {circle: 3, maxSpells: 5},
+            {circle: 4, maxSpells: 5},
+            {circle: 5, maxSpells: 5},
+            {circle: 6, maxSpells: 3},
+            {circle: 7, maxSpells: 2},
+            {circle: 8, maxSpells: 1}
+        ],
+        17: [
+            {circle: 1, maxSpells: 5},
+            {circle: 2, maxSpells: 5},
+            {circle: 3, maxSpells: 5},
+            {circle: 4, maxSpells: 5},
+            {circle: 5, maxSpells: 5},
+            {circle: 6, maxSpells: 3},
+            {circle: 7, maxSpells: 3},
+            {circle: 8, maxSpells: 2}
+        ],
+        18: [
+            {circle: 1, maxSpells: 5},
+            {circle: 2, maxSpells: 5},
+            {circle: 3, maxSpells: 5},
+            {circle: 4, maxSpells: 5},
+            {circle: 5, maxSpells: 5},
+            {circle: 6, maxSpells: 3},
+            {circle: 7, maxSpells: 3},
+            {circle: 8, maxSpells: 2},
+            {circle: 9, maxSpells: 1}
+        ],
+        19: [
+            {circle: 1, maxSpells: 5},
+            {circle: 2, maxSpells: 5},
+            {circle: 3, maxSpells: 5},
+            {circle: 4, maxSpells: 5},
+            {circle: 5, maxSpells: 5},
+            {circle: 6, maxSpells: 3},
+            {circle: 7, maxSpells: 3},
+            {circle: 8, maxSpells: 3},
+            {circle: 9, maxSpells: 1}
+        ],
+        20: [
+            {circle: 1, maxSpells: 5},
+            {circle: 2, maxSpells: 5},
+            {circle: 3, maxSpells: 5},
+            {circle: 4, maxSpells: 5},
+            {circle: 5, maxSpells: 5},
+            {circle: 6, maxSpells: 4},
+            {circle: 7, maxSpells: 3},
+            {circle: 8, maxSpells: 3},
+            {circle: 9, maxSpells: 2}
+        ]
+    };
+    let divineSpellLimits: Record<string, SpellLimit[]> = {
+        1: [
+            {circle: 1, maxSpells: 1}
+        ],
+        2: [
+            {circle: 1, maxSpells: 2}
+        ],
+        3: [
+            {circle: 1, maxSpells: 2},
+            {circle: 2, maxSpells: 1}
+        ],
+        4: [
+            {circle: 1, maxSpells: 2},
+            {circle: 2, maxSpells: 2}
+        ],
+        5: [
+            {circle: 1, maxSpells: 2},
+            {circle: 2, maxSpells: 2},
+            {circle: 3, maxSpells: 1}
+        ],
+        6: [
+            {circle: 1, maxSpells: 2},
+            {circle: 2, maxSpells: 2},
+            {circle: 3, maxSpells: 2}
+        ],
+        7: [
+            {circle: 1, maxSpells: 2},
+            {circle: 2, maxSpells: 2},
+            {circle: 3, maxSpells: 2},
+            {circle: 4, maxSpells: 1}
+        ],
+        8: [
+            {circle: 1, maxSpells: 3},
+            {circle: 2, maxSpells: 2},
+            {circle: 3, maxSpells: 2},
+            {circle: 4, maxSpells: 2}
+        ],
+        9: [
+            {circle: 1, maxSpells: 3},
+            {circle: 2, maxSpells: 3},
+            {circle: 3, maxSpells: 3},
+            {circle: 4, maxSpells: 2}
+        ],
+        10: [
+            {circle: 1, maxSpells: 3},
+            {circle: 2, maxSpells: 3},
+            {circle: 3, maxSpells: 3},
+            {circle: 4, maxSpells: 3},
+            {circle: 5, maxSpells: 1}
+        ],
+        11: [
+            {circle: 1, maxSpells: 4},
+            {circle: 2, maxSpells: 4},
+            {circle: 3, maxSpells: 4},
+            {circle: 4, maxSpells: 3},
+            {circle: 5, maxSpells: 1}
+        ],
+        12: [
+            {circle: 1, maxSpells: 4},
+            {circle: 2, maxSpells: 4},
+            {circle: 3, maxSpells: 4},
+            {circle: 4, maxSpells: 4},
+            {circle: 5, maxSpells: 2}
+        ],
+        13: [
+            {circle: 1, maxSpells: 5},
+            {circle: 2, maxSpells: 5},
+            {circle: 3, maxSpells: 5},
+            {circle: 4, maxSpells: 4},
+            {circle: 5, maxSpells: 2}
+        ],
+        14: [
+            {circle: 1, maxSpells: 5},
+            {circle: 2, maxSpells: 5},
+            {circle: 3, maxSpells: 5},
+            {circle: 4, maxSpells: 4},
+            {circle: 5, maxSpells: 3},
+            {circle: 6, maxSpells: 1}
+        ],
+        15: [
+            {circle: 1, maxSpells: 5},
+            {circle: 2, maxSpells: 5},
+            {circle: 3, maxSpells: 5},
+            {circle: 4, maxSpells: 5},
+            {circle: 5, maxSpells: 3},
+            {circle: 6, maxSpells: 1}
+        ],
+        16: [
+            {circle: 1, maxSpells: 5},
+            {circle: 2, maxSpells: 5},
+            {circle: 3, maxSpells: 5},
+            {circle: 4, maxSpells: 5},
+            {circle: 5, maxSpells: 4},
+            {circle: 6, maxSpells: 2}
+        ],
+        17: [
+            {circle: 1, maxSpells: 5},
+            {circle: 2, maxSpells: 5},
+            {circle: 3, maxSpells: 5},
+            {circle: 4, maxSpells: 5},
+            {circle: 5, maxSpells: 5},
+            {circle: 6, maxSpells: 3}
+        ],
+        18: [
+            {circle: 1, maxSpells: 5},
+            {circle: 2, maxSpells: 5},
+            {circle: 3, maxSpells: 5},
+            {circle: 4, maxSpells: 5},
+            {circle: 5, maxSpells: 5},
+            {circle: 6, maxSpells: 3},
+            {circle: 7, maxSpells: 1}
+        ],
+        19: [
+            {circle: 1, maxSpells: 5},
+            {circle: 2, maxSpells: 5},
+            {circle: 3, maxSpells: 5},
+            {circle: 4, maxSpells: 5},
+            {circle: 5, maxSpells: 5},
+            {circle: 6, maxSpells: 4},
+            {circle: 7, maxSpells: 1}
+        ],
+        20: [
+            {circle: 1, maxSpells: 5},
+            {circle: 2, maxSpells: 5},
+            {circle: 3, maxSpells: 5},
+            {circle: 4, maxSpells: 5},
+            {circle: 5, maxSpells: 5},
+            {circle: 6, maxSpells: 4},
+            {circle: 7, maxSpells: 2}
+        ]
     };
 
     let classes: ClassRegistry = {
@@ -450,6 +738,11 @@ function getClass(options: Options): ClassDetailsWithName {
 
                 return [10, 6, 4]; // Para nível 21+
             },
+            spellCast: {
+                spellLists: ['mago'],
+                spellLimitsByLevel: arcaneSpellLimits,
+                hasSpellBook: true,
+            }
         },
         'ilusionista': {
             title: 'Ilusionista',
@@ -487,6 +780,11 @@ function getClass(options: Options): ClassDetailsWithName {
 
                 return [10, 7, 6]; // Para nível 21+
             },
+            spellCast: {
+                spellLists: ['ilusionista'],
+                spellLimitsByLevel: arcaneSpellLimits,
+                hasSpellBook: true,
+            }
         },
         'necromante': {
             title: 'Necromante',
@@ -524,6 +822,11 @@ function getClass(options: Options): ClassDetailsWithName {
 
                 return [4, 6, 6]; // Para nível 21+
             },
+            spellCast: {
+                spellLists: ['necromante'],
+                spellLimitsByLevel: arcaneSpellLimits,
+                hasSpellBook: true,
+            }
         },
         'psionico': {
             title: 'Psiônico',
@@ -561,6 +864,11 @@ function getClass(options: Options): ClassDetailsWithName {
 
                 return [10, 5, 6]; // Para nível 21+
             },
+            spellCast: {
+                spellLists: ['psionico'],
+                spellLimitsByLevel: arcaneSpellLimits,
+                hasSpellBook: true,
+            }
         },
         'clerigo': {
             title: 'Clérigo',
@@ -597,6 +905,10 @@ function getClass(options: Options): ClassDetailsWithName {
                 }
 
                 return [5, 5, 4]; // Para nível 21+
+            },
+            spellCast: {
+                spellLists: ['clerigo'],
+                spellLimitsByLevel: divineSpellLimits,
             },
         },
         'druida': {
@@ -635,6 +947,10 @@ function getClass(options: Options): ClassDetailsWithName {
 
                 return [4, 5, 5]; // Para nível 21+
             },
+            spellCast: {
+                spellLists: ['druida'],
+                spellLimitsByLevel: divineSpellLimits,
+            }
         },
         'bardo': {
             title: 'Bardo',
@@ -792,6 +1108,7 @@ function generateCharacter(options: Options) {
             mainAttribute: charClass.mainAttribute,
             hitDice: charClass.hitDice,
             name: charClass.title,
+            spellCast: charClass.spellCast,
         },
         level: options.level,
         bn: Math.ceil((options.level || 1) / 2),
@@ -832,17 +1149,11 @@ function generateCharacter(options: Options) {
     }
 }
 
-function getInputValueByName(name: string): string | undefined {
-    // 1. Seleciona o elemento input usando o seletor de atributo [name="nomeDoSeuInput"]
-    const inputElement = document.querySelector<HTMLInputElement>(`input[name="${name}"]`);
-
-    // 2. Verifica se o elemento foi encontrado antes de tentar acessar seu valor
-    if (inputElement) {
-        return inputElement.value;
-    }
-
-    return undefined;
+function getSelectedLevel(): string {
+    const dropdown = document.getElementById('char-level') as HTMLSelectElement;
+    return dropdown.value;
 }
+
 
 function getSelectedRadioValue(radioGroupName: string): string | undefined {
     // Use querySelector to find the checked radio button within the specified group
@@ -889,15 +1200,24 @@ export function goGenerateChar() {
     const selectedGender = getSelectedRadioValue('gender');
     const selectedClass = getSelectedRadioValue('class');
     const selectedAncestry = getSelectedRadioValue('ancestry');
+    const selectedLevel = getSelectedLevel();
+
+    console.log();
 
     let opts: Options = {
         gender: selectedGender as Gender,
-        level: 1,
+        level: parseInt(selectedLevel.replace('Nível', '').trim()),
         class: selectedClass as ClassName,
         ancestry: selectedAncestry,
     }
 
     let char = generateCharacter(opts);
+
+    if (char.class.spellCast) {
+        console.log(
+            pickSpellBook(char.class.spellCast.spellLists, char.class.spellCast.spellLimitsByLevel[char.level], char.bn),
+        );
+    }
 
     setTextById('char-name', char.name);
     setTextById('char-ancestry', char.ancestry.name);

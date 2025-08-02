@@ -25,6 +25,28 @@ Caso queira resetar os parâmetros, clique no botão "Limpar".
     <label class="generator-option" style="display: none"><input type="checkbox" name="spells"> Magias</label>
     <label class="generator-option"><input type="radio" name="gender" value="M"> Homem</label>
     <label class="generator-option"><input type="radio" name="gender" value="F"> Mulher</label>
+    <select class="generator-option" id="char-level">
+        <option>Nível 1</option>
+        <option>Nível 2</option>
+        <option>Nível 3</option>
+        <option>Nível 4</option>
+        <option>Nível 5</option>
+        <option>Nível 6</option>
+        <option>Nível 7</option>
+        <option>Nível 8</option>
+        <option>Nível 9</option>
+        <option>Nível 10</option>
+        <option>Nível 11</option>
+        <option>Nível 12</option>
+        <option>Nível 13</option>
+        <option>Nível 14</option>
+        <option>Nível 15</option>
+        <option>Nível 16</option>
+        <option>Nível 17</option>
+        <option>Nível 18</option>
+        <option>Nível 19</option>
+        <option>Nível 20</option>
+    </select>
 </div>
 
 ### Classes

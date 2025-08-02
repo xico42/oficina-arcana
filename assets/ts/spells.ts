@@ -1,0 +1,193 @@
+export type SpellListName = 'mago' | 'psionico' | 'ilusionista' | 'necromante' | 'druida' | 'clerigo';
+
+interface Spell {
+    circle: number;
+    name: string;
+    ref: string | null;
+    listName: SpellListName;
+}
+
+export interface SpellLimit {
+    circle: number;
+    maxSpells: number;
+}
+
+
+const wizardSpells: Spell[] = [
+    { circle: 1, name: 'Alarme', ref: null, listName: "mago" },
+    { circle: 1, name: 'Armadura Arcana', ref: null, listName: "mago" },
+    { circle: 1, name: 'Cerrar Portas', ref: null, listName: "mago" },
+    { circle: 1, name: 'Compreender Linguagem', ref: null, listName: "mago" },
+    { circle: 1, name: 'Conjurar Familiar', ref: null, listName: "mago" },
+    { circle: 1, name: 'Consertar', ref: null, listName: "mago" },
+    { circle: 1, name: 'Dardos Místicos', ref: null, listName: "mago" },
+    { circle: 1, name: 'Detectar Magia', ref: null, listName: "mago" },
+    { circle: 1, name: 'Enfeitiçar Criaturas', ref: null, listName: "mago" },
+    { circle: 1, name: 'Leque Cromático', ref: null, listName: "mago" },
+    { circle: 1, name: 'Luz', ref: null, listName: "mago" },
+    { circle: 1, name: 'Mãos Flamejantes', ref: null, listName: "mago" },
+    { circle: 1, name: 'Mensagem', ref: null, listName: "mago" },
+    { circle: 1, name: 'Polia Arcana', ref: null, listName: "mago" },
+    { circle: 1, name: 'Salto', ref: null, listName: "mago" },
+    { circle: 1, name: 'Toque Chocante', ref: null, listName: "mago" },
+    { circle: 1, name: 'Ventriloquismo', ref: null, listName: "mago" },
+
+    { circle: 2, name: 'Arrombar', ref: null, listName: "mago" },
+    { circle: 2, name: 'Astúcia de Balamoor', ref: null, listName: "mago" },
+    { circle: 2, name: 'Detectar Invisibilidade', ref: null, listName: "mago" },
+    { circle: 2, name: 'Escuridão Total', ref: null, listName: "mago" },
+    { circle: 2, name: 'Esfera Flamejante', ref: null, listName: "mago" },
+    { circle: 2, name: 'Fechadura Arcana', ref: null, listName: "mago" },
+    { circle: 2, name: 'Força', ref: null, listName: "mago" },
+    { circle: 2, name: 'Identificar', ref: null, listName: "mago" },
+    { circle: 2, name: 'Invisibilidade', ref: null, listName: "mago" },
+    { circle: 2, name: 'Lampejo de Mirazian', ref: null, listName: "mago" },
+    { circle: 2, name: 'Localizar Objetos', ref: null, listName: "mago" },
+    { circle: 2, name: 'Luz Contínua', ref: null, listName: "mago" },
+    { circle: 2, name: 'Queda Suave', ref: null, listName: "mago" },
+    { circle: 2, name: 'Servo Invisível', ref: null, listName: "mago" },
+    { circle: 2, name: 'Sono', ref: null, listName: "mago" },
+    { circle: 2, name: 'Teia', ref: null, listName: "mago" },
+
+    { circle: 3, name: 'Bola de Fogo', ref: null, listName: "mago" },
+    { circle: 3, name: 'Celeridade', ref: null, listName: "mago" },
+    { circle: 3, name: 'Dissipar Magia', ref: null, listName: "mago" },
+    { circle: 3, name: 'Escrita Ilusória', ref: null, listName: "mago" },
+    { circle: 3, name: 'Flecha de Chamas', ref: null, listName: "mago" },
+    { circle: 3, name: 'Forma Ectoplásmica', ref: null, listName: "mago" },
+    { circle: 3, name: 'Imobilizar Criaturas', ref: null, listName: "mago" },
+    { circle: 3, name: 'Infravisão', ref: null, listName: "mago" },
+    { circle: 3, name: 'Invisibilidade 10’ Radiais', ref: null, listName: "mago" },
+    { circle: 3, name: 'Piscar', ref: null, listName: "mago" },
+    { circle: 3, name: 'Proteção a Projéteis', ref: null, listName: "mago" },
+    { circle: 3, name: 'Relâmpago', ref: null, listName: "mago" },
+    { circle: 3, name: 'Respiração Subaquática', ref: null, listName: "mago" },
+    { circle: 3, name: 'Runas Explosivas', ref: null, listName: "mago" },
+    { circle: 3, name: 'Voar', ref: null, listName: "mago" },
+
+    { circle: 4, name: 'Abjurar', ref: null, listName: "mago" },
+    { circle: 4, name: 'Conferir Fraqueza', ref: null, listName: "mago" },
+    { circle: 4, name: 'Escavação', ref: null, listName: "mago" },
+    { circle: 4, name: 'Escudo Elemental', ref: null, listName: "mago" },
+    { circle: 4, name: 'Grade de Balamoor', ref: null, listName: "mago" },
+    { circle: 4, name: 'Medo', ref: null, listName: "mago" },
+    { circle: 4, name: 'Muralha de Fogo', ref: null, listName: "mago" },
+    { circle: 4, name: 'Muralha de Gelo', ref: null, listName: "mago" },
+    { circle: 4, name: 'Ocultar Runa', ref: null, listName: "mago" },
+    { circle: 4, name: 'Olho Arcano', ref: null, listName: "mago" },
+    { circle: 4, name: 'Polimorfismo', ref: null, listName: "mago" },
+    { circle: 4, name: 'Porta Dimensional', ref: null, listName: "mago" },
+    { circle: 4, name: 'Remover Maldição', ref: null, listName: "mago" },
+    { circle: 4, name: 'Tempestade Glacial', ref: null, listName: "mago" },
+
+    { circle: 5, name: 'Andar Subaquático', ref: null, listName: "mago" },
+    { circle: 5, name: 'Cone Glacial', ref: null, listName: "mago" },
+    { circle: 5, name: 'Conjurar Elemental', ref: null, listName: "mago" },
+    { circle: 5, name: 'Contato Extraplanar', ref: null, listName: "mago" },
+    { circle: 5, name: 'Criar Passagens', ref: null, listName: "mago" },
+    { circle: 5, name: 'Imobilizar Monstros', ref: null, listName: "mago" },
+    { circle: 5, name: 'Muralha de Energia', ref: null, listName: "mago" },
+    { circle: 5, name: 'Muralha Mineral', ref: null, listName: "mago" },
+    { circle: 5, name: 'Névoa de Brasas', ref: null, listName: "mago" },
+    { circle: 5, name: 'Pedra em Lama', ref: null, listName: "mago" },
+    { circle: 5, name: 'Runa de Ocultação', ref: null, listName: "mago" },
+    { circle: 5, name: 'Teleportação', ref: null, listName: "mago" },
+
+    { circle: 6, name: 'Concha Antimagia', ref: null, listName: "mago" },
+    { circle: 6, name: 'Corrente de Relâmpagos', ref: null, listName: "mago" },
+    { circle: 6, name: 'Contingência', ref: null, listName: "mago" },
+    { circle: 6, name: 'Desintegração', ref: null, listName: "mago" },
+    { circle: 6, name: 'Fortaleza Arcana', ref: null, listName: "mago" },
+    { circle: 6, name: 'Magia da Morte', ref: null, listName: "mago" },
+    { circle: 6, name: 'Partir Água', ref: null, listName: "mago" },
+    { circle: 6, name: 'Pedra em Carne', ref: null, listName: "mago" },
+    { circle: 6, name: 'Repulsão', ref: null, listName: "mago" },
+    { circle: 6, name: 'Visão da Verdade', ref: null, listName: "mago" },
+    { circle: 6, name: 'Vitrificação', ref: null, listName: "mago" },
+
+    { circle: 7, name: 'Bola de Fogo Controlável', ref: null, listName: "mago" },
+    { circle: 7, name: 'Forma Plana', ref: null, listName: "mago" },
+    { circle: 7, name: 'Gaiola Arcana', ref: null, listName: "mago" },
+    { circle: 7, name: 'Inverter a Gravidade', ref: null, listName: "mago" },
+    { circle: 7, name: 'Invisibilidade em Massa', ref: null, listName: "mago" },
+    { circle: 7, name: 'Palavra de Poder: Atordoar', ref: null, listName: "mago" },
+    { circle: 7, name: 'Passagem Invisível', ref: null, listName: "mago" },
+    { circle: 7, name: 'Reverter Magia', ref: null, listName: "mago" },
+
+    { circle: 8, name: "Antipatia / Simpatia", ref: null, listName: "mago"},
+    { circle: 8, name: "Labirinto", ref: null, listName: "mago"},
+    { circle: 8, name: "Enfeitiçar em Massa", ref: null, listName: "mago"},
+    { circle: 8, name: "Infusão Mágica", ref: null, listName: "mago"},
+    { circle: 8, name: "Palavra de Poder: Cegar", ref: null, listName: "mago"},
+
+    { circle: 9, name: "Alterar Forma", ref: null, listName: "mago"},
+    { circle: 9, name: "Auxílio Imediato", ref: null, listName: "mago"},
+    { circle: 9, name: "Chuva de Meteoros", ref: null, listName: "mago"},
+    { circle: 9, name: "Cristalização", ref: null, listName: "mago"},
+    { circle: 9, name: "Palavra de Poder: Matar", ref: null, listName: "mago"},
+    { circle: 9, name: "Superar o Tempo", ref: null, listName: "mago"},
+    { circle: 9, name: "Portal", ref: null, listName: "mago"},
+];
+
+const tomoMetafisico: Spell[] = [
+    ...wizardSpells,
+]
+
+
+export function pickPreparedSpells(lists: SpellListName[], limits: SpellLimit[]) {
+    let spells: Spell[] = [];
+
+    let listSpells = tomoMetafisico.filter(spell => lists.includes(spell.listName));
+
+    for (const limit of limits) {
+        const availableSpells = listSpells.filter(spell => spell.circle === limit.circle);
+        for (let i = 0; i < limit.maxSpells; i++) {
+            if (availableSpells.length === 0) {
+                break;
+            }
+
+            const randomIndex = Math.floor(Math.random() * availableSpells.length);
+            const spell = availableSpells.splice(randomIndex, 1)[0];
+            spells.push(spell);
+        }
+    }
+
+    return spells;
+}
+
+function spellEquals(a: Spell, b: Spell) {
+    return a.circle === b.circle && a.name === b.name && a.listName === b.listName;
+}
+
+export function pickSpells(lists: SpellListName[], maxCircle: number, numberOfSpells: number, except: Spell[] = []) {
+    let spells: Spell[] = [];
+
+    let listSpells = tomoMetafisico.filter(spell => {
+        return lists.includes(spell.listName)
+            && except.filter(e => spellEquals(e, spell)).length === 0;
+    });
+
+    listSpells = listSpells.filter(spell => spell.circle <= maxCircle);
+
+    for (let i = 0; i < numberOfSpells; i++) {
+        if (listSpells.length === 0) {
+            break;
+        }
+
+        const randomIndex = Math.floor(Math.random() * listSpells.length);
+        const spell = listSpells.splice(randomIndex, 1)[0];
+        spells.push(spell);
+    }
+
+    return spells;
+}
+
+export function pickSpellBook(lists: SpellListName[], preparedLimits: SpellLimit[], numberOfExtraSpells: number) {
+    const preparedSpells = pickPreparedSpells(lists, preparedLimits);
+
+    const maxCircle = Math.max(...preparedLimits.map(limit => limit.circle));
+
+    const extraSpells = pickSpells(lists, maxCircle, numberOfExtraSpells, preparedSpells);
+
+    return [...preparedSpells, ...extraSpells];
+}
