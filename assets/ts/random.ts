@@ -1,54 +1,7 @@
-import {pickSpellBook, SpellLimit, SpellListName} from "./spells";
-
-interface Attributes {
-    for: number,
-    des: number,
-    con: number,
-    int: number,
-    sab: number,
-    car: number,
-}
-
-type AttributeName = keyof Attributes;
-
-interface Attribute {
-    name: AttributeName,
-    value: number,
-}
-
-interface FullAttribute {
-    value: number,
-    mod: number,
-}
-
-type CharAttributes = Record<AttributeName, FullAttribute>;
-
-interface ClassSpellCast {
-    spellLists: SpellListName[],
-    spellLimitsByLevel: Record<number, SpellLimit[]>,
-    hasSpellBook?: boolean,
-}
-
-interface ClassDetails {
-    title: string,
-    mainAttribute: AttributeName,
-    hitDice: number,
-    movement: number,
-
-    jdp(level: number): number[],
-
-    spellCast?: ClassSpellCast,
-}
-
-type ClassDetailsWithName = ClassDetails & {
-    name: string,
-}
-
-type ClassName = keyof ClassRegistry;
-
-type ClassRegistry = Record<string, ClassDetails>;
-
-type Gender = 'M' | 'F';
+import {pickSpellBook} from "./generator/spells";
+import {ClassDetails, ClassIdentifier, classRegistry} from "./generator/classes";
+import {Attribute, AttributeName, Attributes, CharAttributes, FullAttribute, Gender} from "./generator/types";
+import {nd6, ndx} from "./generator/dice";
 
 /**
  * Opções de customização do gerador de personagens.
@@ -60,28 +13,9 @@ type Gender = 'M' | 'F';
  */
 interface Options {
     gender?: Gender,
-    class?: ClassName,
+    class?: ClassIdentifier,
     level?: number,
     ancestry?: string,
-}
-
-// Simula a rolagem de um dado de x lados.
-function dx(x: number): number {
-    return Math.floor(Math.random() * x) + 1;
-}
-
-// Simula a rolagem de n dados de x lados e retorna a soma.
-function ndx(n: number, x: number): number {
-    let sum = 0
-    for (let i = 0; i < n; i++) {
-        sum += dx(x);
-    }
-    return sum;
-}
-
-// Simula a rolagem de n dados de 6 lados e retorna a soma.
-function nd6(n: number): number {
-    return ndx(n, 6);
 }
 
 // Verifica se os atributos gerados precisam ser recriados.
@@ -133,872 +67,12 @@ function generateAttributes(): Attributes {
 }
 
 // Obtém a classe do personagem com base nas opções fornecidas ou seleciona uma aleatoriamente.
-function getClass(options: Options): ClassDetailsWithName {
-    let warriorJdp = function (level: number): number[] {
-        if (level <= 2) {
-            return [12, 13, 16];
-        }
-
-        if (level <= 4) {
-            return [11, 12, 15];
-        }
-
-        if (level <= 6) {
-            return [10, 11, 14];
-        }
-
-        if (level <= 8) {
-            return [9, 10, 12];
-        }
-
-        if (level <= 10) {
-            return [8, 9, 10];
-        }
-
-        if (level <= 13) {
-            return [6, 7, 9];
-        }
-
-        if (level <= 20) {
-            return [5, 6, 7];
-        }
-
-        return [4, 4, 6]
-    };
-
-    let arcaneSpellLimits: Record<string, SpellLimit[]> = {
-        1: [
-            {circle: 1, maxSpells: 1}
-        ],
-        2: [
-            {circle: 1, maxSpells: 2}
-        ],
-        3: [
-            {circle: 1, maxSpells: 2},
-            {circle: 2, maxSpells: 1}
-        ],
-        4: [
-            {circle: 1, maxSpells: 3},
-            {circle: 2, maxSpells: 2}
-        ],
-        5: [
-            {circle: 1, maxSpells: 4},
-            {circle: 2, maxSpells: 2},
-            {circle: 3, maxSpells: 1}
-        ],
-        6: [
-            {circle: 1, maxSpells: 4},
-            {circle: 2, maxSpells: 2},
-            {circle: 3, maxSpells: 2}
-        ],
-        7: [
-            {circle: 1, maxSpells: 4},
-            {circle: 2, maxSpells: 3},
-            {circle: 3, maxSpells: 2},
-            {circle: 4, maxSpells: 1}
-        ],
-        8: [
-            {circle: 1, maxSpells: 4},
-            {circle: 2, maxSpells: 3},
-            {circle: 3, maxSpells: 3},
-            {circle: 4, maxSpells: 2}
-        ],
-        9: [
-            {circle: 1, maxSpells: 4},
-            {circle: 2, maxSpells: 3},
-            {circle: 3, maxSpells: 3},
-            {circle: 4, maxSpells: 2},
-            {circle: 5, maxSpells: 1}
-        ],
-        10: [
-            {circle: 1, maxSpells: 4},
-            {circle: 2, maxSpells: 4},
-            {circle: 3, maxSpells: 3},
-            {circle: 4, maxSpells: 2},
-            {circle: 5, maxSpells: 2}
-        ],
-        11: [
-            {circle: 1, maxSpells: 4},
-            {circle: 2, maxSpells: 4},
-            {circle: 3, maxSpells: 4},
-            {circle: 4, maxSpells: 3},
-            {circle: 5, maxSpells: 3}
-        ],
-        12: [
-            {circle: 1, maxSpells: 4},
-            {circle: 2, maxSpells: 4},
-            {circle: 3, maxSpells: 4},
-            {circle: 4, maxSpells: 4},
-            {circle: 5, maxSpells: 4},
-            {circle: 6, maxSpells: 1}
-        ],
-        13: [
-            {circle: 1, maxSpells: 5},
-            {circle: 2, maxSpells: 5},
-            {circle: 3, maxSpells: 5},
-            {circle: 4, maxSpells: 4},
-            {circle: 5, maxSpells: 4},
-            {circle: 6, maxSpells: 2}
-        ],
-        14: [
-            {circle: 1, maxSpells: 5},
-            {circle: 2, maxSpells: 5},
-            {circle: 3, maxSpells: 5},
-            {circle: 4, maxSpells: 4},
-            {circle: 5, maxSpells: 4},
-            {circle: 6, maxSpells: 2},
-            {circle: 7, maxSpells: 1}
-        ],
-        15: [
-            {circle: 1, maxSpells: 5},
-            {circle: 2, maxSpells: 5},
-            {circle: 3, maxSpells: 5},
-            {circle: 4, maxSpells: 5},
-            {circle: 5, maxSpells: 5},
-            {circle: 6, maxSpells: 2},
-            {circle: 7, maxSpells: 1}
-        ],
-        16: [
-            {circle: 1, maxSpells: 5},
-            {circle: 2, maxSpells: 5},
-            {circle: 3, maxSpells: 5},
-            {circle: 4, maxSpells: 5},
-            {circle: 5, maxSpells: 5},
-            {circle: 6, maxSpells: 3},
-            {circle: 7, maxSpells: 2},
-            {circle: 8, maxSpells: 1}
-        ],
-        17: [
-            {circle: 1, maxSpells: 5},
-            {circle: 2, maxSpells: 5},
-            {circle: 3, maxSpells: 5},
-            {circle: 4, maxSpells: 5},
-            {circle: 5, maxSpells: 5},
-            {circle: 6, maxSpells: 3},
-            {circle: 7, maxSpells: 3},
-            {circle: 8, maxSpells: 2}
-        ],
-        18: [
-            {circle: 1, maxSpells: 5},
-            {circle: 2, maxSpells: 5},
-            {circle: 3, maxSpells: 5},
-            {circle: 4, maxSpells: 5},
-            {circle: 5, maxSpells: 5},
-            {circle: 6, maxSpells: 3},
-            {circle: 7, maxSpells: 3},
-            {circle: 8, maxSpells: 2},
-            {circle: 9, maxSpells: 1}
-        ],
-        19: [
-            {circle: 1, maxSpells: 5},
-            {circle: 2, maxSpells: 5},
-            {circle: 3, maxSpells: 5},
-            {circle: 4, maxSpells: 5},
-            {circle: 5, maxSpells: 5},
-            {circle: 6, maxSpells: 3},
-            {circle: 7, maxSpells: 3},
-            {circle: 8, maxSpells: 3},
-            {circle: 9, maxSpells: 1}
-        ],
-        20: [
-            {circle: 1, maxSpells: 5},
-            {circle: 2, maxSpells: 5},
-            {circle: 3, maxSpells: 5},
-            {circle: 4, maxSpells: 5},
-            {circle: 5, maxSpells: 5},
-            {circle: 6, maxSpells: 4},
-            {circle: 7, maxSpells: 3},
-            {circle: 8, maxSpells: 3},
-            {circle: 9, maxSpells: 2}
-        ]
-    };
-    let divineSpellLimits: Record<string, SpellLimit[]> = {
-        1: [
-            {circle: 1, maxSpells: 1}
-        ],
-        2: [
-            {circle: 1, maxSpells: 2}
-        ],
-        3: [
-            {circle: 1, maxSpells: 2},
-            {circle: 2, maxSpells: 1}
-        ],
-        4: [
-            {circle: 1, maxSpells: 2},
-            {circle: 2, maxSpells: 2}
-        ],
-        5: [
-            {circle: 1, maxSpells: 2},
-            {circle: 2, maxSpells: 2},
-            {circle: 3, maxSpells: 1}
-        ],
-        6: [
-            {circle: 1, maxSpells: 2},
-            {circle: 2, maxSpells: 2},
-            {circle: 3, maxSpells: 2}
-        ],
-        7: [
-            {circle: 1, maxSpells: 2},
-            {circle: 2, maxSpells: 2},
-            {circle: 3, maxSpells: 2},
-            {circle: 4, maxSpells: 1}
-        ],
-        8: [
-            {circle: 1, maxSpells: 3},
-            {circle: 2, maxSpells: 2},
-            {circle: 3, maxSpells: 2},
-            {circle: 4, maxSpells: 2}
-        ],
-        9: [
-            {circle: 1, maxSpells: 3},
-            {circle: 2, maxSpells: 3},
-            {circle: 3, maxSpells: 3},
-            {circle: 4, maxSpells: 2}
-        ],
-        10: [
-            {circle: 1, maxSpells: 3},
-            {circle: 2, maxSpells: 3},
-            {circle: 3, maxSpells: 3},
-            {circle: 4, maxSpells: 3},
-            {circle: 5, maxSpells: 1}
-        ],
-        11: [
-            {circle: 1, maxSpells: 4},
-            {circle: 2, maxSpells: 4},
-            {circle: 3, maxSpells: 4},
-            {circle: 4, maxSpells: 3},
-            {circle: 5, maxSpells: 1}
-        ],
-        12: [
-            {circle: 1, maxSpells: 4},
-            {circle: 2, maxSpells: 4},
-            {circle: 3, maxSpells: 4},
-            {circle: 4, maxSpells: 4},
-            {circle: 5, maxSpells: 2}
-        ],
-        13: [
-            {circle: 1, maxSpells: 5},
-            {circle: 2, maxSpells: 5},
-            {circle: 3, maxSpells: 5},
-            {circle: 4, maxSpells: 4},
-            {circle: 5, maxSpells: 2}
-        ],
-        14: [
-            {circle: 1, maxSpells: 5},
-            {circle: 2, maxSpells: 5},
-            {circle: 3, maxSpells: 5},
-            {circle: 4, maxSpells: 4},
-            {circle: 5, maxSpells: 3},
-            {circle: 6, maxSpells: 1}
-        ],
-        15: [
-            {circle: 1, maxSpells: 5},
-            {circle: 2, maxSpells: 5},
-            {circle: 3, maxSpells: 5},
-            {circle: 4, maxSpells: 5},
-            {circle: 5, maxSpells: 3},
-            {circle: 6, maxSpells: 1}
-        ],
-        16: [
-            {circle: 1, maxSpells: 5},
-            {circle: 2, maxSpells: 5},
-            {circle: 3, maxSpells: 5},
-            {circle: 4, maxSpells: 5},
-            {circle: 5, maxSpells: 4},
-            {circle: 6, maxSpells: 2}
-        ],
-        17: [
-            {circle: 1, maxSpells: 5},
-            {circle: 2, maxSpells: 5},
-            {circle: 3, maxSpells: 5},
-            {circle: 4, maxSpells: 5},
-            {circle: 5, maxSpells: 5},
-            {circle: 6, maxSpells: 3}
-        ],
-        18: [
-            {circle: 1, maxSpells: 5},
-            {circle: 2, maxSpells: 5},
-            {circle: 3, maxSpells: 5},
-            {circle: 4, maxSpells: 5},
-            {circle: 5, maxSpells: 5},
-            {circle: 6, maxSpells: 3},
-            {circle: 7, maxSpells: 1}
-        ],
-        19: [
-            {circle: 1, maxSpells: 5},
-            {circle: 2, maxSpells: 5},
-            {circle: 3, maxSpells: 5},
-            {circle: 4, maxSpells: 5},
-            {circle: 5, maxSpells: 5},
-            {circle: 6, maxSpells: 4},
-            {circle: 7, maxSpells: 1}
-        ],
-        20: [
-            {circle: 1, maxSpells: 5},
-            {circle: 2, maxSpells: 5},
-            {circle: 3, maxSpells: 5},
-            {circle: 4, maxSpells: 5},
-            {circle: 5, maxSpells: 5},
-            {circle: 6, maxSpells: 4},
-            {circle: 7, maxSpells: 2}
-        ]
-    };
-
-    let classes: ClassRegistry = {
-        'legionario': {
-            title: 'Legionário',
-            mainAttribute: 'for',
-            hitDice: 8,
-            movement: 30,
-            jdp: warriorJdp,
-        },
-        'barbaro': {
-            title: 'Bárbaro',
-            mainAttribute: 'for',
-            hitDice: 8,
-            movement: 30,
-            jdp: warriorJdp,
-        },
-        'gladiador': {
-            title: 'Gladiador',
-            mainAttribute: 'for',
-            hitDice: 8,
-            movement: 40,
-            jdp: warriorJdp,
-        },
-        'lanceiro': {
-            title: 'Lanceiro',
-            mainAttribute: 'for',
-            hitDice: 8,
-            movement: 30,
-            jdp: warriorJdp,
-        },
-        'paladino': {
-            title: 'Paladino',
-            mainAttribute: 'for',
-            hitDice: 8,
-            movement: 30,
-            jdp: function (level) {
-                if (level <= 2) {
-                    return [13, 13, 14];
-                }
-
-                if (level <= 4) {
-                    return [12, 12, 13];
-                }
-
-                if (level <= 6) {
-                    return [11, 11, 12];
-                }
-
-                if (level <= 8) {
-                    return [8, 8, 11];
-                }
-
-                if (level <= 10) {
-                    return [7, 7, 10];
-                }
-
-                if (level <= 13) {
-                    return [6, 6, 8];
-                }
-
-                if (level <= 20) {
-                    return [5, 5, 7];
-                }
-
-                return [4, 4, 5]; // Para nível 21+
-            },
-        },
-        'arqueiro': {
-            title: 'Arqueiro',
-            mainAttribute: 'des',
-            hitDice: 8,
-            movement: 30,
-            jdp: warriorJdp,
-        },
-        'ladrao': {
-            title: 'Ladrão',
-            mainAttribute: 'des',
-            hitDice: 4,
-            movement: 40,
-            jdp: function (level: number) {
-                if (level <= 2) {
-                    return [14, 12, 17];
-                }
-
-                if (level <= 4) {
-                    return [13, 11, 16];
-                }
-
-                if (level <= 6) {
-                    return [12, 10, 15];
-                }
-
-                if (level <= 8) {
-                    return [11, 9, 14];
-                }
-
-                if (level <= 10) {
-                    return [9, 7, 12];
-                }
-
-                if (level <= 13) {
-                    return [7, 6, 10];
-                }
-
-                if (level <= 20) {
-                    return [6, 5, 8];
-                }
-
-                return [5, 4, 7]; // Para nível 21+
-            },
-        },
-        'assassino': {
-            title: 'Assassino',
-            mainAttribute: 'des',
-            hitDice: 4,
-            movement: 30,
-            jdp: function (level) {
-                if (level <= 2) {
-                    return [12, 12, 17];
-                }
-
-                if (level <= 4) {
-                    return [11, 11, 16];
-                }
-
-                if (level <= 6) {
-                    return [10, 10, 15];
-                }
-
-                if (level <= 8) {
-                    return [9, 9, 14];
-                }
-
-                if (level <= 10) {
-                    return [8, 7, 12];
-                }
-
-                if (level <= 13) {
-                    return [6, 6, 10];
-                }
-
-                if (level <= 20) {
-                    return [5, 5, 8];
-                }
-
-                return [4, 4, 7]; // For level 21+
-            },
-        },
-        'desbravador': {
-            title: 'Desbravador',
-            mainAttribute: 'des',
-            hitDice: 6,
-            movement: 30,
-            jdp: function (level) {
-                if (level <= 2) {
-                    return [13, 12, 15];
-                }
-
-                if (level <= 4) {
-                    return [12, 11, 14];
-                }
-
-                if (level <= 6) {
-                    return [11, 10, 13];
-                }
-
-                if (level <= 8) {
-                    return [10, 8, 12];
-                }
-
-                if (level <= 10) {
-                    return [9, 6, 10];
-                }
-
-                if (level <= 13) {
-                    return [8, 5, 8];
-                }
-
-                if (level <= 20) {
-                    return [7, 5, 6];
-                }
-
-                return [4, 4, 5]; // Para nível 21+
-            },
-        },
-        'espiao': {
-            title: 'Espião',
-            mainAttribute: 'des',
-            hitDice: 4,
-            movement: 30,
-            jdp: function (level) {
-                if (level <= 2) {
-                    return [14, 12, 14];
-                }
-
-                if (level <= 4) {
-                    return [13, 11, 13];
-                }
-
-                if (level <= 6) {
-                    return [12, 10, 12];
-                }
-
-                if (level <= 8) {
-                    return [11, 9, 11];
-                }
-
-                if (level <= 10) {
-                    return [9, 7, 9];
-                }
-
-                if (level <= 13) {
-                    return [7, 6, 7];
-                }
-
-                if (level <= 20) {
-                    return [6, 5, 6];
-                }
-
-                return [5, 4, 5]; // Para nível 21+
-            },
-        },
-        'monge': {
-            title: 'Monge',
-            mainAttribute: 'int',
-            hitDice: 6,
-            movement: 40,
-            jdp: function (level) {
-                if (level <= 2) {
-                    return [13, 12, 15];
-                }
-
-                if (level <= 4) {
-                    return [12, 11, 14];
-                }
-
-                if (level <= 6) {
-                    return [11, 10, 13];
-                }
-
-                if (level <= 8) {
-                    return [10, 8, 12];
-                }
-
-                if (level <= 10) {
-                    return [9, 6, 10];
-                }
-
-                if (level <= 13) {
-                    return [8, 5, 8];
-                }
-
-                if (level <= 20) {
-                    return [7, 5, 6];
-                }
-
-                return [4, 4, 5]; // Para nível 21+
-            },
-        },
-        'mago': {
-            title: 'Mago',
-            mainAttribute: 'int',
-            hitDice: 4,
-            movement: 30,
-            jdp: function (level) {
-                if (level <= 2) {
-                    return [15, 17, 12];
-                }
-
-                if (level <= 4) {
-                    return [14, 16, 11];
-                }
-
-                if (level <= 6) {
-                    return [13, 15, 10];
-                }
-
-                if (level <= 8) {
-                    return [13, 14, 9];
-                }
-
-                if (level <= 10) {
-                    return [12, 12, 7];
-                }
-
-                if (level <= 13) {
-                    return [12, 10, 5];
-                }
-
-                if (level <= 20) {
-                    return [11, 8, 4];
-                }
-
-                return [10, 6, 4]; // Para nível 21+
-            },
-            spellCast: {
-                spellLists: ['mago'],
-                spellLimitsByLevel: arcaneSpellLimits,
-                hasSpellBook: true,
-            }
-        },
-        'ilusionista': {
-            title: 'Ilusionista',
-            mainAttribute: 'int',
-            hitDice: 4,
-            movement: 30,
-            jdp: function (level) {
-                if (level <= 2) {
-                    return [15, 14, 13];
-                }
-
-                if (level <= 4) {
-                    return [14, 13, 12];
-                }
-
-                if (level <= 6) {
-                    return [13, 12, 11];
-                }
-
-                if (level <= 8) {
-                    return [13, 11, 10];
-                }
-
-                if (level <= 10) {
-                    return [12, 10, 9];
-                }
-
-                if (level <= 13) {
-                    return [12, 9, 8];
-                }
-
-                if (level <= 20) {
-                    return [11, 8, 7];
-                }
-
-                return [10, 7, 6]; // Para nível 21+
-            },
-            spellCast: {
-                spellLists: ['ilusionista'],
-                spellLimitsByLevel: arcaneSpellLimits,
-                hasSpellBook: true,
-            }
-        },
-        'necromante': {
-            title: 'Necromante',
-            mainAttribute: 'int',
-            hitDice: 4,
-            movement: 30,
-            jdp: function (level) {
-                if (level <= 2) {
-                    return [13, 17, 13];
-                }
-
-                if (level <= 4) {
-                    return [12, 16, 12];
-                }
-
-                if (level <= 6) {
-                    return [11, 15, 11];
-                }
-
-                if (level <= 8) {
-                    return [10, 14, 10];
-                }
-
-                if (level <= 10) {
-                    return [8, 12, 9];
-                }
-
-                if (level <= 13) {
-                    return [6, 10, 8];
-                }
-
-                if (level <= 20) {
-                    return [4, 8, 7];
-                }
-
-                return [4, 6, 6]; // Para nível 21+
-            },
-            spellCast: {
-                spellLists: ['necromante'],
-                spellLimitsByLevel: arcaneSpellLimits,
-                hasSpellBook: true,
-            }
-        },
-        'psionico': {
-            title: 'Psiônico',
-            mainAttribute: 'int',
-            hitDice: 4,
-            movement: 30,
-            jdp: function (level) {
-                if (level <= 2) {
-                    return [15, 14, 13];
-                }
-
-                if (level <= 4) {
-                    return [14, 13, 12];
-                }
-
-                if (level <= 6) {
-                    return [13, 12, 11];
-                }
-
-                if (level <= 8) {
-                    return [13, 11, 10];
-                }
-
-                if (level <= 10) {
-                    return [12, 10, 9];
-                }
-
-                if (level <= 13) {
-                    return [12, 8, 8];
-                }
-
-                if (level <= 20) {
-                    return [11, 6, 7];
-                }
-
-                return [10, 5, 6]; // Para nível 21+
-            },
-            spellCast: {
-                spellLists: ['psionico'],
-                spellLimitsByLevel: arcaneSpellLimits,
-                hasSpellBook: true,
-            }
-        },
-        'clerigo': {
-            title: 'Clérigo',
-            mainAttribute: 'sab',
-            hitDice: 6,
-            movement: 30,
-            jdp: function (level) {
-                if (level <= 2) {
-                    return [12, 14, 13];
-                }
-
-                if (level <= 4) {
-                    return [11, 13, 12];
-                }
-
-                if (level <= 6) {
-                    return [10, 12, 11];
-                }
-
-                if (level <= 8) {
-                    return [9, 11, 10];
-                }
-
-                if (level <= 10) {
-                    return [8, 9, 9];
-                }
-
-                if (level <= 13) {
-                    return [7, 7, 7];
-                }
-
-                if (level <= 20) {
-                    return [6, 6, 6];
-                }
-
-                return [5, 5, 4]; // Para nível 21+
-            },
-            spellCast: {
-                spellLists: ['clerigo'],
-                spellLimitsByLevel: divineSpellLimits,
-            },
-        },
-        'druida': {
-            title: 'Druida',
-            mainAttribute: 'sab',
-            hitDice: 6,
-            movement: 30,
-            jdp: function (level) {
-                if (level <= 2) {
-                    return [12, 14, 13];
-                }
-
-                if (level <= 4) {
-                    return [11, 13, 12];
-                }
-
-                if (level <= 6) {
-                    return [10, 12, 11];
-                }
-
-                if (level <= 8) {
-                    return [9, 11, 10];
-                }
-
-                if (level <= 10) {
-                    return [7, 9, 9];
-                }
-
-                if (level <= 13) {
-                    return [5, 7, 8];
-                }
-
-                if (level <= 20) {
-                    return [5, 6, 7];
-                }
-
-                return [4, 5, 5]; // Para nível 21+
-            },
-            spellCast: {
-                spellLists: ['druida'],
-                spellLimitsByLevel: divineSpellLimits,
-            }
-        },
-        'bardo': {
-            title: 'Bardo',
-            mainAttribute: 'car',
-            hitDice: 4,
-            movement: 30,
-            jdp: function (level) {
-                if (level <= 2) {
-                    return [17, 14, 13];
-                }
-
-                if (level <= 4) {
-                    return [16, 13, 12];
-                }
-
-                if (level <= 6) {
-                    return [15, 12, 11];
-                }
-
-                if (level <= 8) {
-                    return [14, 11, 10];
-                }
-
-                if (level <= 10) {
-                    return [12, 9, 8];
-                }
-
-                if (level <= 13) {
-                    return [10, 7, 6];
-                }
-
-                if (level <= 20) {
-                    return [8, 5, 5];
-                }
-
-                return [6, 4, 4]; // Para nível 21+
-            },
-        },
-    }
-
-    let classNames = Object.keys(classes);
+function getClass(options: Options): ClassDetails {
+    let classNames = Object.keys(classRegistry);
 
     let randomClass = options.class || classNames[Math.floor(Math.random() * classNames.length)];
 
-    return {
-        ...classes[randomClass],
-        name: randomClass,
-    }
+    return classRegistry[randomClass];
 }
 
 // Gera uma ancestralidade aleatória para o personagem.
@@ -1202,12 +276,10 @@ export function goGenerateChar() {
     const selectedAncestry = getSelectedRadioValue('ancestry');
     const selectedLevel = getSelectedLevel();
 
-    console.log();
-
     let opts: Options = {
         gender: selectedGender as Gender,
         level: parseInt(selectedLevel.replace('Nível', '').trim()),
-        class: selectedClass as ClassName,
+        class: selectedClass as ClassIdentifier,
         ancestry: selectedAncestry,
     }
 
@@ -1241,6 +313,81 @@ export function goGenerateChar() {
     setTextById('char-money', `${char.po} P.O.`);
 }
 
+export function goGenerateSpellList() {
+    resetSpellList();
+
+    let selectedClass = getSelectedRadioValue('class');
+    const selectedLevel = getSelectedLevel();
+
+    const level = parseInt(selectedLevel.replace('Nível', '').trim())
+
+    const spellcasters = [
+        'mago',
+        // 'ilusionista',
+        // 'necromante',
+        // 'psionico',
+
+        // 'clerigo',
+        // 'paladino',
+        // 'druida',
+        // 'monge',
+        // 'bardo',
+    ];
+
+    if (!selectedClass) {
+        selectedClass = spellcasters[Math.floor(Math.random() * spellcasters.length)];
+    }
+
+    const charClass = classRegistry[selectedClass as ClassIdentifier];
+    const spellCast = charClass.spellCast;
+    if (!spellCast) {
+        return;
+    }
+
+    let title = `Magias preparadas para o ${charClass.title} de nível ${level}`;
+    if (spellCast.hasSpellBook) {
+        title = `Grimório do ${charClass.title} de nível ${level}`;
+    }
+
+    setTextById('spells-title', title);
+
+    let extraSpells = 0;
+    if (spellCast.hasSpellBook) {
+        extraSpells = Math.ceil(level / 2);
+    }
+
+    const spellList = pickSpellBook(
+        spellCast.spellLists,
+        spellCast.spellLimitsByLevel[level],
+        extraSpells,
+    ).sort((a, b) => {
+        if (a.circle === b.circle) {
+            return a.name.localeCompare(b.name);
+        }
+        return a.circle - b.circle;
+    });
+
+    for (const spell of spellList) {
+        const spellContainer = document.getElementById(`char-spells-${spell.circle}`);
+        if (!spellContainer) {
+            continue;
+        }
+
+        spellContainer.className = '';
+
+        const spellListContainer = document.getElementById(`char-spells-${spell.circle}-list`);
+        if (!spellListContainer) {
+            continue;
+        }
+
+        let item = document.createElement('li');
+        item.innerText = spell.name;
+        spellListContainer.appendChild(item);
+    }
+
+    console.log(spellList);
+}
+
 function resetForm() {
     const element = document.getElementById('generator-form');
 
@@ -1248,7 +395,24 @@ function resetForm() {
         element.reset();
         return;
     }
+
+    resetSpellList();
+}
+
+function resetSpellList() {
+    for (let i = 1; i <= 9; i++) {
+        const spellContainer = document.getElementById(`char-spells-${i}`);
+        if (spellContainer) {
+            spellContainer.className = 'hidden';
+
+            const spellListContainer = document.getElementById(`char-spells-${i}-list`);
+            if (spellListContainer) {
+                spellListContainer.innerHTML = '';
+            }
+        }
+    }
 }
 
 (window as any).goGenerateChar = goGenerateChar;
+(window as any).goGenerateSpellList = goGenerateSpellList;
 (window as any).resetForm = resetForm;
