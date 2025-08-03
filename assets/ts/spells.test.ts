@@ -1,6 +1,6 @@
 import { expect, test } from "bun:test";
 
-import { pickPreparedSpells, pickSpells } from "./spells";
+import { pickPreparedSpells, pickSpells } from "./generator/spells/spells";
 
 test("should pick prepared spells", () => {
     const spells = pickPreparedSpells(["mago"], [
