@@ -1,7 +1,7 @@
 import {SpellLimit, SpellListName} from "../spells/types";
 import {AttributeName} from "../types";
 
-type ClassIdentifiers = 'legionario'
+export type ClassIdentifier = 'legionario'
     | 'barbaro'
     | 'gladiador'
     | 'lanceiro'
@@ -10,7 +10,15 @@ type ClassIdentifiers = 'legionario'
     | 'ilusionista'
     | 'necromante'
     | 'psionico'
-    | 'druida';
+    | 'druida'
+    | 'clerigo'
+    | 'paladino'
+    | 'monge'
+    | 'ladrao'
+    | 'bardo'
+    | 'assassino'
+    | 'espiao'
+    | 'desbravador'
 
 interface ClassSpellCast {
     spellLists: SpellListName[],
@@ -19,7 +27,7 @@ interface ClassSpellCast {
 }
 
 export interface ClassDetails {
-    identifier: ClassIdentifiers,
+    identifier: ClassIdentifier,
 
     title: string,
     mainAttribute: AttributeName,
@@ -30,3 +38,5 @@ export interface ClassDetails {
 
     spellCast?: ClassSpellCast,
 }
+
+export type ClassRegistry = Record<ClassIdentifier, ClassDetails>;

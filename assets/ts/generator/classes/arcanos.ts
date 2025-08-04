@@ -192,7 +192,7 @@ export const mago: ClassDetails = {
     }
 };
 
-const ilusionista: ClassDetails = {
+export const ilusionista: ClassDetails = {
     identifier: 'ilusionista',
     title: 'Ilusionista',
     mainAttribute: 'int',
@@ -236,7 +236,7 @@ const ilusionista: ClassDetails = {
     }
 };
 
-const necromante: ClassDetails = {
+export const necromante: ClassDetails = {
     identifier: 'necromante',
     title: 'Necromante',
     mainAttribute: 'int',
@@ -280,7 +280,7 @@ const necromante: ClassDetails = {
     }
 };
 
-const psionico: ClassDetails = {
+export const psionico: ClassDetails = {
     identifier: 'psionico',
     title: 'Psiônico',
     mainAttribute: 'int',
