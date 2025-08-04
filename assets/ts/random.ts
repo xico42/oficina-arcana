@@ -276,8 +276,6 @@ export function goGenerateChar() {
     const selectedAncestry = getSelectedRadioValue('ancestry');
     const selectedLevel = getSelectedLevel();
 
-    console.log();
-
     let opts: Options = {
         gender: selectedGender as Gender,
         level: parseInt(selectedLevel.replace('Nível', '').trim()),
