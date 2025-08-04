@@ -1,65 +1,82 @@
 import wizardSpells from './lists/mago';
 import {Spell, SpellLimit, SpellListName} from './types';
+import {SpellPool} from "./pool";
+import {dx} from "../dice";
 
 const tomoMetafisico: Spell[] = [
     ...wizardSpells,
 ]
 
 
-export function pickPreparedSpells(lists: SpellListName[], limits: SpellLimit[]) {
+export function pickPreparedSpells(pool: SpellPool, lists: SpellListName[], limits: SpellLimit[]) {
     let spells: Spell[] = [];
 
-    let listSpells = tomoMetafisico.filter(spell => lists.includes(spell.listName));
-
     for (const limit of limits) {
-        const availableSpells = listSpells.filter(spell => spell.circle === limit.circle);
-        for (let i = 0; i < limit.maxSpells; i++) {
-            if (availableSpells.length === 0) {
-                break;
-            }
-
-            const randomIndex = Math.floor(Math.random() * availableSpells.length);
-            const spell = availableSpells.splice(randomIndex, 1)[0];
-            spells.push(spell);
-        }
+        spells.push(
+            ...pool.pickN(limit.maxSpells, {
+                circle: limit.circle,
+                listNames: lists,
+            })
+        )
     }
 
     return spells;
 }
 
-function spellEquals(a: Spell, b: Spell) {
-    return a.circle === b.circle && a.name === b.name && a.listName === b.listName;
-}
+function pickExtraSpells(pool: SpellPool, lists: SpellListName[], preparedLimits: SpellLimit[], numberOfExtraSpells: number) {
+    const availableCircles: Set<number> = new Set(preparedLimits.map(limit => limit.circle));
 
-export function pickSpells(lists: SpellListName[], maxCircle: number, numberOfSpells: number, except: Spell[] = []) {
-    let spells: Spell[] = [];
+    const spells: Spell[] = [];
 
-    let listSpells = tomoMetafisico.filter(spell => {
-        return lists.includes(spell.listName)
-            && except.filter(e => spellEquals(e, spell)).length === 0;
-    });
-
-    listSpells = listSpells.filter(spell => spell.circle <= maxCircle);
-
-    for (let i = 0; i < numberOfSpells; i++) {
-        if (listSpells.length === 0) {
-            break;
+    for (let i = 0; i < numberOfExtraSpells; i++) {
+        if (
+            availableCircles.has(9)
+            && dx(100) <= 1 // 1% chance to pick a 9th circle spell
+        ) {
+            spells.push(pool.pick({
+                circle: 9,
+                listNames: lists,
+            }))
+            continue;
         }
 
-        const randomIndex = Math.floor(Math.random() * listSpells.length);
-        const spell = listSpells.splice(randomIndex, 1)[0];
-        spells.push(spell);
+        if (
+            (availableCircles.has(7) || availableCircles.has(8))
+            && dx(100) <= 4 // 4% chance to pick a 7th or 8th circle spell
+        ) {
+            spells.push(pool.pick({
+                minCircle: 7,
+                maxCircle: 8,
+                listNames: lists,
+            }))
+            continue;
+        }
+
+        if (
+            (availableCircles.has(4) || availableCircles.has(5) || availableCircles.has(6))
+            && dx(100) <= 25 // 25% chance to pick a 4th, 5th or 6th circle spell
+        ) {
+            spells.push(pool.pick({
+                minCircle: 4,
+                maxCircle: 6,
+                listNames: lists,
+            }))
+            continue;
+        }
+
+        spells.push(pool.pick({
+            minCircle: 1,
+            maxCircle: Math.max(...availableCircles),
+            listNames: lists,
+        }));
     }
 
     return spells;
 }
 
 export function pickSpellBook(lists: SpellListName[], preparedLimits: SpellLimit[], numberOfExtraSpells: number) {
-    const preparedSpells = pickPreparedSpells(lists, preparedLimits);
-
-    const maxCircle = Math.max(...preparedLimits.map(limit => limit.circle));
-
-    const extraSpells = pickSpells(lists, maxCircle, numberOfExtraSpells, preparedSpells);
-
+    const pool = new SpellPool(tomoMetafisico);
+    const preparedSpells = pickPreparedSpells(pool, lists, preparedLimits);
+    const extraSpells = pickExtraSpells(pool, lists, preparedLimits, numberOfExtraSpells);
     return [...preparedSpells, ...extraSpells];
 }
