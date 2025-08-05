@@ -295,5 +295,11 @@ export const paladino: ClassDetails = {
 
         return [4, 4, 5]; // Para nível 21+
     },
+    spellCast: {
+        spellLists: ['clerigo'],
+        spellLimitsByLevel: {
+            1: [],
+        },
+    }
 };
 

@@ -194,4 +194,10 @@ export const bardo: ClassDetails = {
 
         return [6, 4, 4]; // Para nível 21+
     },
+    spellCast: {
+        spellLists: ['mago', 'psionico', 'necromante', 'ilusionista', 'clerigo', 'druida'],
+        spellLimitsByLevel: {
+            1: [],
+        },
+    }
 };

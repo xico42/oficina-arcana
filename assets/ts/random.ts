@@ -313,6 +313,81 @@ export function goGenerateChar() {
     setTextById('char-money', `${char.po} P.O.`);
 }
 
+export function goGenerateSpellList() {
+    resetSpellList();
+
+    let selectedClass = getSelectedRadioValue('class');
+    const selectedLevel = getSelectedLevel();
+
+    const level = parseInt(selectedLevel.replace('Nível', '').trim())
+
+    const spellcasters = [
+        'mago',
+        'ilusionista',
+        'necromante',
+        'psionico',
+
+        'clerigo',
+        'paladino',
+        'druida',
+        'monge',
+        'bardo',
+    ];
+
+    if (!selectedClass) {
+        selectedClass = spellcasters[Math.floor(Math.random() * spellcasters.length)];
+    }
+
+    const charClass = classRegistry[selectedClass as ClassIdentifier];
+    const spellCast = charClass.spellCast;
+    if (!spellCast) {
+        return;
+    }
+
+    let title = `Magias preparadas para o ${charClass.title} de nível ${level}`;
+    if (spellCast.hasSpellBook) {
+        title = `Grimório do ${charClass.title} de nível ${level}`;
+    }
+
+    setTextById('spells-title', title);
+
+    let extraSpells = 0;
+    if (spellCast.hasSpellBook) {
+        extraSpells = Math.ceil(level / 2);
+    }
+
+    const spellList = pickSpellBook(
+        spellCast.spellLists,
+        spellCast.spellLimitsByLevel[level],
+        extraSpells,
+    ).sort((a, b) => {
+        if (a.circle === b.circle) {
+            return a.name.localeCompare(b.name);
+        }
+        return a.circle - b.circle;
+    });
+
+    for (const spell of spellList) {
+        const spellContainer = document.getElementById(`char-spells-${spell.circle}`);
+        if (!spellContainer) {
+            continue;
+        }
+
+        spellContainer.className = '';
+
+        const spellListContainer = document.getElementById(`char-spells-${spell.circle}-list`);
+        if (!spellListContainer) {
+            continue;
+        }
+
+        let item = document.createElement('li');
+        item.innerText = spell.name;
+        spellListContainer.appendChild(item);
+    }
+
+    console.log(spellList);
+}
+
 function resetForm() {
     const element = document.getElementById('generator-form');
 
@@ -320,7 +395,24 @@ function resetForm() {
         element.reset();
         return;
     }
+
+    resetSpellList();
+}
+
+function resetSpellList() {
+    for (let i = 1; i <= 9; i++) {
+        const spellContainer = document.getElementById(`char-spells-${i}`);
+        if (spellContainer) {
+            spellContainer.className = 'hidden';
+
+            const spellListContainer = document.getElementById(`char-spells-${i}-list`);
+            if (spellListContainer) {
+                spellListContainer.innerHTML = '';
+            }
+        }
+    }
 }
 
 (window as any).goGenerateChar = goGenerateChar;
+(window as any).goGenerateSpellList = goGenerateSpellList;
 (window as any).resetForm = resetForm;
