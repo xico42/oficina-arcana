@@ -3,148 +3,148 @@ import {ClassDetails} from "./types";
 
 let arcaneSpellLimits: Record<string, SpellLimit[]> = {
     1: [
-        {circle: 1, maxSpells: 1}
+        {circles: [1], maxSpells: 1}
     ],
     2: [
-        {circle: 1, maxSpells: 2}
+        {circles: [1], maxSpells: 2}
     ],
     3: [
-        {circle: 1, maxSpells: 2},
-        {circle: 2, maxSpells: 1}
+        {circles: [1], maxSpells: 2},
+        {circles: [2], maxSpells: 1}
     ],
     4: [
-        {circle: 1, maxSpells: 3},
-        {circle: 2, maxSpells: 2}
+        {circles: [1], maxSpells: 3},
+        {circles: [2], maxSpells: 2}
     ],
     5: [
-        {circle: 1, maxSpells: 4},
-        {circle: 2, maxSpells: 2},
-        {circle: 3, maxSpells: 1}
+        {circles: [1], maxSpells: 4},
+        {circles: [2], maxSpells: 2},
+        {circles: [3], maxSpells: 1}
     ],
     6: [
-        {circle: 1, maxSpells: 4},
-        {circle: 2, maxSpells: 2},
-        {circle: 3, maxSpells: 2}
+        {circles: [1], maxSpells: 4},
+        {circles: [2], maxSpells: 2},
+        {circles: [3], maxSpells: 2}
     ],
     7: [
-        {circle: 1, maxSpells: 4},
-        {circle: 2, maxSpells: 3},
-        {circle: 3, maxSpells: 2},
-        {circle: 4, maxSpells: 1}
+        {circles: [1], maxSpells: 4},
+        {circles: [2], maxSpells: 3},
+        {circles: [3], maxSpells: 2},
+        {circles: [4], maxSpells: 1}
     ],
     8: [
-        {circle: 1, maxSpells: 4},
-        {circle: 2, maxSpells: 3},
-        {circle: 3, maxSpells: 3},
-        {circle: 4, maxSpells: 2}
+        {circles: [1], maxSpells: 4},
+        {circles: [2], maxSpells: 3},
+        {circles: [3], maxSpells: 3},
+        {circles: [4], maxSpells: 2}
     ],
     9: [
-        {circle: 1, maxSpells: 4},
-        {circle: 2, maxSpells: 3},
-        {circle: 3, maxSpells: 3},
-        {circle: 4, maxSpells: 2},
-        {circle: 5, maxSpells: 1}
+        {circles: [1], maxSpells: 4},
+        {circles: [2], maxSpells: 3},
+        {circles: [3], maxSpells: 3},
+        {circles: [4], maxSpells: 2},
+        {circles: [5], maxSpells: 1}
     ],
     10: [
-        {circle: 1, maxSpells: 4},
-        {circle: 2, maxSpells: 4},
-        {circle: 3, maxSpells: 3},
-        {circle: 4, maxSpells: 2},
-        {circle: 5, maxSpells: 2}
+        {circles: [1], maxSpells: 4},
+        {circles: [2], maxSpells: 4},
+        {circles: [3], maxSpells: 3},
+        {circles: [4], maxSpells: 2},
+        {circles: [5], maxSpells: 2}
     ],
     11: [
-        {circle: 1, maxSpells: 4},
-        {circle: 2, maxSpells: 4},
-        {circle: 3, maxSpells: 4},
-        {circle: 4, maxSpells: 3},
-        {circle: 5, maxSpells: 3}
+        {circles: [1], maxSpells: 4},
+        {circles: [2], maxSpells: 4},
+        {circles: [3], maxSpells: 4},
+        {circles: [4], maxSpells: 3},
+        {circles: [5], maxSpells: 3}
     ],
     12: [
-        {circle: 1, maxSpells: 4},
-        {circle: 2, maxSpells: 4},
-        {circle: 3, maxSpells: 4},
-        {circle: 4, maxSpells: 4},
-        {circle: 5, maxSpells: 4},
-        {circle: 6, maxSpells: 1}
+        {circles: [1], maxSpells: 4},
+        {circles: [2], maxSpells: 4},
+        {circles: [3], maxSpells: 4},
+        {circles: [4], maxSpells: 4},
+        {circles: [5], maxSpells: 4},
+        {circles: [6], maxSpells: 1}
     ],
     13: [
-        {circle: 1, maxSpells: 5},
-        {circle: 2, maxSpells: 5},
-        {circle: 3, maxSpells: 5},
-        {circle: 4, maxSpells: 4},
-        {circle: 5, maxSpells: 4},
-        {circle: 6, maxSpells: 2}
+        {circles: [1], maxSpells: 5},
+        {circles: [2], maxSpells: 5},
+        {circles: [3], maxSpells: 5},
+        {circles: [4], maxSpells: 4},
+        {circles: [5], maxSpells: 4},
+        {circles: [6], maxSpells: 2}
     ],
     14: [
-        {circle: 1, maxSpells: 5},
-        {circle: 2, maxSpells: 5},
-        {circle: 3, maxSpells: 5},
-        {circle: 4, maxSpells: 4},
-        {circle: 5, maxSpells: 4},
-        {circle: 6, maxSpells: 2},
-        {circle: 7, maxSpells: 1}
+        {circles: [1], maxSpells: 5},
+        {circles: [2], maxSpells: 5},
+        {circles: [3], maxSpells: 5},
+        {circles: [4], maxSpells: 4},
+        {circles: [5], maxSpells: 4},
+        {circles: [6], maxSpells: 2},
+        {circles: [7], maxSpells: 1}
     ],
     15: [
-        {circle: 1, maxSpells: 5},
-        {circle: 2, maxSpells: 5},
-        {circle: 3, maxSpells: 5},
-        {circle: 4, maxSpells: 5},
-        {circle: 5, maxSpells: 5},
-        {circle: 6, maxSpells: 2},
-        {circle: 7, maxSpells: 1}
+        {circles: [1], maxSpells: 5},
+        {circles: [2], maxSpells: 5},
+        {circles: [3], maxSpells: 5},
+        {circles: [4], maxSpells: 5},
+        {circles: [5], maxSpells: 5},
+        {circles: [6], maxSpells: 2},
+        {circles: [7], maxSpells: 1}
     ],
     16: [
-        {circle: 1, maxSpells: 5},
-        {circle: 2, maxSpells: 5},
-        {circle: 3, maxSpells: 5},
-        {circle: 4, maxSpells: 5},
-        {circle: 5, maxSpells: 5},
-        {circle: 6, maxSpells: 3},
-        {circle: 7, maxSpells: 2},
-        {circle: 8, maxSpells: 1}
+        {circles: [1], maxSpells: 5},
+        {circles: [2], maxSpells: 5},
+        {circles: [3], maxSpells: 5},
+        {circles: [4], maxSpells: 5},
+        {circles: [5], maxSpells: 5},
+        {circles: [6], maxSpells: 3},
+        {circles: [7], maxSpells: 2},
+        {circles: [8], maxSpells: 1}
     ],
     17: [
-        {circle: 1, maxSpells: 5},
-        {circle: 2, maxSpells: 5},
-        {circle: 3, maxSpells: 5},
-        {circle: 4, maxSpells: 5},
-        {circle: 5, maxSpells: 5},
-        {circle: 6, maxSpells: 3},
-        {circle: 7, maxSpells: 3},
-        {circle: 8, maxSpells: 2}
+        {circles: [1], maxSpells: 5},
+        {circles: [2], maxSpells: 5},
+        {circles: [3], maxSpells: 5},
+        {circles: [4], maxSpells: 5},
+        {circles: [5], maxSpells: 5},
+        {circles: [6], maxSpells: 3},
+        {circles: [7], maxSpells: 3},
+        {circles: [8], maxSpells: 2}
     ],
     18: [
-        {circle: 1, maxSpells: 5},
-        {circle: 2, maxSpells: 5},
-        {circle: 3, maxSpells: 5},
-        {circle: 4, maxSpells: 5},
-        {circle: 5, maxSpells: 5},
-        {circle: 6, maxSpells: 3},
-        {circle: 7, maxSpells: 3},
-        {circle: 8, maxSpells: 2},
-        {circle: 9, maxSpells: 1}
+        {circles: [1], maxSpells: 5},
+        {circles: [2], maxSpells: 5},
+        {circles: [3], maxSpells: 5},
+        {circles: [4], maxSpells: 5},
+        {circles: [5], maxSpells: 5},
+        {circles: [6], maxSpells: 3},
+        {circles: [7], maxSpells: 3},
+        {circles: [8], maxSpells: 2},
+        {circles: [9], maxSpells: 1}
     ],
     19: [
-        {circle: 1, maxSpells: 5},
-        {circle: 2, maxSpells: 5},
-        {circle: 3, maxSpells: 5},
-        {circle: 4, maxSpells: 5},
-        {circle: 5, maxSpells: 5},
-        {circle: 6, maxSpells: 3},
-        {circle: 7, maxSpells: 3},
-        {circle: 8, maxSpells: 3},
-        {circle: 9, maxSpells: 1}
+        {circles: [1], maxSpells: 5},
+        {circles: [2], maxSpells: 5},
+        {circles: [3], maxSpells: 5},
+        {circles: [4], maxSpells: 5},
+        {circles: [5], maxSpells: 5},
+        {circles: [6], maxSpells: 3},
+        {circles: [7], maxSpells: 3},
+        {circles: [8], maxSpells: 3},
+        {circles: [9], maxSpells: 1}
     ],
     20: [
-        {circle: 1, maxSpells: 5},
-        {circle: 2, maxSpells: 5},
-        {circle: 3, maxSpells: 5},
-        {circle: 4, maxSpells: 5},
-        {circle: 5, maxSpells: 5},
-        {circle: 6, maxSpells: 4},
-        {circle: 7, maxSpells: 3},
-        {circle: 8, maxSpells: 3},
-        {circle: 9, maxSpells: 2}
+        {circles: [1], maxSpells: 5},
+        {circles: [2], maxSpells: 5},
+        {circles: [3], maxSpells: 5},
+        {circles: [4], maxSpells: 5},
+        {circles: [5], maxSpells: 5},
+        {circles: [6], maxSpells: 4},
+        {circles: [7], maxSpells: 3},
+        {circles: [8], maxSpells: 3},
+        {circles: [9], maxSpells: 2}
     ]
 };
 

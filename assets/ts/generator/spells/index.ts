@@ -1,5 +1,6 @@
 import wizardSpells from './lists/mago';
 import psionicSpells from './lists/psionico';
+import clericSpells from './lists/clerigo';
 import {Spell, SpellLimit, SpellListName} from './types';
 import {SpellPool} from "./pool";
 import {dx} from "../dice";
@@ -7,6 +8,7 @@ import {dx} from "../dice";
 const tomoMetafisico: Spell[] = [
     ...wizardSpells,
     ...psionicSpells,
+    ...clericSpells,
 ]
 
 
@@ -16,7 +18,7 @@ export function pickPreparedSpells(pool: SpellPool, lists: SpellListName[], limi
     for (const limit of limits) {
         spells.push(
             ...pool.pickN(limit.maxSpells, {
-                circle: limit.circle,
+                circles: limit.circles,
                 listNames: lists,
             })
         )
@@ -26,7 +28,12 @@ export function pickPreparedSpells(pool: SpellPool, lists: SpellListName[], limi
 }
 
 function pickExtraSpells(pool: SpellPool, lists: SpellListName[], preparedLimits: SpellLimit[], numberOfExtraSpells: number) {
-    const availableCircles: Set<number> = new Set(preparedLimits.map(limit => limit.circle));
+    const availableCircles = new Set<number>();
+    for (const limit of preparedLimits) {
+        for (const circle of limit.circles) {
+            availableCircles.add(circle);
+        }
+    }
 
     const spells: Spell[] = [];
 

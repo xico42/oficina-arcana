@@ -43,8 +43,8 @@ Caso queira resetar os parâmetros, clique no botão "Limpar".
 <div style="line-height: 2.5">
 
 <div>
-    <label class="generator-option hidden"><input type="radio" name="class" value="clerigo"> Clérigo</label>
-    <label class="generator-option hidden"><input type="radio" name="class" value="paladino"> Paladino</label>
+    <label class="generator-option"><input type="radio" name="class" value="clerigo"> Clérigo</label>
+    <label class="generator-option"><input type="radio" name="class" value="paladino"> Paladino</label>
     <label class="generator-option hidden"><input type="radio" name="class" value="druida"> Druida</label>
     <label class="generator-option"><input type="radio" name="class" value="monge"> Monge</label>
     <label class="generator-option hidden"><input type="radio" name="class" value="bardo"> Bardo</label>

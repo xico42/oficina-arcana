@@ -54,3 +54,19 @@ test("should pick spells based on circle filter", () => {
         expect(picked.every(spell => spell.circle == 1)).toBeTruthy();
     }
 });
+
+test("should pick spells based on circles filter", () => {
+    for (let i = 0; i < 100; i++) {
+        const pool = new SpellPool(wizardSpells);
+
+        const picked = pool.pickN(1, {
+            circles: [1],
+            listNames: [
+                "mago"
+            ]
+        });
+
+        expect(picked).toHaveLength(1);
+        expect(picked.every(spell => spell.circle == 1)).toBeTruthy();
+    }
+});

@@ -327,8 +327,8 @@ export function goGenerateSpellList() {
         // 'necromante',
         'psionico',
 
-        // 'clerigo',
-        // 'paladino',
+        'clerigo',
+        'paladino',
         // 'druida',
         'monge',
         // 'bardo',

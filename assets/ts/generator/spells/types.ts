@@ -8,7 +8,7 @@ export interface Spell {
 }
 
 export interface SpellLimit {
-    circle: number;
+    circles: number[];
     maxSpells: number;
 }
 

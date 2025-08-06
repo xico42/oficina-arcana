@@ -4,6 +4,7 @@ export interface SpellFilter {
     maxCircle?: number;
     minCircle?: number;
     circle?: number;
+    circles?: number[];
     name?: string;
     listNames?: string[];
 }
@@ -102,6 +103,10 @@ function applyFilter(item: Item, filter?: SpellFilter): boolean {
     }
 
     if (filter.circle && spell.circle !== filter.circle) {
+        return false;
+    }
+
+    if (filter.circles && filter.circles.length > 0 && !filter.circles.includes(spell.circle)) {
         return false;
     }
 
