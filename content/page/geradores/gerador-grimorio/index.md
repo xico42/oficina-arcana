@@ -42,19 +42,19 @@ Caso queira resetar os parâmetros, clique no botão "Limpar".
 
 <div style="line-height: 2.5">
 
-<div class="hidden">
-    <label class="generator-option"><input type="radio" name="class" value="clerigo"> Clérigo</label>
-    <label class="generator-option"><input type="radio" name="class" value="paladino"> Paladino</label>
-    <label class="generator-option"><input type="radio" name="class" value="druida"> Druida</label>
+<div>
+    <label class="generator-option hidden"><input type="radio" name="class" value="clerigo"> Clérigo</label>
+    <label class="generator-option hidden"><input type="radio" name="class" value="paladino"> Paladino</label>
+    <label class="generator-option hidden"><input type="radio" name="class" value="druida"> Druida</label>
     <label class="generator-option"><input type="radio" name="class" value="monge"> Monge</label>
-    <label class="generator-option"><input type="radio" name="class" value="bardo"> Bardo</label>
+    <label class="generator-option hidden"><input type="radio" name="class" value="bardo"> Bardo</label>
 </div>
 
 <div>
     <label class="generator-option"><input type="radio" name="class" value="mago"> Mago</label>
     <label class="generator-option hidden"><input type="radio" name="class" value="ilusionista"> Ilusionista</label>
     <label class="generator-option hidden"><input type="radio" name="class" value="necromante"> Necromante</label>
-    <label class="generator-option hidden"><input type="radio" name="class" value="psionico"> Psiônico</label>
+    <label class="generator-option"><input type="radio" name="class" value="psionico"> Psiônico</label>
 </div>
 
 </div>

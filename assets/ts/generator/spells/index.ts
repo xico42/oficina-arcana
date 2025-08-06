@@ -1,10 +1,12 @@
 import wizardSpells from './lists/mago';
+import psionicSpells from './lists/psionico';
 import {Spell, SpellLimit, SpellListName} from './types';
 import {SpellPool} from "./pool";
 import {dx} from "../dice";
 
 const tomoMetafisico: Spell[] = [
     ...wizardSpells,
+    ...psionicSpells,
 ]
 
 

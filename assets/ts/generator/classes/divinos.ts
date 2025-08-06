@@ -256,6 +256,130 @@ export const monge: ClassDetails = {
 
         return [4, 4, 5]; // Para nível 21+
     },
+    spellCast: {
+        spellLists: ['psionico'],
+        spellLimitsByLevel: {
+            1: [
+                { circle: 1, maxSpells: 1 }
+            ],
+            2: [
+                { circle: 1, maxSpells: 1 }
+            ],
+            3: [
+                { circle: 1, maxSpells: 2 },
+                { circle: 2, maxSpells: 1 }
+            ],
+            4: [
+                { circle: 1, maxSpells: 2 },
+                { circle: 2, maxSpells: 1 }
+            ],
+            5: [
+                { circle: 1, maxSpells: 2 },
+                { circle: 2, maxSpells: 1 }
+            ],
+            6: [
+                { circle: 1, maxSpells: 2 },
+                { circle: 2, maxSpells: 2 },
+                { circle: 3, maxSpells: 1 }
+            ],
+            7: [
+                { circle: 1, maxSpells: 2 },
+                { circle: 2, maxSpells: 2 },
+                { circle: 3, maxSpells: 1 }
+            ],
+            8: [
+                { circle: 1, maxSpells: 2 },
+                { circle: 2, maxSpells: 2 },
+                { circle: 3, maxSpells: 1 }
+            ],
+            9: [
+                { circle: 1, maxSpells: 2 },
+                { circle: 2, maxSpells: 2 },
+                { circle: 3, maxSpells: 2 },
+                { circle: 4, maxSpells: 1 }
+            ],
+            10: [
+                { circle: 1, maxSpells: 2 },
+                { circle: 2, maxSpells: 2 },
+                { circle: 3, maxSpells: 2 },
+                { circle: 4, maxSpells: 1 }
+            ],
+            11: [
+                { circle: 1, maxSpells: 2 },
+                { circle: 2, maxSpells: 2 },
+                { circle: 3, maxSpells: 2 },
+                { circle: 4, maxSpells: 1 }
+            ],
+            12: [
+                { circle: 1, maxSpells: 3 },
+                { circle: 2, maxSpells: 2 },
+                { circle: 3, maxSpells: 2 },
+                { circle: 4, maxSpells: 2 },
+                { circle: 5, maxSpells: 1 }
+            ],
+            13: [
+                { circle: 1, maxSpells: 3 },
+                { circle: 2, maxSpells: 2 },
+                { circle: 3, maxSpells: 2 },
+                { circle: 4, maxSpells: 2 },
+                { circle: 5, maxSpells: 1 }
+            ],
+            14: [
+                { circle: 1, maxSpells: 3 },
+                { circle: 2, maxSpells: 2 },
+                { circle: 3, maxSpells: 2 },
+                { circle: 4, maxSpells: 2 },
+                { circle: 5, maxSpells: 1 }
+            ],
+            15: [
+                { circle: 1, maxSpells: 3 },
+                { circle: 2, maxSpells: 2 },
+                { circle: 3, maxSpells: 2 },
+                { circle: 4, maxSpells: 2 },
+                { circle: 5, maxSpells: 1 }
+            ],
+            16: [
+                { circle: 1, maxSpells: 3 },
+                { circle: 2, maxSpells: 3 },
+                { circle: 3, maxSpells: 2 },
+                { circle: 4, maxSpells: 2 },
+                { circle: 5, maxSpells: 2 },
+                { circle: 6, maxSpells: 1 }
+            ],
+            17: [
+                { circle: 1, maxSpells: 3 },
+                { circle: 2, maxSpells: 3 },
+                { circle: 3, maxSpells: 2 },
+                { circle: 4, maxSpells: 2 },
+                { circle: 5, maxSpells: 2 },
+                { circle: 6, maxSpells: 1 }
+            ],
+            18: [
+                { circle: 1, maxSpells: 3 },
+                { circle: 2, maxSpells: 3 },
+                { circle: 3, maxSpells: 2 },
+                { circle: 4, maxSpells: 2 },
+                { circle: 5, maxSpells: 2 },
+                { circle: 6, maxSpells: 1 }
+            ],
+            19: [
+                { circle: 1, maxSpells: 3 },
+                { circle: 2, maxSpells: 3 },
+                { circle: 3, maxSpells: 2 },
+                { circle: 4, maxSpells: 2 },
+                { circle: 5, maxSpells: 2 },
+                { circle: 6, maxSpells: 1 }
+            ],
+            20: [
+                { circle: 1, maxSpells: 3 },
+                { circle: 2, maxSpells: 3 },
+                { circle: 3, maxSpells: 2 },
+                { circle: 4, maxSpells: 2 },
+                { circle: 5, maxSpells: 2 },
+                { circle: 6, maxSpells: 1 }
+            ]
+        },
+    }
 };
 
 export const paladino: ClassDetails = {
