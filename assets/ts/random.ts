@@ -325,12 +325,12 @@ export function goGenerateSpellList() {
         'mago',
         // 'ilusionista',
         // 'necromante',
-        // 'psionico',
+        'psionico',
 
         // 'clerigo',
         // 'paladino',
         // 'druida',
-        // 'monge',
+        'monge',
         // 'bardo',
     ];
 
