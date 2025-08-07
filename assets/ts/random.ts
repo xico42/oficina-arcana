@@ -323,15 +323,15 @@ export function goGenerateSpellList() {
 
     const spellcasters = [
         'mago',
-        // 'ilusionista',
-        // 'necromante',
+        'ilusionista',
+        'necromante',
         'psionico',
 
         'clerigo',
         'paladino',
-        // 'druida',
+        'druida',
         'monge',
-        // 'bardo',
+        'bardo',
     ];
 
     if (!selectedClass) {

@@ -2,6 +2,9 @@
 date: '2025-08-04T20:37:13-03:00'
 draft: false
 title: 'Gerador de lista de magias'
+description: 'Cuidado! O abuso dos segredos metafísicos custa caro...'
+categories:
+  - geradores
 ---
 
 Para usar o gerador de lista de magias, basta preencher os parâmetros abaixo e clicar no botão "Gerar Lista".
@@ -45,15 +48,15 @@ Caso queira resetar os parâmetros, clique no botão "Limpar".
 <div>
     <label class="generator-option"><input type="radio" name="class" value="clerigo"> Clérigo</label>
     <label class="generator-option"><input type="radio" name="class" value="paladino"> Paladino</label>
-    <label class="generator-option hidden"><input type="radio" name="class" value="druida"> Druida</label>
+    <label class="generator-option"><input type="radio" name="class" value="druida"> Druida</label>
     <label class="generator-option"><input type="radio" name="class" value="monge"> Monge</label>
-    <label class="generator-option hidden"><input type="radio" name="class" value="bardo"> Bardo</label>
+    <label class="generator-option"><input type="radio" name="class" value="bardo"> Bardo</label>
 </div>
 
 <div>
     <label class="generator-option"><input type="radio" name="class" value="mago"> Mago</label>
-    <label class="generator-option hidden"><input type="radio" name="class" value="ilusionista"> Ilusionista</label>
-    <label class="generator-option hidden"><input type="radio" name="class" value="necromante"> Necromante</label>
+    <label class="generator-option"><input type="radio" name="class" value="ilusionista"> Ilusionista</label>
+    <label class="generator-option"><input type="radio" name="class" value="necromante"> Necromante</label>
     <label class="generator-option"><input type="radio" name="class" value="psionico"> Psiônico</label>
 </div>
 

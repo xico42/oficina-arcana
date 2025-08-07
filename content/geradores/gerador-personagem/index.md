@@ -2,12 +2,9 @@
 date: '2025-07-18T22:28:13-03:00'
 draft: false
 title: 'Gerador de Personagens'
-menu:
-  main:
-    name: Gerador de Personagens
-    weight: 7
-    params:
-      icon: ikosaedr
+description: 'Crie seu aventureiro.'
+categories:
+  - geradores
 ---
 
 Para usar o gerador de personagens, basta preencher os parâmetros abaixo e clicar no botão "Gerar Personagem".

@@ -1,0 +1,76 @@
+import { Spell } from '../types';
+
+const spellList: Spell[] = [
+    { "circle": 1, "name": "Chicote de Ossos", "ref": null, "listName": "necromante" },
+    { "circle": 1, "name": "Detectar Maldição", "ref": null, "listName": "necromante" },
+    { "circle": 1, "name": "Escudo de Ossos", "ref": null, "listName": "necromante" },
+    { "circle": 1, "name": "Influenciar Morto-Vivo", "ref": null, "listName": "necromante" },
+    { "circle": 1, "name": "Localizar Cova ou Corpo", "ref": null, "listName": "necromante" },
+    { "circle": 1, "name": "Odores Mórbidos", "ref": null, "listName": "necromante" },
+    { "circle": 1, "name": "Olhar do Ceifador", "ref": null, "listName": "necromante" },
+    { "circle": 1, "name": "Putrefação", "ref": null, "listName": "necromante" },
+    { "circle": 1, "name": "Ventriloquismo Fantasma", "ref": null, "listName": "necromante" },
+
+    { "circle": 2, "name": "Derrocada de Eliathor", "ref": null, "listName": "necromante" },
+    { "circle": 2, "name": "Dissecação", "ref": null, "listName": "necromante" },
+    { "circle": 2, "name": "Escuridão Total", "ref": null, "listName": "necromante" },
+    { "circle": 2, "name": "Sanguessugas de Yatro", "ref": null, "listName": "necromante" },
+    { "circle": 2, "name": "Fortificar Golem", "ref": null, "listName": "necromante" },
+    { "circle": 2, "name": "Jato Ácido", "ref": null, "listName": "necromante" },
+    { "circle": 2, "name": "Lança dos Mortos", "ref": null, "listName": "necromante" },
+    { "circle": 2, "name": "Ocultar Cadáver", "ref": null, "listName": "necromante" },
+    { "circle": 2, "name": "Teia", "ref": null, "listName": "necromante" },
+    { "circle": 2, "name": "Toque Carniçal", "ref": null, "listName": "necromante" },
+
+    { "circle": 3, "name": "Amaldiçoar Objeto", "ref": null, "listName": "necromante" },
+    { "circle": 3, "name": "Animar Montaria Terrestre", "ref": null, "listName": "necromante" },
+    { "circle": 3, "name": "Aspecto Cadavérico", "ref": null, "listName": "necromante" },
+    { "circle": 3, "name": "Falar com os Mortos", "ref": null, "listName": "necromante" },
+    { "circle": 3, "name": "Forma Gasosa", "ref": null, "listName": "necromante" },
+    { "circle": 3, "name": "Nuvem de Veneno", "ref": null, "listName": "necromante" },
+    { "circle": 3, "name": "Raio de Exaustão", "ref": null, "listName": "necromante" },
+    { "circle": 3, "name": "Reanimar Mortos I", "ref": null, "listName": "necromante" },
+    { "circle": 3, "name": "Toque Vampírico", "ref": null, "listName": "necromante" },
+
+    { "circle": 4, "name": "Animar Sombra", "ref": null, "listName": "necromante" },
+    { "circle": 4, "name": "Ferver Sangue", "ref": null, "listName": "necromante" },
+    { "circle": 4, "name": "Maldição de Mallus", "ref": null, "listName": "necromante" },
+    { "circle": 4, "name": "Maldição dos Noctâmbulos", "ref": null, "listName": "necromante" },
+    { "circle": 4, "name": "Monstruosidade de Ossos", "ref": null, "listName": "necromante" },
+    { "circle": 4, "name": "Muralha de Ossos", "ref": null, "listName": "necromante" },
+    { "circle": 4, "name": "Remover Maldição", "ref": null, "listName": "necromante" },
+
+    { "circle": 5, "name": "Chuva Ácida", "ref": null, "listName": "necromante" },
+    { "circle": 5, "name": "Consumir Cadáver", "ref": null, "listName": "necromante" },
+    { "circle": 5, "name": "Maldição de Al’zalib", "ref": null, "listName": "necromante" },
+    { "circle": 5, "name": "Pacto com Golem", "ref": null, "listName": "necromante" },
+    { "circle": 5, "name": "Reanimação em Massa", "ref": null, "listName": "necromante" },
+    { "circle": 5, "name": "Sacrifício Imundo", "ref": null, "listName": "necromante" },
+    { "circle": 5, "name": "Vampirismo Arcano", "ref": null, "listName": "necromante" },
+
+    { "circle": 6, "name": "Acelerar Golem", "ref": null, "listName": "necromante" },
+    { "circle": 6, "name": "Aprisionar Lacaio", "ref": null, "listName": "necromante" },
+    { "circle": 6, "name": "Escaravelhos Pútridos", "ref": null, "listName": "necromante" },
+    { "circle": 6, "name": "Magia da Morte", "ref": null, "listName": "necromante" },
+    { "circle": 6, "name": "Maldição da Dama de Ferro", "ref": null, "listName": "necromante" },
+    { "circle": 6, "name": "Maldição Imolada", "ref": null, "listName": "necromante" },
+
+    { "circle": 7, "name": "Bálsamo de Suspensão", "ref": null, "listName": "necromante" },
+    { "circle": 7, "name": "Canalizar Magia", "ref": null, "listName": "necromante" },
+    { "circle": 7, "name": "Conhecimento Proibido", "ref": null, "listName": "necromante" },
+    { "circle": 7, "name": "Construto de Vrazhar", "ref": null, "listName": "necromante" },
+    { "circle": 7, "name": "Pacto Sombrio", "ref": null, "listName": "necromante" },
+
+    { "circle": 8, "name": "Chamado da Cova", "ref": null, "listName": "necromante" },
+    { "circle": 8, "name": "Criar Filactério", "ref": null, "listName": "necromante" },
+    { "circle": 8, "name": "Dissolução Necrótica", "ref": null, "listName": "necromante" },
+    { "circle": 8, "name": "Maldição da Clausura", "ref": null, "listName": "necromante" },
+    { "circle": 8, "name": "Transformar Terra em Ácido", "ref": null, "listName": "necromante" },
+
+    { "circle": 9, "name": "Amaldiçoar Grupo", "ref": null, "listName": "necromante" },
+    { "circle": 9, "name": "Fundar Necrópole", "ref": null, "listName": "necromante" },
+    { "circle": 9, "name": "Reanimar Mortos II", "ref": null, "listName": "necromante" },
+    { "circle": 9, "name": "Runas da Morte", "ref": null, "listName": "necromante" },
+];
+
+export default spellList;
