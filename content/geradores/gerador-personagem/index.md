@@ -122,4 +122,55 @@ Caso queira resetar os parâmetros, clique no botão "Limpar".
 >
 > **INT** <span id="attr-int">XX (+1)</span> **SAB** <span id="attr-sab">XX (+1)</span> **CAR** <span id="attr-car">XX (+1)</span>
 
+<div class="hidden" id="char-spells">
+<h2 id="spells-title">
+    Aqui está...
+</h2>
+
+<div id="char-spells-1" class="hidden">
+    <h4>1° Círculo</h4>
+    <ul id="char-spells-1-list"></ul>
+</div>
+
+<div id="char-spells-2" class="hidden">
+    <h4>2° Círculo</h4>
+    <ul id="char-spells-2-list"></ul>
+</div>
+
+<div id="char-spells-3" class="hidden">
+    <h4>3° Círculo</h4>
+    <ul id="char-spells-3-list"></ul>
+</div>
+
+<div id="char-spells-4" class="hidden">
+    <h4>4° Círculo</h4>
+    <ul id="char-spells-4-list"></ul>
+</div>
+
+<div id="char-spells-5" class="hidden">
+    <h4>5° Círculo</h4>
+    <ul id="char-spells-5-list"></ul>
+</div>
+
+<div id="char-spells-6" class="hidden">
+    <h4>6° Círculo</h4>
+    <ul id="char-spells-6-list"></ul>
+</div>
+
+<div id="char-spells-7" class="hidden">
+    <h4>7° Círculo</h4>
+    <ul id="char-spells-7-list"></ul>
+</div>
+
+<div id="char-spells-8" class="hidden">
+    <h4>8° Círculo</h4>
+    <ul id="char-spells-8-list"></ul>
+</div>
+
+<div id="char-spells-9" class="hidden">
+    <h4>9° Círculo</h4>
+    <ul id="char-spells-9-list"></ul>
+</div>
+</div>
+
 {{< generator >}}

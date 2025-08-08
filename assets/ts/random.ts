@@ -283,12 +283,18 @@ export function goGenerateChar() {
         ancestry: selectedAncestry,
     }
 
+    hideElement('char-spells');
     let char = generateCharacter(opts);
 
     if (char.class.spellCast) {
-        console.log(
-            pickSpellBook(char.class.spellCast.spellLists, char.class.spellCast.spellLimitsByLevel[char.level], char.bn),
-        );
+        showElement('char-spells');
+        const hasSpellBook = char.class.spellCast.hasSpellBook;
+
+        goGenerateSpellList({
+            class: selectedClass as ClassIdentifier,
+            title: hasSpellBook ? `Seu grimório` : `Suas magias preparadas`,
+            level: char.level,
+        });
     }
 
     setTextById('char-name', char.name);
@@ -313,13 +319,34 @@ export function goGenerateChar() {
     setTextById('char-money', `${char.po} P.O.`);
 }
 
-export function goGenerateSpellList() {
+function showElement(elementId: string) {
+    const element = document.getElementById(elementId);
+    if (element) {
+        element.classList.remove('hidden');
+    }
+}
+
+function hideElement(elementId: string) {
+    const element = document.getElementById(elementId);
+    if (element) {
+        element.classList.add('hidden');
+    }
+}
+
+interface SpellGenerationOpts {
+    class?: ClassIdentifier,
+    level?: number,
+    title?: string,
+}
+
+export function goGenerateSpellList(opts?: SpellGenerationOpts) {
+    opts = opts || {};
     resetSpellList();
 
-    let selectedClass = getSelectedRadioValue('class');
+    let selectedClass = opts.class ?? getSelectedRadioValue('class');
     const selectedLevel = getSelectedLevel();
 
-    const level = parseInt(selectedLevel.replace('Nível', '').trim())
+    const level = opts.level || parseInt(selectedLevel.replace('Nível', '').trim())
 
     const spellcasters = [
         'mago',
@@ -349,7 +376,7 @@ export function goGenerateSpellList() {
         title = `Grimório do ${charClass.title} de nível ${level}`;
     }
 
-    setTextById('spells-title', title);
+    setTextById('spells-title', opts.title || title);
 
     let extraSpells = 0;
     if (spellCast.hasSpellBook) {
@@ -368,12 +395,12 @@ export function goGenerateSpellList() {
     });
 
     for (const spell of spellList) {
-        const spellContainer = document.getElementById(`char-spells-${spell.circle}`);
+        const spellContainerId = `char-spells-${spell.circle}`;
+        showElement(spellContainerId);
+        const spellContainer = document.getElementById(spellContainerId);
         if (!spellContainer) {
             continue;
         }
-
-        spellContainer.className = '';
 
         const spellListContainer = document.getElementById(`char-spells-${spell.circle}-list`);
         if (!spellListContainer) {
@@ -389,11 +416,11 @@ export function goGenerateSpellList() {
 }
 
 function resetForm() {
+    hideElement('char-spells');
     const element = document.getElementById('generator-form');
 
     if (element) {
         element.reset();
-        return;
     }
 
     resetSpellList();
@@ -401,7 +428,9 @@ function resetForm() {
 
 function resetSpellList() {
     for (let i = 1; i <= 9; i++) {
-        const spellContainer = document.getElementById(`char-spells-${i}`);
+        const spellContainerId = `char-spells-${i}`;
+        hideElement(spellContainerId);
+        const spellContainer = document.getElementById(spellContainerId);
         if (spellContainer) {
             spellContainer.className = 'hidden';
 
