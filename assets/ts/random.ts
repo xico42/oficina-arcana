@@ -183,6 +183,7 @@ function generateCharacter(options: Options) {
             hitDice: charClass.hitDice,
             name: charClass.title,
             spellCast: charClass.spellCast,
+            identifier: charClass.identifier,
         },
         level: options.level,
         bn: Math.ceil((options.level || 1) / 2),
@@ -291,7 +292,7 @@ export function goGenerateChar() {
         const hasSpellBook = char.class.spellCast.hasSpellBook;
 
         goGenerateSpellList({
-            class: selectedClass as ClassIdentifier,
+            class: char.class.identifier,
             title: hasSpellBook ? `Seu grimório` : `Suas magias preparadas`,
             level: char.level,
         });
@@ -411,8 +412,6 @@ export function goGenerateSpellList(opts?: SpellGenerationOpts) {
         item.innerText = spell.name;
         spellListContainer.appendChild(item);
     }
-
-    console.log(spellList);
 }
 
 function resetForm() {

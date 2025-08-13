@@ -45,7 +45,9 @@
     </header>
 
     {{- $subsections := .Sections -}}
-    {{- $pages := .Pages | complement $subsections -}}
+    {{- $all := .Pages | complement $subsections -}}
+    {{ $notHidden := where .Site.RegularPages "Params.hidden" "!=" true }}
+    {{ $pages := ($all | intersect $notHidden) }}
     
     {{- if eq (len $pages) 0 -}}
         {{/* If there are no normal pages, display subsections in list style, with pagination */}}
