@@ -1,0 +1,28 @@
+{{- $base := .mv.base -}}
+{{- $extras := .mv.extra -}}
+{{- $n := 0 -}}
+{{- if $extras -}}
+    {{- $n = len $extras -}}
+{{- end -}}
+
+{{ $base }}'
+{{- if eq $n 1 -}}
+    {{- $extra := index $extras 0 -}}
+    ({{ $extra.value }}' {{ $extra.name }})
+{{- else if eq $n 2 -}}
+    {{- $extra1 := index $extras 0 -}}
+    {{- $extra2 := index $extras 1 -}}
+    ({{ $extra1.value }}' {{ $extra1.name }} e {{ $extra2.value }}' {{ $extra2.name }})
+{{- else if ge $n 1 -}}
+    ({{- range $i, $v := $extras -}}
+        {{- if eq $i 0 -}}
+            {{ $v.value }}' {{ $v.name }}
+        {{- else if lt $i (sub $n 2) -}}
+            , {{ $v.value }}' {{ $v.name }}
+        {{- else if eq $i (sub $n 2) -}}
+            , {{ $v.value }}' {{ $v.name }}
+        {{- else if eq $i (sub $n 1) -}}
+            &nbsp;e {{ $v.value }}' {{ $v.name }}
+        {{- end -}}
+    {{- end -}})
+{{- end -}}

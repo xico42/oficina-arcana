@@ -1,0 +1,27 @@
+{{- $stats := .Page.Params.stats -}}
+
+<blockquote>
+    <p>
+        <strong>IN</strong> {{ $stats.in }}
+        <strong>CA</strong> {{ $stats.ca }}
+        <strong>DV</strong> {{ $stats.dv.number }}{{ $stats.dv.dice }}{{ $stats.dv.extra }} ({{ $stats.dv.recommended }})
+    </p>
+    <p>
+        <strong>AT</strong> #{{ $stats.na }} {{ partial "stats/attacks.html" $stats }}
+    </p>
+    <p>
+        <strong>BN</strong> {{ $stats.bn }}
+        <strong>JdP</strong> V{{ $stats.jdp.v }}/R{{ $stats.jdp.r }}/{{ $stats.jdp.m }}
+    </p>
+    <p>
+        <strong>MV</strong> {{ partial "stats/movement.html" $stats }}
+        <strong>ML</strong> {{ $stats.ml }}
+    </p>
+    <p>
+        <strong>TM</strong> {{ $stats.tm }}
+        {{ partial "stats/tt.html" $stats }}
+        {{ with $stats.xp }}
+        &nbsp;<strong>XP</strong> {{ . }}
+        {{ end }}
+    </p>
+</blockquote>

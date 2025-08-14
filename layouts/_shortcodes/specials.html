@@ -1,7 +1,10 @@
 {{- $specials := .Page.Params.specials -}}
 
+{{- if $specials -}}
+<h2 id="habilidades-especiais">Habilidades Especiais</h2>
 {{- range $i, $v := $specials -}}
     <p>
-        <strong>{{ $v.name }}:</strong> ({{ $v.description }})
+        <strong>{{ $v.name }}:</strong> {{ $v.description }}
     </p>
+{{- end -}}
 {{- end -}}

@@ -1,0 +1,10 @@
+{{ if .tt.ref }}
+{{- $refOpts := dict "path" .tt.ref -}}
+<a href="{{ absURL .tt.ref }}" class="link" target="_blank">
+    <strong>TT</strong>
+    {{ .tt.name }}
+</a>
+{{ else }}
+    <strong>TT</strong>
+    {{ .tt.name }}
+{{ end }}
