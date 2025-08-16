@@ -14,10 +14,6 @@ links:
     description: Copyright © 2024 - Alexandre Katz
     website: https://www.oraculocinzento.com/post/o-amuleto-na-montanha-mutilada
 params:
-  specials:
-    - name: 'Especial'
-      description: |
-        Uma descrição da habilidade especial...
   stats:
     in: '+2'
     ca: '14'
@@ -51,6 +47,10 @@ params:
       name: 'I'
       ref: '/post/guia-do-aventureiro/tabela-tesouro/'
     xp: 60
+  specials:
+    - name: 'Especial'
+      description: |
+        Uma descrição da habilidade especial...
 ---
 
 Resumo da criatura...

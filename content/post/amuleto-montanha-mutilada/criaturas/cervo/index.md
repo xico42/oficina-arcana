@@ -54,4 +54,4 @@ rende 10 porções.
 
 ## Créditos
 
-**Fonte:** O Amuleto na Montanha Mutilada, p. xx
+**Fonte:** O Amuleto na Montanha Mutilada, p. 56
