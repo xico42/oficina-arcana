@@ -15,6 +15,7 @@ export interface Attribute {
 }
 
 export interface FullAttribute {
+    name: AttributeName,
     value: number,
     mod: number,
 }

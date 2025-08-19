@@ -2,6 +2,7 @@ import {pickSpellBook} from "./generator/spells";
 import {ClassDetails, ClassIdentifier, classRegistry} from "./generator/classes";
 import {Attribute, AttributeName, Attributes, CharAttributes, FullAttribute, Gender} from "./generator/types";
 import {nd6, ndx} from "./generator/dice";
+import {FunnelOptions, generateFunnelCharacter} from "./generator/funnel";
 import {generateEncounter, generateLocation, generateNpc} from "./generator/adventure";
 import {randomGender, randomName} from "./generator/helper";
 
@@ -179,26 +180,32 @@ function generateCharacter(options: Options) {
         name: randomName(gender),
         attributes: {
             'for': {
+                name: 'for',
                 'value': attributes.for,
                 'mod': attributeMod[attributes.for],
             },
             'des': {
+                name: 'des',
                 'value': attributes.des,
                 'mod': attributeMod[attributes.des],
             },
             'con': {
+                name: 'con',
                 'value': attributes.con,
                 'mod': attributeMod[attributes.con],
             },
             'int': {
+                name: 'int',
                 'value': attributes.int,
                 'mod': attributeMod[attributes.int],
             },
             'sab': {
+                'name': 'sab',
                 'value': attributes.sab,
                 'mod': attributeMod[attributes.sab],
             },
             'car': {
+                'name': 'car',
                 'value': attributes.car,
                 'mod': attributeMod[attributes.car],
             },
@@ -451,8 +458,38 @@ function resetAdventure() {
 }
 
 
+export function goGenerateFunnelChar() {
+    const selectedGender = getSelectedRadioValue('gender');
+
+    let opts: FunnelOptions = {
+        gender: selectedGender as Gender,
+    }
+
+    const char = generateFunnelCharacter(opts);
+
+    setTextById('char-name', char.name);
+    setTextById('char-ancestry', char.ancestry.name);
+
+    setTextById('char-craft', `${char.craft.craft}`);
+    setTextById('char-equipment', `${char.craft.equipment}`);
+
+    setTextById('char-in', formatMod(char.attributes.des.mod));
+    setTextById('char-hp', char.hp.toString());
+    setTextById('char-ac', char.armorClass.toString());
+    setTextById('char-jdp', formatJdp(char.jdp));
+    setTextById('char-mov', char.movement.toString());
+
+    setTextById('attr-for', `${formatAttribute(char.attributes.for)}`);
+    setTextById('attr-des', `${formatAttribute(char.attributes.des)}`);
+    setTextById('attr-con', `${formatAttribute(char.attributes.con)}`);
+    setTextById('attr-int', `${formatAttribute(char.attributes.int)}`);
+    setTextById('attr-sab', `${formatAttribute(char.attributes.sab)}`);
+    setTextById('attr-car', `${formatAttribute(char.attributes.car)}`);
+}
+
 (window as any).goGenerateChar = goGenerateChar;
 (window as any).goGenerateSpellList = goGenerateSpellList;
 (window as any).resetForm = resetForm;
+(window as any).goGenerateFunnelChar = goGenerateFunnelChar;
 (window as any).goGenerateAdventure = goGenerateAdventure;
 (window as any).resetAdventure = resetAdventure;

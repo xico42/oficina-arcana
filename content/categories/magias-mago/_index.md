@@ -1,6 +1,6 @@
 ---
 title: Magias
-menu:
-  main:
-    name: Mago
+#menu:
+#  main:
+#    name: Mago
 ---
