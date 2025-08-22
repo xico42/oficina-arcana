@@ -31,7 +31,7 @@ params:
       v: 10
       r: 11
       m: 14
-    vs: '-'
+    vs: "-"
     mv:
       base: '30'
       extra:
