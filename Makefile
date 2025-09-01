@@ -21,3 +21,7 @@ bf-beast:
 .PHONY: amuleto-beast
 amuleto-beast:
 	hugo new content --kind amuleto-beast content/post/amuleto-montanha-mutilada/criaturas/$(name)/index.md
+
+.PHONY: magia-mago
+magia-mago:
+	hugo new content --kind magia-mago content/post/tomo-metafisico/mago/$(name)/index.md

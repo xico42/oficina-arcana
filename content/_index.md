@@ -23,7 +23,7 @@ links:
 menu:
   main:
     name: Sobre
-    weight: 2
+    weight: 20
     params:
       icon: home
 ---
