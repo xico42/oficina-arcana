@@ -2,6 +2,9 @@ import {pickSpellBook} from "./generator/spells";
 import {ClassDetails, ClassIdentifier, classRegistry} from "./generator/classes";
 import {Attribute, AttributeName, Attributes, CharAttributes, FullAttribute, Gender} from "./generator/types";
 import {nd6, ndx} from "./generator/dice";
+import {generateEncounter, generateLocation, generateNpc} from "./generator/adventure";
+import {randomGender, randomName} from "./generator/helper";
+
 
 /**
  * Opções de customização do gerador de personagens.
@@ -117,24 +120,6 @@ function getAncestry(options: Options) {
     let ancestryName = options.ancestry || ancestryNames[Math.floor(Math.random() * ancestryNames.length)];
 
     return ancestries[ancestryName];
-}
-
-// Gera um gênero aleatório para o personagem, retornando 'M' ou 'F'.
-function randomGender(): Gender {
-    const genders: Gender[] = ['M', 'F'];
-    return genders[Math.floor(Math.random() * genders.length)];
-}
-
-// Gera um nome aleatório para o personagem com base no gênero fornecido.
-function randomName(gender: Gender) {
-    const femaleNames = ['Ana', 'Maria', 'Joana', 'Antônia', 'Francisca', 'Helena', 'Vitória', 'Beatriz', 'Camila', 'Luana', 'Patrícia', 'Aline', 'Sônia', 'Jéssica', 'Larissa', 'Cláudia', 'Débora', 'Rejane', 'Silvana', 'Simone', 'Elisângela', 'Eliane', 'Lúcia', 'Aparecida', 'Fabiana', 'Valéria', 'Márcia', 'Carla', 'Adriana', 'Paula', 'Raimunda', 'Severina', 'Rosineide', 'Cícera', 'Genivalda', 'Mariazinha', 'Iraci', 'Zuleide', 'Aldenora', 'Nalvinha', 'Josefa', 'Neuma', 'Djanira', 'Terezinha', 'Quitéria', 'Eudália', 'Raimundinha', 'Benedita', 'Creusa', 'Lourdes', 'Jacira', 'Edinária', 'Dorotéia', 'Alzenira', 'Marinalva', 'Luzinete', 'Geovana', 'Lindalva', 'Conceição', 'Erondina', 'Ana', 'Maria', 'Luzia', 'Rosa', 'Lídia', 'Nair', 'Ester', 'Elza', 'Noêmia', 'Selma', 'Miriam', 'Inês', 'Nádia', 'Alice', 'Sandra', 'Isadora', 'Júlia', 'Lorena', 'Maitê', 'Heloísa', 'Isabela', 'Valentina', 'Lavínia', 'Luna', 'Elisa', 'Manuela', 'Cecília', 'Antonella', 'Alana', 'Ayla', 'Milena', 'Aurora', 'Eloá', 'Yasmin', 'Liz', 'Maitê', 'Lívia', 'Clara', 'Mel', 'Agatha', 'Talita', 'Emanuelle', 'Gabriela', 'Thalita', 'Giovana', 'Priscila', 'Tatiane', 'Renata', 'Andreia', 'Daniela', 'Nayara', 'Lais', 'Bruna', 'Rafaela', 'Monique', 'Karine', 'Bianca', 'Cristiane', 'Fabíola', 'Isabele', 'Iara', 'Jaciara', 'Araci', 'Moara', 'Tainá', 'Potira', 'Maíra', 'Cira', 'Anahy', 'Yara', 'Tainara', 'Cauãna', 'Nara', 'Aruna', 'Iracema', 'Marluce', 'Iolanda', 'Ivonete', 'Terezinha', 'Vanuza', 'Dulcinéia', 'Salete', 'Eulina', 'Bernadete', 'Liduína', 'Odete', 'Eurides', 'Genoveva', 'Luzia', 'Gildete', 'Natália', 'Rafaella', 'Lorena', 'Eduarda', 'Samara', 'Karen', 'Emilly', 'Sthefany', 'Verônica', 'Rebeca', 'Carla', 'Débora', 'Jaqueline', 'Gisele', 'Juliana', 'Thaís', 'Aline', 'Sâmia', 'Rayane', 'Nicole', 'Helena', 'Mirela', 'Érika', 'Paloma', 'Suyane', 'Fernanda', 'Letícia', 'Catarina', 'Sofia', 'Pietra', 'Mariana', 'Lais', 'Clarice', 'Melina', 'Jandira', 'Solange', 'Madalena', 'Ivete', 'Marilene', 'Jerusa', 'Nilda', 'Lurdinha', 'Celina', 'Alzira', 'Arlete', 'Rosângela', 'Ivana', 'Fátima', 'Neide', 'Rosilda', 'Cleonice', 'Irineia', 'Idalina', 'Nazaré', 'Efigênia', 'Elizabete', 'Germana', 'Ilza', 'Mirtes', 'Arleide', 'Dayane', 'Viviane', 'Samira', 'Adrielle', 'Joyce', 'Jussara', 'Maiane', 'Nayane', 'Eloisa', 'Dayse', 'Cássia', 'Lenira', 'Nadja', 'Denise', 'Jailma', 'Irla', 'Brígida', 'Caliane', 'Ivonilda', 'Rosália', 'Cleide', 'Aurinete', 'Damiana', 'Doralice', 'Gracilene', 'Jovelina', 'Telma', 'Roseli', 'Vânia', 'Meire', 'Marizete', 'Josilene', 'Zenaide', 'Juscelina', 'Ildete', 'Adalgisa', 'Célia', 'Elza', 'Eunice', 'Margarida', 'Norberta', 'Quitéria', 'Apolinária', 'Anunciada', 'Josenilda', 'Zulmira', 'Marleide', 'Zenilda', 'Noêmia', 'Dulce', 'Liduina', 'Tereza', 'Malvina', 'Neuma', 'Vilma', 'Dalila', 'Joelma', 'Nice', 'Gilvana', 'Jucileide', 'Rosana', 'Dira', 'Zilda', 'Elenice', 'Ione', 'Tânia', 'Jacilene', 'Aurenice', 'Adna', 'Marizelda', 'Gilvania', 'Railda', 'Roseane', 'Djenane', 'Antônia', 'Ivonete', 'Francileide', 'Josélia', 'Erivaneide', 'Ivanilda', 'Nailza', 'Gleiciane', 'Laudiceia', 'Renilde', 'Iranilda', 'Marizângela', 'Elinete', 'Lourdinha', 'Geralda', 'Josemara'];
-    const maleNames = ['João', 'José', 'Antônio', 'Carlos', 'Paulo', 'Pedro', 'Luiz', 'Marcos', 'Francisco', 'André', 'Rafael', 'Rodrigo', 'Bruno', 'Lucas', 'Daniel', 'Fernando', 'Alexandre', 'Gustavo', 'Diego', 'Marcelo', 'Eduardo', 'Roberto', 'Henrique', 'Vinícius', 'Tiago', 'Felipe', 'Leandro', 'Fábio', 'Sérgio', 'Jorge', 'Severino', 'Raimundo', 'Genival', 'Cícero', 'Josivaldo', 'Manoel', 'Jurandir', 'Edvaldo', 'Edivaldo', 'Zé', 'Arlindo', 'Zé Carlos', 'Zé Maria', 'Benedito', 'Givaldo', 'Djalma', 'Iran', 'Josenildo', 'Valmir', 'Eronildo', 'Josafá', 'Aluísio', 'Lindomar', 'Jucelino', 'Agenor', 'Aldemir', 'Geovane', 'Jairo', 'Eliezer', 'Damião', 'João Pedro', 'João Victor', 'José Augusto', 'José Carlos', 'Luiz Henrique', 'Luiz Fernando', 'Pedro Henrique', 'Pedro Lucas', 'Paulo Sérgio', 'Paulo Roberto', 'Antônio Carlos', 'Antônio Marcos', 'Marcos Paulo', 'Marcos Vinícius', 'Carlos Eduardo', 'Carlos Alberto', 'Francisco José', 'Chico', 'David', 'Enzo', 'Theo', 'Gael', 'Noah', 'Arthur', 'Heitor', 'Davi', 'Bernardo', 'Miguel', 'Isaac', 'Samuel', 'Ian', 'Vinícius', 'Luan', 'Kaio', 'Bryan', 'Ryan', 'Levi', 'Nicolas', 'Benjamin', 'Adailton', 'Jailson', 'Walmir', 'Almir', 'Juracy', 'Ronildo', 'Valdeci', 'Joãozinho', 'Nivaldo', 'Gilvan', 'Nilton', 'Nélio', 'Dorgival', 'Josenildo', 'Erisvaldo', 'Edivan', 'Jeová', 'Aureliano', 'Apolinário', 'Ismael', 'Ednardo', 'Claudionor', 'Ubirajara', 'Joselito', 'Raimundinho', 'Delmiro', 'Dácio', 'Genésio', 'Arimatéia', 'Josivan', 'Adriano', 'Álvaro', 'Afonso', 'Alan', 'Aílton', 'Alex', 'Alessandro', 'Alisson', 'Altair', 'Amauri', 'Anderson', 'Arnaldo', 'Augusto', 'Bartolomeu', 'Benício', 'Bento', 'Caio', 'Cláudio', 'Cristiano', 'Dener', 'Denis', 'Douglas', 'Édson', 'Eliel', 'Elias', 'Eliseu', 'Emerson', 'Evandro', 'Evaldo', 'Ezequiel', 'Fabrício', 'Flávio', 'Gilberto', 'Gilson', 'Hélio', 'Hugo', 'Icaro', 'Ivo', 'Ivan', 'Jacinto', 'Janilson', 'Jean', 'Jefferson', 'Jeremias', 'Joel', 'Jonas', 'Jonathan', 'Josias', 'Josué', 'Judson', 'Júlio', 'Kleber', 'Lázaro', 'Luciano', 'Lucas', 'Luís', 'Magno', 'Mailson', 'Maurício', 'Matheus', 'Michel', 'Moisés', 'Natanael', 'Nivaldo', 'Olavo', 'Orlando', 'Osvaldo', 'Otávio', 'Pablo', 'Patrick', 'Paulo', 'Raul', 'Renato', 'Ricardo', 'Rian', 'Robson', 'Rômulo', 'Ronaldo', 'Rubens', 'Rui', 'Sandro', 'Saul', 'Sebastião', 'Sidney', 'Silas', 'Silvano', 'Tales', 'Tarcísio', 'Teodoro', 'Tomás', 'Uelton', 'Valdeir', 'Valdir', 'Vicente', 'Vilson', 'Vítor', 'Wagner', 'Wallace', 'Washington', 'Wellington', 'Wilker', 'William', 'Yago', 'Yuri', 'Zacarias', 'Zaqueu', 'Zenildo', 'Zé Luiz', 'Zé Antônio', 'Zé Roberto', 'Ariston', 'Claudivan', 'Iranildo', 'Erivan', 'Adonias', 'Aderbal', 'Zé Neto', 'Zé Raimundo', 'Elenilson', 'Raimundão', 'Valdeci', 'Railson', 'Deoclécio', 'Laécio', 'Valmir', 'Ernando', 'Gilmar', 'Jacó', 'Júnior', 'Lázaro', 'Manoelito', 'Narciso', 'Nicanor', 'Onofre', 'Pascual', 'Pelágio', 'Reinaldo', 'Ribamar', 'Salatiel', 'Sandoval', 'Severiano', 'Tadeu', 'Ubiratan', 'Valdo', 'Vandeilson', 'Zildo', 'Zoran', 'Zico', 'Zaqueo', 'Zozimo', 'Cid', 'Celso', 'Gentil', 'Itamar', 'Ivanilson', 'Marcondes', 'Mauro', 'Milton', 'Norberto', 'Osnir', 'Otoniel', 'Raniere', 'Renato', 'Samir', 'Tito', 'Vanderson', 'Washington', 'Wiliam', 'Zaqueu', 'Zézinho', 'Ribamar', 'Jorcelino', 'Ademar', 'Adoniran', 'Alcebíades', 'Aristóteles', 'Aurenildo', 'Cleiton', 'Deivison'];
-
-    if (gender === 'M') {
-        return maleNames[Math.floor(Math.random() * maleNames.length)];
-    }
-
-    return femaleNames[Math.floor(Math.random() * femaleNames.length)];
 }
 
 // Gera um personagem aleatório com base nas opções fornecidas
@@ -441,6 +426,31 @@ function resetSpellList() {
     }
 }
 
+function goGenerateAdventure() {
+    const locationName = generateLocation();
+
+    setTextById('location-name', locationName);
+
+    const encounter = generateEncounter();
+    setTextById('encounter-plot', encounter.plot);
+    setTextById('encounter-type', encounter.type);
+    setTextById('encounter-magnitude', encounter.magnitude);
+
+    const npc = generateNpc();
+    setTextById('npc-name', npc.name);
+    setTextById('npc-characteristics', npc.characteristics);
+}
+
+function resetAdventure() {
+    setTextById('location-name', '');
+    setTextById('encounter-plot', '');
+    setTextById('encounter-type', '');
+    setTextById('encounter-magnitude', '');
+}
+
+
 (window as any).goGenerateChar = goGenerateChar;
 (window as any).goGenerateSpellList = goGenerateSpellList;
 (window as any).resetForm = resetForm;
+(window as any).goGenerateAdventure = goGenerateAdventure;
+(window as any).resetAdventure = resetAdventure;
