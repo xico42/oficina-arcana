@@ -1,7 +1,7 @@
 ---
 date: '2025-09-20T21:34:11-03:00'
 draft: false
-title: 'Gerador Aventura'
+title: 'Gerador de Aventuras'
 categories:
   - geradores
 ---
