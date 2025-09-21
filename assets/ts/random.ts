@@ -446,6 +446,8 @@ function resetAdventure() {
     setTextById('encounter-plot', '');
     setTextById('encounter-type', '');
     setTextById('encounter-magnitude', '');
+    setTextById('npc-name', '');
+    setTextById('npc-characteristics', '');
 }
 
 
