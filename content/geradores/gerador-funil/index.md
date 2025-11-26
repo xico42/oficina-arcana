@@ -2,7 +2,7 @@
 date: '2025-08-19T09:00:13-03:00'
 draft: false
 title: 'Gerador de Funil'
-description: 'Crie seu aventureiro.'
+description: 'Quem vai passar pelo moedor de carne?'
 categories:
   - geradores
 ---
