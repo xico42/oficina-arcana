@@ -25,3 +25,8 @@ amuleto-beast:
 .PHONY: magia-mago
 magia-mago:
 	hugo new content --kind magia-mago content/post/tomo-metafisico/mago/$(name)/index.md
+
+
+.PHONY: funnel-beast
+funnel-beast:
+	hugo new content --kind funnel-beast content/post/devorador-de-destinos/criaturas/$(name)/index.md
