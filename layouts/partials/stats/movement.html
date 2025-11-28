@@ -5,7 +5,7 @@
     {{- $n = len $extras -}}
 {{- end -}}
 
-{{ $base }}'
+{{ $base }}'&nbsp;
 {{- if eq $n 1 -}}
     {{- $extra := index $extras 0 -}}
     ({{ $extra.value }}' {{ $extra.name }})
